@@ -1,0 +1,119 @@
+﻿@page "/songs/edit"
+@using Microsoft.EntityFrameworkCore
+@using Pancake_Final.Domain
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h2>Song</h2>
+<hr />
+@if (Song is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="Song" OnValidSubmit="UpdateSong" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary role="alert"/>
+                <input type="hidden" name="Song.Id" value="@Song.Id" />
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <InputText id="name" @bind-Value="Song.Name" class="form-control" />
+                    <ValidationMessage For="() => Song.Name" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="albumid" class="form-label">AlbumID:</label>
+                    <InputNumber id="albumid" @bind-Value="Song.AlbumID" class="form-control" />
+                    <ValidationMessage For="() => Song.AlbumID" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="genid" class="form-label">GenID:</label>
+                    <InputNumber id="genid" @bind-Value="Song.GenID" class="form-control" />
+                    <ValidationMessage For="() => Song.GenID" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="datecreated" class="form-label">DateCreated:</label>
+                    <InputDate id="datecreated" @bind-Value="Song.DateCreated" class="form-control" />
+                    <ValidationMessage For="() => Song.DateCreated" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="dateupdated" class="form-label">DateUpdated:</label>
+                    <InputDate id="dateupdated" @bind-Value="Song.DateUpdated" class="form-control" />
+                    <ValidationMessage For="() => Song.DateUpdated" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="createdby" class="form-label">CreatedBy:</label>
+                    <InputText id="createdby" @bind-Value="Song.CreatedBy" class="form-control" />
+                    <ValidationMessage For="() => Song.CreatedBy" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="updateby" class="form-label">UpdateBy:</label>
+                    <InputText id="updateby" @bind-Value="Song.UpdateBy" class="form-control" />
+                    <ValidationMessage For="() => Song.UpdateBy" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/songs">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    private int Id { get; set; }
+
+    [SupplyParameterFromForm]
+    private Song? Song { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        Song ??= await context.Song.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (Song is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more information, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task UpdateSong()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Attach(Song!).State = EntityState.Modified;
+
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!SongExists(Song!.Id))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/songs");
+    }
+
+    private bool SongExists(int id)
+    {
+        using var context = DbFactory.CreateDbContext();
+        return context.Song.Any(e => e.Id == id);
+    }
+}
