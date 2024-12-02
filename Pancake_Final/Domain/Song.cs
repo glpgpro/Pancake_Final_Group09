@@ -3,7 +3,6 @@
     public class Song: BaseDomainModel
 
     {
-
         public string? Name { get; set; }
 
         public int AlbumID  { get; set; }

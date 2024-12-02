@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Pancake_Final.Configurations.Entities;
-using Pancake_Final.Domain;
+using Pancake_Final.Data;
 
 namespace Pancake_Final.Data
 {
-    public class Pancake_FinalContext : DbContext
+    public class Pancake_FinalContext(DbContextOptions<Pancake_FinalContext> options) : IdentityDbContext<Pancake_FinalUser>(options)
     {
-        public Pancake_FinalContext (DbContextOptions<Pancake_FinalContext> options)
-            : base(options)
-        {
-        }
 
         public DbSet<Pancake_Final.Domain.Song> Song { get; set; } = default!;
 
@@ -30,6 +23,5 @@ namespace Pancake_Final.Data
 
             modelBuilder.ApplyConfiguration(new Song_Seed());
         }
-
     }
 }
