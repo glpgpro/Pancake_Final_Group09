@@ -17,7 +17,6 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    border: 2px solid #1db954; /* Green border for the outer container */
     border-radius: 10px;
     padding: 20px;
 }
