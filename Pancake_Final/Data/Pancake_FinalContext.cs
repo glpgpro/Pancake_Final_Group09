@@ -10,18 +10,12 @@ namespace Pancake_Final.Data
 
         public DbSet<Pancake_Final.Domain.Song> Song { get; set; } = default!;
 
-
-
-
-
-
-
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new Song_Seed());
+            modelBuilder.ApplyConfiguration(new UserSeed());
         }
     }
 }

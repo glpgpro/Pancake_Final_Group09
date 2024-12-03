@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Pancake_Final.Migrations
 {
     /// <inheritdoc />
-    public partial class AddIdentity : Migration
+    public partial class AdminUser : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,6 +30,8 @@ namespace Pancake_Final.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -48,6 +50,26 @@ namespace Pancake_Final.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Song",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AlbumID = table.Column<int>(type: "int", nullable: false),
+                    GenID = table.Column<int>(type: "int", nullable: false),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdateBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Song", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -156,12 +178,15 @@ namespace Pancake_Final.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.UpdateData(
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "968cb6d1-311b-4969-835c-74a8af76cef5", "admin@localhost.com", true, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEMHi1P2/M7WG5pnJE2xMvpJg9ThEF/pbM+UYgThrv0nAHUxC0MNf3op2YtxIz20oKw==", null, false, "ff7a027e-2ba2-4a08-9932-a436db068d22", false, "admin@localhost.com" });
+
+            migrationBuilder.InsertData(
                 table: "Song",
-                keyColumn: "Id",
-                keyValue: 1,
-                columns: new[] { "DateCreated", "DateUpdated" },
-                values: new object[] { new DateTime(2024, 12, 3, 0, 51, 46, 412, DateTimeKind.Local).AddTicks(6159), new DateTime(2024, 12, 3, 0, 51, 46, 412, DateTimeKind.Local).AddTicks(6176) });
+                columns: new[] { "Id", "AlbumID", "CreatedBy", "DateCreated", "DateUpdated", "GenID", "Name", "UpdateBy", "UpdatedBy" },
+                values: new object[] { 1, 0, "System", new DateTime(2024, 12, 3, 20, 0, 23, 613, DateTimeKind.Local).AddTicks(5097), new DateTime(2024, 12, 3, 20, 0, 23, 613, DateTimeKind.Local).AddTicks(5110), 0, "Micheal Jackson", null, "System" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -222,17 +247,13 @@ namespace Pancake_Final.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Song");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.UpdateData(
-                table: "Song",
-                keyColumn: "Id",
-                keyValue: 1,
-                columns: new[] { "DateCreated", "DateUpdated" },
-                values: new object[] { new DateTime(2024, 12, 3, 0, 41, 5, 873, DateTimeKind.Local).AddTicks(360), new DateTime(2024, 12, 3, 0, 41, 5, 873, DateTimeKind.Local).AddTicks(371) });
         }
     }
 }
