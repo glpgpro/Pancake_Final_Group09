@@ -102,7 +102,8 @@
 }
 
 .nav-scrollable {
-    display: none;
+    display: flex-start;
+    height: 500px;
 }
 
 .navbar-toggler:checked ~ .nav-scrollable {
@@ -111,14 +112,12 @@
 
 @media (min-width: 641px) {
     .navbar-toggler {
-        display: none;
+        display: flex;
     }
 
     .nav-scrollable {
-        /* Never collapse the sidebar for wide screens */
-        display: block;
-
-        /* Allow sidebar to scroll for tall menus */
+         
+        display: block; 
         height: calc(100vh - 3.5rem);
         overflow-y: auto;
     }
