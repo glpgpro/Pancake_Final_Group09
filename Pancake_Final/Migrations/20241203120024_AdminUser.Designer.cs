@@ -12,7 +12,7 @@ using Pancake_Final.Data;
 namespace Pancake_Final.Migrations
 {
     [DbContext(typeof(Pancake_FinalContext))]
-    [Migration("20241203111301_AdminUser")]
+    [Migration("20241203120024_AdminUser")]
     partial class AdminUser
     {
         /// <inheritdoc />
@@ -227,6 +227,26 @@ namespace Pancake_Final.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "968cb6d1-311b-4969-835c-74a8af76cef5",
+                            Email = "admin@localhost.com",
+                            EmailConfirmed = true,
+                            FirstName = "Admin",
+                            LastName = "User",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@LOCALHOST.COM",
+                            NormalizedUserName = "ADMIN@LOCALHOST.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMHi1P2/M7WG5pnJE2xMvpJg9ThEF/pbM+UYgThrv0nAHUxC0MNf3op2YtxIz20oKw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "ff7a027e-2ba2-4a08-9932-a436db068d22",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@localhost.com"
+                        });
                 });
 
             modelBuilder.Entity("Pancake_Final.Domain.Song", b =>
@@ -271,8 +291,8 @@ namespace Pancake_Final.Migrations
                             Id = 1,
                             AlbumID = 0,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 12, 3, 19, 13, 0, 454, DateTimeKind.Local).AddTicks(2780),
-                            DateUpdated = new DateTime(2024, 12, 3, 19, 13, 0, 454, DateTimeKind.Local).AddTicks(2791),
+                            DateCreated = new DateTime(2024, 12, 3, 20, 0, 23, 613, DateTimeKind.Local).AddTicks(5097),
+                            DateUpdated = new DateTime(2024, 12, 3, 20, 0, 23, 613, DateTimeKind.Local).AddTicks(5110),
                             GenID = 0,
                             Name = "Micheal Jackson",
                             UpdatedBy = "System"
