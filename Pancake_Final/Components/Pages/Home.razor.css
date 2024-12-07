@@ -1,9 +1,4 @@
-﻿* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+﻿
 body {
     background-color: burlywood;
     height: 100vh;
@@ -11,46 +6,53 @@ body {
     flex-direction: column;
     /*align-items: center;*/
     /*justify-content: center;*/
-    font-family: "Amatic SC", sans-serif;
+    /*font-family: "Amatic SC", sans-serif;*/
     margin: 0;
+    width: 1670px;
 }
 
 header {
     background-color: #D19A66;
     color: #4B2E2D;
     text-align: center;
-    font-family: "Amatic SC", sans-serif;
+    /*font-family: "Amatic SC", sans-serif;*/
     font-weight: 700;
     font-style: normal;
     font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
-    width: 100%;
+    width: 1670px;
+    gap: 20px;
+}
+
+.HeaderLogo {
+    height: 50px;
+    width: 50px;
 }
 
 main {
     flex: 1; /* Allow the main content to expand and take available space */
     display: flex;
-    justify-content: center; /* Center the cards horizontally */
-    align-items: center; /* Center the cards vertically */
+    /* justify-content: center;*/ /* Center the cards horizontally */
+    /*align-items: center;*/ /* Center the cards vertically */
     padding: 20px;
+    width: 1670px;
 }
 
 footer {
     background-color: #D19A66;
     color: #4B2E2D;
     text-align: center;
-    font-family: "Amatic SC", sans-serif;
+    /*font-family: "Amatic SC", sans-serif;*/
     font-weight: 700;
     font-style: normal;
     font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
-    width: 100%;
+    padding: 10px;
+    width: 1670px;
 }
 
 /* Navigation Sidebar */
@@ -65,6 +67,22 @@ footer {
     height: 180px;
     width: 150px;
     padding: 10px;
+}
+
+.SearchBarDiv {
+    padding: 20px;
+    padding-left: 20px;
+}
+
+
+.SearchBar {
+    padding: 5px;
+    width: 400px;
+}
+
+.SearchButton {
+    height: 35px;
+    width: 80px;
 }
 
 nav {
@@ -96,6 +114,26 @@ nav {
                 color: cornsilk;
             }
 
+.SongContainer {
+    padding-right: 200px
+}
+
+.song-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+    .song-table th, .song-table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .song-table tr:hover {
+        background-color: #f5f5f5;
+    }
+
 /* Card Container Styles */
 .card-container {
     display: flex;
@@ -104,7 +142,6 @@ nav {
     gap: 20px;
     flex-wrap: wrap;
     padding: 20px;
-    margin-top: -500px; /* Move the cards upward or how much you want */
 }
 
 /* Playlist Card Styles */
@@ -113,7 +150,7 @@ nav {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 200px;
     text-align: center;
     padding: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -130,7 +167,7 @@ nav {
     }
 
 .card-title {
-    font-size: 1.8em;
+    font-size: 15px;
     margin: 10px 0;
 }
 
@@ -155,3 +192,7 @@ nav {
     .card-button:hover {
         background-color: #038A57;
     }
+
+.AudioPlayback {
+    padding: 20px 100px;
+}
