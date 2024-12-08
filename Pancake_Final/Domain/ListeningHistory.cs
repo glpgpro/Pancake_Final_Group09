@@ -7,7 +7,7 @@
 
         public int UserID       { get; set; }
 
-        public string? SongN    { get; set; }
+        public string? SongID   { get; set; }
 
     }
 }

@@ -89,25 +89,36 @@
         align-items: center;
         line-height: 3rem;
         width: 100%;
+        transition: background-color 0.3s ease, color 0.3s ease;
     }
+
 
 .nav-item ::deep a.active {
     background-color: rgba(255,255,255,0.37);
     color: white;
 }
 
-.nav-item ::deep .nav-link:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: white;
-}
+    .nav-item ::deep .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+    }
 
 .nav-scrollable {
-    display: flex-start;
-    height: 500px;
+    position: absolute;
+    left: 0;
+    top: 3.5rem; /* Below the navbar */
+    width: 250px; /* Adjust width */
+    height: calc(100vh - 3.5rem);
+    transform: translateX(-100%);
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow-y: auto;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: slideOut 0.3s ease forwards;
 }
 
 .navbar-toggler:checked ~ .nav-scrollable {
-    display: block;
+    transform: translateX(0);
+    animation: slideIn 0.3s ease forwards;
 }
 
 @media (min-width: 641px) {
@@ -122,3 +133,28 @@
         overflow-y: auto;
     }
 }
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        background-color: rgba(0, 0, 0, 0); /* Transparent */
+    }
+
+    to {
+        transform: translateX(0);
+        background-color: rgba(0, 0, 0, 0.8); /* Final color */
+    }
+}
+
+/* Add slide-out animation */
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        background-color: rgba(0, 0, 0, 0.8); /* Final color */
+    }
+
+    to {
+        transform: translateX(-100%);
+        background-color: rgba(0, 0, 0, 0); /* Transparent */
+    }
+}
+

@@ -1,9 +1,9 @@
 ﻿namespace Pancake_Final.Domain
 {
-    public class Genre
+    public class Genre : BaseDomainModel
     {
 
-        public string? Name { get; set; }
+        public string? GenreID { get; set; }
 
     }
 }
