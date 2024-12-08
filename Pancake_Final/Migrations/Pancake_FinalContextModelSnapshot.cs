@@ -224,6 +224,26 @@ namespace Pancake_Final.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "598c44d9-c012-4c62-8128-31799aaaaade",
+                            Email = "admin@localhost.com",
+                            EmailConfirmed = true,
+                            FirstName = "Admin",
+                            LastName = "User",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@LOCALHOST.COM",
+                            NormalizedUserName = "ADMIN@LOCALHOST.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPhSejM/hgevOejmT2kDM8qssV79yK9yL+g9a2LC3aG1cr+0KcGo/1/ZBWf9kUjm9A==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "0d9a752e-2d4f-4c38-be0c-1df751d083b4",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@localhost.com"
+                        });
                 });
 
             modelBuilder.Entity("Pancake_Final.Domain.Song", b =>
@@ -268,8 +288,8 @@ namespace Pancake_Final.Migrations
                             Id = 1,
                             AlbumID = 0,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 12, 3, 1, 15, 27, 816, DateTimeKind.Local).AddTicks(8119),
-                            DateUpdated = new DateTime(2024, 12, 3, 1, 15, 27, 816, DateTimeKind.Local).AddTicks(8128),
+                            DateCreated = new DateTime(2024, 12, 3, 23, 34, 21, 279, DateTimeKind.Local).AddTicks(8053),
+                            DateUpdated = new DateTime(2024, 12, 3, 23, 34, 21, 279, DateTimeKind.Local).AddTicks(8064),
                             GenID = 0,
                             Name = "Micheal Jackson",
                             UpdatedBy = "System"

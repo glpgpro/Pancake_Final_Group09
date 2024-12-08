@@ -1,5 +1,33 @@
-﻿<h3>Landing</h3>
+﻿@page "/"
+@page "/landing"
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img class="logo" src="\images\pancakeLogo.png" alt="Logo">
+            <span class="logo-text">Pancake</span>
+        </div>
+        <div class="buttons">
+            <button id="premiumButton">Premium</button>
+            <button id="supportButton">Support</button>
+            <div class="separator"></div>
+            <button id="loginButton">Log In</button>
+            <button id="SignupButton">Sign Up</button>
+        </div>
+    </div>
 
-@code {
-
-}
+    <div class="main-content">
+        <div class="text-container">
+            <h1>Listen without limits. Try 1 month of Premium Individual for SGD 1000000.</h1>
+            <p>Only SGD 10.98/month after. Cancel anytime.</p>
+            <button class="btn btn-primary">Get started</button>
+            <button class="btn btn-secondary">View all plans</button>
+            <h2>Affordable plans for any situation</h2>
+            <p>Premium Individual only. SGD 0 for 3 months, then SGD 10.98 per month after.</p>
+            <p></p>
+        </div>
+        <div class="image-container">
+            <img src="/images/Happy Pancake Day 2024!.jpg" alt="Promotional Image" class="promo-image">
+        </div>
+    </div>
+</body>
+<link href="c:\users\itisg\source\repos\project_pancake\fsd_main_project\components\pages\home.razor.css" rel="stylesheet" />

@@ -1,0 +1,142 @@
+﻿body, h1, h2, ul, li, p, nav, span, img, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 1670px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: burlywood;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h1 {
+    background-color: #D19A66;
+    color: #4B2E2D;
+    text-align: center;
+    /*font-family: "Amatic SC", sans-serif;*/
+    font-weight: 700;
+    font-style: normal;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1670px;
+    padding: 10px 0px;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+/*header {
+    padding: 1rem;
+    border-bottom: 1px solid #282828;
+}*/
+
+/*nav {
+    display: flex;
+    gap: 1rem;
+}*/
+
+/*.nav-button {
+    background: none;
+    color: #B3B3B3;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+    .nav-button.active {
+        color: #FFFFFF;
+        border-bottom: 2px solid #1DB954;
+    }
+
+    .nav-button:hover {
+        color: #FFFFFF;
+    }*/
+
+.playlist-heading {
+    color: #4B2E2D;
+    font-size: 2rem;
+    /*    margin: 1rem 2rem;*/
+    /*   padding: 0.5rem 1rem;*/
+    text-align: center;
+    background-color: #D19A66;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.PlaylistSearchbar {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.playlistcards_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 50px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.card-body {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .card-body:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body img {
+        max-width: 100%;
+        border-radius: 5px;
+    }
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-bottom: 1px solid #4B2E2D;
+    color: ghostwhite;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+
+.column-title, .column-date, .column-played {
+    flex: 1;
+    text-align: left;
+    padding: 0.5rem;
+}
+
+.column-date, .column-played {
+    text-align: center;
+}
+
+/*.logo {
+    max-width: 30px;
+    height: auto;
+    margin-right: 10px;
+}*/

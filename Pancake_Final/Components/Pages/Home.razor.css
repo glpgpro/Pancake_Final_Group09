@@ -1,2 +1,198 @@
-﻿body {
+﻿
+body {
+    background-color: burlywood;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*font-family: "Amatic SC", sans-serif;*/
+    margin: 0;
+    width: 1670px;
+}
+
+header {
+    background-color: #D19A66;
+    color: #4B2E2D;
+    text-align: center;
+    /*font-family: "Amatic SC", sans-serif;*/
+    font-weight: 700;
+    font-style: normal;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1670px;
+    gap: 20px;
+}
+
+.HeaderLogo {
+    height: 50px;
+    width: 50px;
+}
+
+main {
+    flex: 1; /* Allow the main content to expand and take available space */
+    display: flex;
+    /* justify-content: center;*/ /* Center the cards horizontally */
+    /*align-items: center;*/ /* Center the cards vertically */
+    padding: 20px;
+    width: 1670px;
+}
+
+footer {
+    background-color: #D19A66;
+    color: #4B2E2D;
+    text-align: center;
+    /*font-family: "Amatic SC", sans-serif;*/
+    font-weight: 700;
+    font-style: normal;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 1670px;
+}
+
+/* Navigation Sidebar */
+.left {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.logo {
+    cursor: pointer;
+    height: 180px;
+    width: 150px;
+    padding: 10px;
+}
+
+.SearchBarDiv {
+    padding: 20px;
+    padding-left: 20px;
+}
+
+
+.SearchBar {
+    padding: 5px;
+    width: 400px;
+}
+
+.SearchButton {
+    height: 35px;
+    width: 80px;
+}
+
+nav {
+    border: 2px solid #4B2E2D;
+    border-radius: 5px;
+    width: 150px;
+    padding: 20px 10px;
+    min-height: 400px;
+}
+
+.nav_links {
+    list-style: none;
+    padding: 0;
+}
+
+    .nav_links li {
+        display: block;
+        padding: 10px 0;
+    }
+
+        .nav_links li a {
+            font-size: 24px;
+            color: #4B2E2D;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .nav_links li a:hover {
+                color: cornsilk;
+            }
+
+.SongContainer {
+    padding-right: 200px
+}
+
+.song-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+    .song-table th, .song-table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .song-table tr:hover {
+        background-color: #f5f5f5;
+    }
+
+/* Card Container Styles */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Playlist Card Styles */
+.PlaylistCard {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .PlaylistCard:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .PlaylistCard img {
+        max-width: 100%;
+        border-radius: 5px;
+    }
+
+.card-title {
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+.card-text {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.card-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+    .card-button:hover {
+        background-color: #038A57;
+    }
+
+.AudioPlayback {
+    padding: 20px 100px;
 }

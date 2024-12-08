@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-
 namespace Pancake_Final.Configurations.Entities
 {
     public class UserSeed : IEntityTypeConfiguration<Pancake_FinalUser>

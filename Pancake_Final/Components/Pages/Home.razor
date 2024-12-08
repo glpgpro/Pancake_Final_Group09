@@ -1,7 +1,82 @@
-﻿@page "/"
-
-<PageTitle>Home</PageTitle>
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
+﻿@page "/Home"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="Home.razor.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="HeaderLogo" src="/images/pancakeLogo.png" alt="Logo">Pancake
+    </header>
+    <div class="SearchBarDiv">
+        <input class="SearchBar" placeholder="Enter a song" />
+        <button class="SearchButton"> Search </button>
+    </div>
+    <main>
+        <div class="SongContainer">
+            <table class="song-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Artist</th>
+                        <th>Album</th>
+                        <th>Date Added</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* @foreach (var song in Songs)
+                    {
+                        <tr>
+                            <td>@song.Number</td>
+                            <td>@song.Title</td>
+                            <td>@song.Artist</td>
+                            <td>@song.Album</td>
+                            <td>@song.DateAdded.ToShortDateString()</td>
+                            <td>@song.Duration</td>
+                        </tr>
+                    } *@
+                </tbody>
+            </table>
+        </div>
+        <div class="card-container">
+            <div class="PlaylistCard">
+                <img src="/images/Music Icon.jpg" alt="Image 1" class="P1image">
+                <div class="card-content">
+                    <h3 class="card-title">Recommended Playlist 1</h3>
+                    <p class="card-text">--Description--</p>
+                    <a href="#" class="card-button">Play</a>
+                </div>
+            </div>
+            <div class="PlaylistCard">
+                <img src="/images/Music Icon.jpg" alt="Image 1" class="P1image">
+                <div class="card-content">
+                    <h3 class="card-title">Recommended Playlist 2</h3>
+                    <p class="card-text">--Description--</p>
+                    <a href="#" class="card-button">Play</a>
+                </div>
+            </div>
+            <div class="PlaylistCard">
+                <img src="/images/Music Icon.jpg" alt="Image 1" class="P1image">
+                <div class="card-content">
+                    <h3 class="card-title">Recommended Playlist 3</h3>
+                    <p class="card-text">--Description--</p>
+                    <a href="#" class="card-button">Play</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="AudioPlayback">
+        <audio controls>
+            <source src="music/Don Toliver - No Pole.mp3" />
+        </audio>
+    </div>
+</body>
+</html>

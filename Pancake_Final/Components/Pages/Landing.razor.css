@@ -1,2 +1,166 @@
-﻿body {
+﻿/* Style for the body and main content */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: burlywood;
+    text-align: center;
 }
+
+/* Style for the header */
+.header {
+    background-color: #D19A66;
+    color: #4B2E2D;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Style for the logo and text */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 40px;
+    height: auto;
+}
+
+.logo-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Style for header buttons */
+.header .buttons {
+    display: flex;
+    gap: 20px; /* Increase space between buttons */
+    align-items: center;
+}
+
+    .header .buttons button {
+        padding: 15px 25px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+    }
+
+        .header .buttons button:hover {
+            background-color: #f1f1f1;
+        }
+
+/* Separator line between buttons */
+.separator {
+    width: 1px;
+    height: 30px; /* Adjust the height to create a vertical line */
+    background-color: #4B2E2D; /* Line color */
+    margin: 0 10px; /* Add some space on either side of the line */
+}
+
+/* Buttons below the header */
+.btn {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: white;
+    color: black;
+}
+
+    .btn-primary:hover {
+        background-color: #b59b74;
+    }
+
+.btn-secondary {
+    background-color: white;
+    color: black;
+}
+
+    .btn-secondary:hover {
+        background-color: #f1f1f1;
+    }
+
+/* Style for the heading */
+h1 {
+    font-size: 42px;
+    margin-top: 50px;
+    color: #4B2E2D;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centers items vertically */
+    margin: 50px 20px; /* Add spacing around the content */
+}
+
+/* Style for the text container */
+.text-container {
+    flex: 1; /* Take up equal space as the image container */
+    text-align: left;
+    padding: 20px;
+}
+
+/* Buttons below the header remain the same */
+.btn {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: white;
+    color: black;
+}
+
+    .btn-primary:hover {
+        background-color: #b59b74;
+    }
+
+.btn-secondary {
+    background-color: white;
+    color: black;
+}
+
+    .btn-secondary:hover {
+        background-color: #f1f1f1;
+    }
+
+/* Style for the image container */
+.image-container {
+    flex: 1; /* Take up equal space as the text container */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Ensure the image is centered and has a natural size */
+.promo-image {
+    max-width: 80%; /* Restrict the image to 80% of its container width */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 20px; /* Optional rounded corners */
+    display: block; /* Ensure the image behaves as a block element */
+    margin: 0 auto; /* Center the image horizontally */
+}
+/*promo-image {
+    max-width: 100%;*/ /* Restrict the image width to avoid stretching */
+/*height: max;*/ /* Maintain aspect ratio */
+/*border-radius: 20px;*/ /* Optional rounded corners */
+/*}*/
