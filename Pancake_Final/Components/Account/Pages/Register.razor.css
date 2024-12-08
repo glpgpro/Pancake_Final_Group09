@@ -12,7 +12,7 @@ body {
 }
 /* Container for the Form */
 .container {
-    position: fixed;
+    /*position: fixed;*/
     background-color: #D19A66;
     padding: 40px 40px; /* Adjust padding for more space inside the container */
     border-radius: 10px;
