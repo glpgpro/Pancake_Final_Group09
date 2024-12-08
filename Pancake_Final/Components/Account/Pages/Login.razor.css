@@ -8,13 +8,15 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
     background-color: burlywood; /* Outside container background color */
     color: white;
-    display: flex-start;
+    /*display: flex-start;*/
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+.LoginPageContainer{
+    padding-left: 80px;
 }
 .customForm{
     justify-content: center;
@@ -46,7 +48,7 @@ body {
     padding: 20px 40px;
     border-radius: 10px;
     text-align: center;
-    width: 100%;
+    width: 500px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for a nice effect */
     border: 1px solid #333; /* Inner container border */
 }
