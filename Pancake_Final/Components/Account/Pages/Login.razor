@@ -12,24 +12,38 @@
 
 <PageTitle>Log in</PageTitle>
 
-<head>
+@* <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Login</title>
     <link rel="stylesheet" href="Login.razor.css">
-</head>
+</head> *@
 
 
 <body>
-    @* <div class="row"> *@
+    <div class="header">
+        <div class="logo-container">
+            <img class="logo" src="\images\pancakeLogo.png" alt="Logo">
+            <span class="logo-text">Pancake</span>
+        </div>
+        <div class="buttons">
+            <button id="premiumButton">Premium</button>
+            <button id="supportButton">Support</button>
+            <div class="separator"></div>
+        </div>
+    </div>
     <StatusMessage Message= "@errorMessage" />
     <div class="LoginPageContainer">
         <EditForm Model="Input" method="post" OnValidSubmit="LoginUser" FormName="login">
         <section>
             <DataAnnotationsValidator />
+            <main>
+                <div class="LoginImageContainer">
+                    <img class="LoginImage" src="images/pancakeImg4.jpg" />
+                </div>
                  <div class="container">
                         <div class="login-container">
-                            <img class="logo" src="\images\pancakeLogo.png" alt="Logo">
+                            <img class="LoginContainerLogo" src="\images\pancakeLogo.png" alt="Logo">
                             <h1>Log in to Pancake</h1>
                             <form>
                             <div class = "enterEmail">
@@ -60,6 +74,7 @@
                             </div>
                         </div>
                   </div>
+            </main>
         </section>
         </EditForm>
     </div>

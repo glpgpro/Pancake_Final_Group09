@@ -4,11 +4,66 @@
     margin-bottom: 60px;
 }
 
+main{
+    display: flex;
+}
+
+/* Style for the header */
+.header {
+    background-color: #D19A66;
+    color: #4B2E2D;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Style for the logo and text */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 40px;
+    height: auto;
+}
+
+.logo-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Style for header buttons */
+.header .buttons {
+    display: flex;
+    gap: 20px; /* Increase space between buttons */
+    align-items: center;
+}
+
+    .header .buttons button {
+        padding: 15px 25px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+    }
+
+        .header .buttons button:hover {
+            background-color: #f1f1f1;
+        }
+
 
 body {
+    background-image: url("images/pancakeBlurBG.png");
+    background-size: cover;
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: burlywood; /* Outside container background color */
+    /*background-color: burlywood;*/ /* Outside container background color */
     color: white;
     /*display: flex-start;*/
     justify-content: center;
@@ -16,14 +71,25 @@ body {
     height: 100vh;
 }
 .LoginPageContainer{
-    padding-left: 80px;
+    padding: 50px 190px;
 }
+
+.LoginImageContainer {
+    padding: 10px 0px;
+    border: 10px solid transparent;
+}
+
+.LoginImage {
+    height: 690px;
+    width: 690px;
+}
+
 .customForm{
     justify-content: center;
     align-items: center;
 }
 
-.logo {
+.LoginContainerLogo {
     width: 100px;
     height: 100px;
     padding: 5px;
@@ -47,14 +113,22 @@ body {
     background-color: #D19A66; /* Inside container background color */
     padding: 20px 40px;
     border-radius: 10px;
+    height: 690px;
     text-align: center;
-    width: 500px;
+    width: 400px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for a nice effect */
     border: 1px solid #333; /* Inner container border */
 }
 
+.LoginImage {
+    height: 690px;
+    width: 690px;
+    border-radius: 20px; /* Optional rounded corners */
+}
+
 .enterPassword{
-    padding: 20px
+    width: 318px;
+    /*padding: 20px;*/
 }
 
 /* Header styles */

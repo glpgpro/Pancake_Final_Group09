@@ -1,4 +1,6 @@
-﻿.navbar-toggler {
+﻿
+
+.navbar-toggler {
     appearance: none;
     cursor: pointer;
     width: 3.5rem;
@@ -16,8 +18,9 @@
 }
 
 .top-row {
-    height: 3.5rem;
+    height: 4.8rem;
     background-color: rgba(0,0,0,0.4);
+    
 }
 
 .navbar-brand {
@@ -106,7 +109,7 @@
 .nav-scrollable {
     position: absolute;
     left: 0;
-    top: 3.5rem; /* Below the navbar */
+    top: 4.8rem; /* Below the navbar */
     width: 250px; /* Adjust width */
     height: calc(100vh - 3.5rem);
     transform: translateX(-100%);

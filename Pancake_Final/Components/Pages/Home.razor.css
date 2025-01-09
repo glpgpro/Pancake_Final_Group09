@@ -8,7 +8,7 @@ body {
     /*justify-content: center;*/
     /*font-family: "Amatic SC", sans-serif;*/
     margin: 0;
-    width: 1670px;
+    
 }
 
 header {
@@ -22,7 +22,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1670px;
+    width: 1500px;
     gap: 20px;
 }
 

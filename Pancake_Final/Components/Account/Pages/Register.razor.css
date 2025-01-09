@@ -1,8 +1,61 @@
-﻿/* General Styles */
+﻿/* Style for the header */
+.header {
+    background-color: #D19A66;
+    color: #4B2E2D;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
 
+/* Style for the logo and text */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 40px;
+    height: auto;
+}
+
+.logo-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Style for header buttons */
+.header .buttons {
+    display: flex;
+    gap: 20px; /* Increase space between buttons */
+    align-items: center;
+}
+
+    .header .buttons button {
+        padding: 15px 25px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+    }
+
+        .header .buttons button:hover {
+            background-color: #f1f1f1;
+        }
+
+
+
+
+
+/* General Styles */
 body {
+    background-image: url("images/pancakeBlurBG.png");
+    background-size: cover;
     font-family: Arial, sans-serif;
-    background-color: burlywood;
     color: #ffffff;
     margin: 0;
     display: flex-start;
@@ -10,21 +63,39 @@ body {
     align-items: center;
     height: 100vh;
 }
+
+main{
+    padding: 40px 190px;
+    display: flex;
+}
 /* Container for the Form */
-.container {
+.RegisterContainer {
     /*position: fixed;*/
     background-color: #D19A66;
-    padding: 40px 40px; /* Adjust padding for more space inside the container */
-    border-radius: 10px;
+    padding: 80px 40px; /* Adjust padding for more space inside the container */
+    border-radius: 25px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     text-align: center;
-    width: 380px; /* Increase width slightly */
+    height: 690px;
+    width: 400px; /* Increase width slightly */
     max-width: 100%; /* Ensure it doesn't exceed screen size */
     border: 1px solid #333;
     transition: width 0.3s ease; /* Smooth transition for resizing */
 }
+
+.ImageContainer {
+    padding: 0px 70px;
+    border: 10px solid transparent;
+}
+
+.pancakeImg {
+    height: 690px;
+    width: 690px;
+    border-radius: 20px; /* Optional rounded corners */
+}
+
 /* Logo Placeholder */
-.logo img {
+.RegisterContainerlogo img {
     max-width: 100px;
     max-height: 100px;
     margin-bottom: 1rem;
@@ -34,6 +105,7 @@ h1 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
 }
+
 /* Form Styles */
 .signup-form label {
     display: block;

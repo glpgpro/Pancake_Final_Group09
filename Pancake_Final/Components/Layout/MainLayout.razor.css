@@ -1,6 +1,5 @@
 body{
     background-color: burlywood;
-
 }
 
 
@@ -10,14 +9,14 @@ body{
     flex-direction: column;
 }
 
+
+mainStuff{
+    padding: 0px;
+}
+
 main {
     flex: 1;
     width: 100%;
-}
-
-.mainStuff {
-    padding: 20px;
-    width: 1670px;
 }
 
 .sidebar {

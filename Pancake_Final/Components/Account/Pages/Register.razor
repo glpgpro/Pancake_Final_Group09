@@ -25,15 +25,26 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="SignUp.razor.css">
 </head>
-
-
+ 
 <body>
+    <div class="header">
+        <div class="logo-container">
+            <img class="logo" src="\images\pancakeLogo.png" alt="Logo">
+            <span class="logo-text">Pancake</span>
+        </div>
+        <div class="buttons">
+            <button id="premiumButton">Premium</button>
+            <button id="supportButton">Support</button>
+            <div class="separator"></div>
+        </div>
+    </div>
+    <main>
     <StatusMessage Message="@Message" />
     <EditForm Model="Input" asp-route-returnUrl="@ReturnUrl" method="post" OnValidSubmit="RegisterUser" FormName="register">
     <DataAnnotationsValidator />
 
-    <div class="container">
-        <div class="logo">
+    <div class="RegisterContainer">
+        <div class="RegisterContainerlogo">
             <img src="\images\pancakeLogo.png" alt="Logo" id="logo">
         </div>
 
@@ -78,6 +89,10 @@
         </form>
     </div>
     </EditForm>
+    <div class="ImageContainer">
+        <img class="pancakeImg" src="images/pancakeImg1.jpg" />
+    </div>
+    </main>
 </body>
 </html>
 
