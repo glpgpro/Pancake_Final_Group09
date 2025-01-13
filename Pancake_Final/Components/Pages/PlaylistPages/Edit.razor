@@ -1,0 +1,119 @@
+﻿@page "/playlists/edit"
+@using Microsoft.EntityFrameworkCore
+@using Pancake_Final.Domain
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h2>Playlist</h2>
+<hr />
+@if (Playlist is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="Playlist" OnValidSubmit="UpdatePlaylist" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary role="alert"/>
+                <input type="hidden" name="Playlist.Id" value="@Playlist.Id" />
+                <div class="mb-3">
+                    <label for="playlistid" class="form-label">PlaylistID:</label>
+                    <InputNumber id="playlistid" @bind-Value="Playlist.PlaylistID" class="form-control" />
+                    <ValidationMessage For="() => Playlist.PlaylistID" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="userid" class="form-label">UserId:</label>
+                    <InputNumber id="userid" @bind-Value="Playlist.UserId" class="form-control" />
+                    <ValidationMessage For="() => Playlist.UserId" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="playlistname" class="form-label">PlaylistName:</label>
+                    <InputText id="playlistname" @bind-Value="Playlist.PlaylistName" class="form-control" />
+                    <ValidationMessage For="() => Playlist.PlaylistName" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="datecreated" class="form-label">DateCreated:</label>
+                    <InputDate id="datecreated" @bind-Value="Playlist.DateCreated" class="form-control" />
+                    <ValidationMessage For="() => Playlist.DateCreated" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="dateupdated" class="form-label">DateUpdated:</label>
+                    <InputDate id="dateupdated" @bind-Value="Playlist.DateUpdated" class="form-control" />
+                    <ValidationMessage For="() => Playlist.DateUpdated" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="createdby" class="form-label">CreatedBy:</label>
+                    <InputText id="createdby" @bind-Value="Playlist.CreatedBy" class="form-control" />
+                    <ValidationMessage For="() => Playlist.CreatedBy" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="updateby" class="form-label">UpdateBy:</label>
+                    <InputText id="updateby" @bind-Value="Playlist.UpdateBy" class="form-control" />
+                    <ValidationMessage For="() => Playlist.UpdateBy" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/playlists">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    private int Id { get; set; }
+
+    [SupplyParameterFromForm]
+    private Playlist? Playlist { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        Playlist ??= await context.Playlist.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (Playlist is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more information, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task UpdatePlaylist()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Attach(Playlist!).State = EntityState.Modified;
+
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!PlaylistExists(Playlist!.Id))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/playlists");
+    }
+
+    private bool PlaylistExists(int id)
+    {
+        using var context = DbFactory.CreateDbContext();
+        return context.Playlist.Any(e => e.Id == id);
+    }
+}

@@ -1,9 +1,13 @@
-﻿namespace Pancake_Final.Domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Pancake_Final.Domain
 {
     public class Album : BaseDomainModel
     {
         //Primary Key
-        public int? AlbumId { get; set; }
+
+        [Key]
+        public int AlbumID { get; set; }
 
         //Foreign Keys
         public int ArtistID { get; set; }

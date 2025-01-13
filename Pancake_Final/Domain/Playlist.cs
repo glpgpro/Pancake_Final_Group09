@@ -2,9 +2,16 @@
 {
     public class Playlist : BaseDomainModel
     {
+
+        //Primary Key
         public int PlaylistID { get; set; }
-        public string PlaylistName { get; set; } = string.Empty;
-        public List<string> Songs { get; set; } = new List<string>();
+
+        //Foreign Keys
+
+        public int UserId { get; set; }
+
+        //Methods
+        public string? PlaylistName { get; set; }
 
     }
 }

@@ -1,0 +1,74 @@
+﻿@page "/playlists/create"
+@using Microsoft.EntityFrameworkCore
+@using Pancake_Final.Domain
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>Playlist</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Playlist" OnValidSubmit="AddPlaylist" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert"/>
+            <div class="mb-3">
+                <label for="playlistid" class="form-label">PlaylistID:</label> 
+                <InputNumber id="playlistid" @bind-Value="Playlist.PlaylistID" class="form-control" /> 
+                <ValidationMessage For="() => Playlist.PlaylistID" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="userid" class="form-label">UserId:</label> 
+                <InputNumber id="userid" @bind-Value="Playlist.UserId" class="form-control" /> 
+                <ValidationMessage For="() => Playlist.UserId" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="playlistname" class="form-label">PlaylistName:</label> 
+                <InputText id="playlistname" @bind-Value="Playlist.PlaylistName" class="form-control" /> 
+                <ValidationMessage For="() => Playlist.PlaylistName" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="datecreated" class="form-label">DateCreated:</label> 
+                <InputDate id="datecreated" @bind-Value="Playlist.DateCreated" class="form-control" /> 
+                <ValidationMessage For="() => Playlist.DateCreated" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="dateupdated" class="form-label">DateUpdated:</label> 
+                <InputDate id="dateupdated" @bind-Value="Playlist.DateUpdated" class="form-control" /> 
+                <ValidationMessage For="() => Playlist.DateUpdated" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="createdby" class="form-label">CreatedBy:</label> 
+                <InputText id="createdby" @bind-Value="Playlist.CreatedBy" class="form-control" /> 
+                <ValidationMessage For="() => Playlist.CreatedBy" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="updateby" class="form-label">UpdateBy:</label> 
+                <InputText id="updateby" @bind-Value="Playlist.UpdateBy" class="form-control" /> 
+                <ValidationMessage For="() => Playlist.UpdateBy" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/playlists">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private Playlist Playlist { get; set; } = new();
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddPlaylist()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Playlist.Add(Playlist);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/playlists");
+    }
+}

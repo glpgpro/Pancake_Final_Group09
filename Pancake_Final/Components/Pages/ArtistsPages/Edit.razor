@@ -1,0 +1,94 @@
+﻿@page "/artists/edit"
+@using Microsoft.EntityFrameworkCore
+@using Pancake_Final.Domain
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h2>Artists</h2>
+<hr />
+@if (Artists is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="Artists" OnValidSubmit="UpdateArtists" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary role="alert"/>
+                <input type="hidden" name="Artists.ArtistID" value="@Artists.ArtistID" />
+                <div class="mb-3">
+                    <label for="songid" class="form-label">SongId:</label>
+                    <InputNumber id="songid" @bind-Value="Artists.SongId" class="form-control" />
+                    <ValidationMessage For="() => Artists.SongId" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <InputText id="name" @bind-Value="Artists.Name" class="form-control" />
+                    <ValidationMessage For="() => Artists.Name" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/artists">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    private int ArtistID { get; set; }
+
+    [SupplyParameterFromForm]
+    private Artists? Artists { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        Artists ??= await context.Artists.FirstOrDefaultAsync(m => m.ArtistID == ArtistID);
+
+        if (Artists is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more information, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task UpdateArtists()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Attach(Artists!).State = EntityState.Modified;
+
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!ArtistsExists(Artists!.ArtistID))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/artists");
+    }
+
+    private bool ArtistsExists(int artistid)
+    {
+        using var context = DbFactory.CreateDbContext();
+        return context.Artists.Any(e => e.ArtistID == artistid);
+    }
+}

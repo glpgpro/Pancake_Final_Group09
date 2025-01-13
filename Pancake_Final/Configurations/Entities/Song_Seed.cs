@@ -11,12 +11,16 @@ namespace Pancake_Final.Configurations.Entities
 
                 new Song
                 {
-                    Id = 1,
-                    Name = "Micheal Jackson",
+                    SongId = 1,
+                    ArtistId = 1,
+                    AlbumID = 1,
+                    GenID = 1,
+                    Name = "Don Toliver - No Pole",
+                    LikedS = "Liked",
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
                     CreatedBy = "System",
-                    UpdatedBy = "System"
+                    UpdateBy = "System"
                 }
 
             );

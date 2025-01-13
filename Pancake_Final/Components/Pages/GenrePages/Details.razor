@@ -1,0 +1,56 @@
+﻿@page "/genres/details"
+@using Microsoft.EntityFrameworkCore
+@using Pancake_Final.Domain
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h2>Genre</h2>
+    <hr />
+    @if (genre is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">GenreName</dt>
+            <dd class="col-sm-10">@genre.GenreName</dd>
+            <dt class="col-sm-2">Id</dt>
+            <dd class="col-sm-10">@genre.Id</dd>
+            <dt class="col-sm-2">DateCreated</dt>
+            <dd class="col-sm-10">@genre.DateCreated</dd>
+            <dt class="col-sm-2">DateUpdated</dt>
+            <dd class="col-sm-10">@genre.DateUpdated</dd>
+            <dt class="col-sm-2">CreatedBy</dt>
+            <dd class="col-sm-10">@genre.CreatedBy</dd>
+            <dt class="col-sm-2">UpdateBy</dt>
+            <dd class="col-sm-10">@genre.UpdateBy</dd>
+        </dl>
+        <div>
+            <a href="@($"/genres/edit?genreid={genre.GenreID}")">Edit</a> |
+            <a href="@($"/genres")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private Genre? genre;
+
+    [SupplyParameterFromQuery]
+    private string GenreID { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        genre = await context.Genre.FirstOrDefaultAsync(m => m.GenreID == GenreID);
+
+        if (genre is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

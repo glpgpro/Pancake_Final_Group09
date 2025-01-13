@@ -1,0 +1,62 @@
+﻿@page "/albums/details"
+@using Microsoft.EntityFrameworkCore
+@using Pancake_Final.Domain
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h2>Album</h2>
+    <hr />
+    @if (album is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">ArtistID</dt>
+            <dd class="col-sm-10">@album.ArtistID</dd>
+            <dt class="col-sm-2">GenID</dt>
+            <dd class="col-sm-10">@album.GenID</dd>
+            <dt class="col-sm-2">Name</dt>
+            <dd class="col-sm-10">@album.Name</dd>
+            <dt class="col-sm-2">AlbumImage</dt>
+            <dd class="col-sm-10">@album.AlbumImage</dd>
+            <dt class="col-sm-2">Id</dt>
+            <dd class="col-sm-10">@album.Id</dd>
+            <dt class="col-sm-2">DateCreated</dt>
+            <dd class="col-sm-10">@album.DateCreated</dd>
+            <dt class="col-sm-2">DateUpdated</dt>
+            <dd class="col-sm-10">@album.DateUpdated</dd>
+            <dt class="col-sm-2">CreatedBy</dt>
+            <dd class="col-sm-10">@album.CreatedBy</dd>
+            <dt class="col-sm-2">UpdateBy</dt>
+            <dd class="col-sm-10">@album.UpdateBy</dd>
+        </dl>
+        <div>
+            <a href="@($"/albums/edit?albumid={album.AlbumID}")">Edit</a> |
+            <a href="@($"/albums")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private Album? album;
+
+    [SupplyParameterFromQuery]
+    private int AlbumID { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        album = await context.Album.FirstOrDefaultAsync(m => m.AlbumID == AlbumID);
+
+        if (album is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

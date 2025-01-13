@@ -1,0 +1,41 @@
+﻿@page "/genres"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using Pancake_Final.Domain
+@using Pancake_Final.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="genres/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.Genre">
+    <PropertyColumn Property="genre => genre.GenreName" />
+    <PropertyColumn Property="genre => genre.Id" />
+    <PropertyColumn Property="genre => genre.DateCreated" />
+    <PropertyColumn Property="genre => genre.DateUpdated" />
+    <PropertyColumn Property="genre => genre.CreatedBy" />
+    <PropertyColumn Property="genre => genre.UpdateBy" />
+
+    <TemplateColumn Context="genre">
+        <a href="@($"genres/edit?genreid={genre.GenreID}")">Edit</a> |
+        <a href="@($"genres/details?genreid={genre.GenreID}")">Details</a> |
+        <a href="@($"genres/delete?genreid={genre.GenreID}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private Pancake_FinalContext context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}

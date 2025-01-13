@@ -1,8 +1,12 @@
-﻿namespace Pancake_Final.Domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Pancake_Final.Domain
 {
     public class Artists
     {
+
         //Primary Key
+        [Key]
         public int ArtistID { get; set; }
 
         //Foreign Key
@@ -14,8 +18,6 @@
 
         //Methods
         public string? Name { get; set; }
-
-        
 
     }
 }

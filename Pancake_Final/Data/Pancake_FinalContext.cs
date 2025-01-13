@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Pancake_Final.Configurations.Entities;
 using Pancake_Final.Data;
+using Pancake_Final.Domain;
 
 namespace Pancake_Final.Data
 {
@@ -17,5 +18,9 @@ namespace Pancake_Final.Data
             modelBuilder.ApplyConfiguration(new Song_Seed());
             modelBuilder.ApplyConfiguration(new UserSeed());
         }
+        public DbSet<Pancake_Final.Domain.Artists> Artists { get; set; } = default!;
+        public DbSet<Pancake_Final.Domain.Album> Album { get; set; } = default!;
+        public DbSet<Pancake_Final.Domain.Genre> Genre { get; set; } = default!;
+        public DbSet<Pancake_Final.Domain.Playlist> Playlist { get; set; } = default!;
     }
 }

@@ -1,0 +1,49 @@
+﻿@page "/artists/create"
+@using Microsoft.EntityFrameworkCore
+@using Pancake_Final.Domain
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>Artists</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Artists" OnValidSubmit="AddArtists" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert"/>
+            <div class="mb-3">
+                <label for="songid" class="form-label">SongId:</label> 
+                <InputNumber id="songid" @bind-Value="Artists.SongId" class="form-control" /> 
+                <ValidationMessage For="() => Artists.SongId" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label> 
+                <InputText id="name" @bind-Value="Artists.Name" class="form-control" /> 
+                <ValidationMessage For="() => Artists.Name" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/artists">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private Artists Artists { get; set; } = new();
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddArtists()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Artists.Add(Artists);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/artists");
+    }
+}

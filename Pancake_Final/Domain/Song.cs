@@ -1,23 +1,38 @@
-﻿namespace Pancake_Final.Domain
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+
+namespace Pancake_Final.Domain
 {
     public class Song : BaseDomainModel
 
     {
         //Foreign Key
         public int ArtistId { get; set; }
+
+        public int AlbumID { get; set; }
+
+        public int GenID { get; set; }
+
         // Navigation property
 
-        public Artists Artists { get; set; }
+        //[JsonIgnore]
+        //public Artists Artists { get; set; } = null!;
+
+        //public Album Album { get; set; } = null!;
+
+        //public Genre Genre { get; set; } = null!;
 
         //Primary Key
-        public int? SongId { get; set; }
+
+        [Key]
+        public int SongId { get; set; }
 
         //Methods
         public string? Name { get; set; }
 
         public string? LikedS { get; set; } 
 
-        public  byte SongImage { get; set;}
+        //public string SongImage { get; set;}
 
 
     }
