@@ -1,0 +1,67 @@
+﻿@page "/Sub"
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription</title>
+    <link rel="stylesheet" href="Subscription.razor.css">
+</head>
+<body>
+    
+    <header class="page-header">
+        <h1>Subscription Plans</h1>
+    </header>
+    <main>
+    <div class="subscription-container">
+        <div class="subscription-card">
+            <h3 class="plan-title">Individual</h3>
+            <p class="plan-price">SGD 0 for 1 month</p>
+            <p class="plan-details">SGD 10.98/month after</p>
+            <ul class="plan-features">
+                <li>1 Premium account</li>
+                <li>no refund</li>
+                <li>Subscribe or one-time payment</li>
+            </ul>
+            <button class="btn-primary">Try 1 month for SGD 0</button>
+            <button class="btn-secondary">One-time payment</button>
+        </div>
+
+        <div class="subscription-card">
+            <h3 class="plan-title">Student</h3>
+            <p class="plan-price">SGD 0 for 1 month</p>
+            <p class="plan-details">SGD 5.98/month after</p>
+            <ul class="plan-features">
+                <li>1 verified Premium account</li>
+                <li>Discount for eligible students</li>
+                <li>no refund</li>
+                <li>Subscribe or one-time payment</li>
+            </ul>
+            <button class="btn-primary">Try 1 month for SGD 0</button>
+        </div>
+
+        <div class="subscription-card">
+            <h3 class="plan-title">Duo</h3>
+            <p class="plan-price">SGD 14.98/month</p>
+            <ul class="plan-features">
+                <li>2 Premium accounts</li>
+                <li>no refund</li>
+            </ul>
+            <button class="btn-primary">Get Premium Duo</button>
+        </div>
+
+        <div class="subscription-card">
+            <h3 class="plan-title">Family</h3>
+            <p class="plan-price">SGD 17.98/month</p>
+            <ul class="plan-features">
+                <li>Up to 6 Premium accounts</li>
+                <li>Control content marked as explicit</li>
+                <li>no refund</li>
+            </ul>
+            <button class="btn-primary">Get Premium Family</button>
+        </div>
+    </div>
+    </main>
+</body>
+</html>

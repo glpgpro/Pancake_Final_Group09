@@ -40,7 +40,7 @@ body {
     align-items: center;
 }
 
-    .header .buttons button {
+  /*  .header .buttons button {
         padding: 15px 25px;
         background-color: white;
         color: black;
@@ -54,14 +54,14 @@ body {
         .header .buttons button:hover {
             background-color: #f1f1f1;
         }
-
+*/
 /* Separator line between buttons */
-.separator {
+/*.separator {
     width: 1px;
-    height: 30px; /* Adjust the height to create a vertical line */
-    background-color: #4B2E2D; /* Line color */
-    margin: 0 10px; /* Add some space on either side of the line */
-}
+    height: 30px;*/ /* Adjust the height to create a vertical line */
+    /*background-color: #4B2E2D;*/ /* Line color */
+    /*margin: 0 10px;*/ /* Add some space on either side of the line */
+/*}*/
 
 /* Buttons below the header */
 .btn {
