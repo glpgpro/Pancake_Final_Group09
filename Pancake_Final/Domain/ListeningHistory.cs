@@ -1,13 +1,23 @@
-﻿namespace Pancake_Final.Domain
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations;
+
+namespace Pancake_Final.Domain
 {
-    public class ListeningHistory
+    public class ListeningHistory : BaseDomainModel
     {
+        [Key]
+        //primary key
+        public int HistoryId { get; set; }
 
-        public string? Name     { get; set; }
 
-        public int UserID       { get; set; }
+        //Foreign key
 
-        public string? SongID   { get; set; }
+        public int UserId       { get; set; }
+
+        public string? SongId   { get; set; }
+
+        //methods
+        public string? Name { get; set; }
 
     }
 }

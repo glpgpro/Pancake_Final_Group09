@@ -1,0 +1,43 @@
+﻿@page "/listeninghistories"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using Pancake_Final.Domain
+@using Pancake_Final.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="listeninghistories/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.ListeningHistory">
+    <PropertyColumn Property="listeninghistory => listeninghistory.UserId" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.SongId" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.Name" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.Id" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.DateCreated" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.DateUpdated" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.CreatedBy" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.UpdateBy" />
+
+    <TemplateColumn Context="listeninghistory">
+        <a href="@($"listeninghistories/edit?historyid={listeninghistory.HistoryId}")">Edit</a> |
+        <a href="@($"listeninghistories/details?historyid={listeninghistory.HistoryId}")">Details</a> |
+        <a href="@($"listeninghistories/delete?historyid={listeninghistory.HistoryId}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private Pancake_FinalContext context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}

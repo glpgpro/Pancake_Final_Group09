@@ -1,0 +1,43 @@
+﻿@page "/paymentmethods"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using Pancake_Final.Domain
+@using Pancake_Final.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="paymentmethods/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.PaymentMethod">
+    <PropertyColumn Property="paymentmethod => paymentmethod.PayId" />
+    <PropertyColumn Property="paymentmethod => paymentmethod.UserId" />
+    <PropertyColumn Property="paymentmethod => paymentmethod.Name" />
+    <PropertyColumn Property="paymentmethod => paymentmethod.PaymentM" />
+    <PropertyColumn Property="paymentmethod => paymentmethod.DateCreated" />
+    <PropertyColumn Property="paymentmethod => paymentmethod.DateUpdated" />
+    <PropertyColumn Property="paymentmethod => paymentmethod.CreatedBy" />
+    <PropertyColumn Property="paymentmethod => paymentmethod.UpdateBy" />
+
+    <TemplateColumn Context="paymentmethod">
+        <a href="@($"paymentmethods/edit?id={paymentmethod.Id}")">Edit</a> |
+        <a href="@($"paymentmethods/details?id={paymentmethod.Id}")">Details</a> |
+        <a href="@($"paymentmethods/delete?id={paymentmethod.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private Pancake_FinalContext context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}

@@ -1,11 +1,17 @@
 ﻿namespace Pancake_Final.Domain
 {
-    public class PaymentMethod
+    public class PaymentMethod : BaseDomainModel
     {
+        //primary key
+        public int PayId { get; set; }
 
-        public string? Name     { get; set; }
+        //foreign key
+        public int? UserId { get; set; }
 
-        public int? UserID      { get; set; }
+        //methods
+        public string? Name { get; set; }
+
+        public string? PaymentM {  get; set; }
 
     }
 }

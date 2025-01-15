@@ -1,0 +1,84 @@
+﻿@page "/subscriptions/create"
+@using Microsoft.EntityFrameworkCore
+@using Pancake_Final.Domain
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>Subscription</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Subscription" OnValidSubmit="AddSubscription" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert"/>
+            <div class="mb-3">
+                <label for="subid" class="form-label">SubId:</label> 
+                <InputNumber id="subid" @bind-Value="Subscription.SubId" class="form-control" /> 
+                <ValidationMessage For="() => Subscription.SubId" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="userid" class="form-label">UserId:</label> 
+                <InputNumber id="userid" @bind-Value="Subscription.UserId" class="form-control" /> 
+                <ValidationMessage For="() => Subscription.UserId" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label> 
+                <InputText id="name" @bind-Value="Subscription.Name" class="form-control" /> 
+                <ValidationMessage For="() => Subscription.Name" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="substatus" class="form-label">SubStatus:</label> 
+                <InputNumber id="substatus" @bind-Value="Subscription.SubStatus" class="form-control" /> 
+                <ValidationMessage For="() => Subscription.SubStatus" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="subplans" class="form-label">SubPlans:</label> 
+                <InputText id="subplans" @bind-Value="Subscription.SubPlans" class="form-control" /> 
+                <ValidationMessage For="() => Subscription.SubPlans" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="datecreated" class="form-label">DateCreated:</label> 
+                <InputDate id="datecreated" @bind-Value="Subscription.DateCreated" class="form-control" /> 
+                <ValidationMessage For="() => Subscription.DateCreated" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="dateupdated" class="form-label">DateUpdated:</label> 
+                <InputDate id="dateupdated" @bind-Value="Subscription.DateUpdated" class="form-control" /> 
+                <ValidationMessage For="() => Subscription.DateUpdated" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="createdby" class="form-label">CreatedBy:</label> 
+                <InputText id="createdby" @bind-Value="Subscription.CreatedBy" class="form-control" /> 
+                <ValidationMessage For="() => Subscription.CreatedBy" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="updateby" class="form-label">UpdateBy:</label> 
+                <InputText id="updateby" @bind-Value="Subscription.UpdateBy" class="form-control" /> 
+                <ValidationMessage For="() => Subscription.UpdateBy" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/subscriptions">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private Subscription Subscription { get; set; } = new();
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddSubscription()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Subscription.Add(Subscription);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/subscriptions");
+    }
+}
