@@ -1,0 +1,79 @@
+﻿@page "/listeninghistories/create"
+@using Microsoft.EntityFrameworkCore
+@using Pancake_Final.Domain
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>ListeningHistory</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="ListeningHistory" OnValidSubmit="AddListeningHistory" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert"/>
+            <div class="mb-3">
+                <label for="userid" class="form-label">UserId:</label> 
+                <InputNumber id="userid" @bind-Value="ListeningHistory.UserId" class="form-control" /> 
+                <ValidationMessage For="() => ListeningHistory.UserId" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="songid" class="form-label">SongId:</label> 
+                <InputText id="songid" @bind-Value="ListeningHistory.SongId" class="form-control" /> 
+                <ValidationMessage For="() => ListeningHistory.SongId" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label> 
+                <InputText id="name" @bind-Value="ListeningHistory.Name" class="form-control" /> 
+                <ValidationMessage For="() => ListeningHistory.Name" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="id" class="form-label">Id:</label> 
+                <InputNumber id="id" @bind-Value="ListeningHistory.Id" class="form-control" /> 
+                <ValidationMessage For="() => ListeningHistory.Id" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="datecreated" class="form-label">DateCreated:</label> 
+                <InputDate id="datecreated" @bind-Value="ListeningHistory.DateCreated" class="form-control" /> 
+                <ValidationMessage For="() => ListeningHistory.DateCreated" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="dateupdated" class="form-label">DateUpdated:</label> 
+                <InputDate id="dateupdated" @bind-Value="ListeningHistory.DateUpdated" class="form-control" /> 
+                <ValidationMessage For="() => ListeningHistory.DateUpdated" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="createdby" class="form-label">CreatedBy:</label> 
+                <InputText id="createdby" @bind-Value="ListeningHistory.CreatedBy" class="form-control" /> 
+                <ValidationMessage For="() => ListeningHistory.CreatedBy" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="updateby" class="form-label">UpdateBy:</label> 
+                <InputText id="updateby" @bind-Value="ListeningHistory.UpdateBy" class="form-control" /> 
+                <ValidationMessage For="() => ListeningHistory.UpdateBy" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/listeninghistories">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private ListeningHistory ListeningHistory { get; set; } = new();
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddListeningHistory()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.ListeningHistory.Add(ListeningHistory);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/listeninghistories");
+    }
+}

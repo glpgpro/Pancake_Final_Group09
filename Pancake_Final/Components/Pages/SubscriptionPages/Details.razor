@@ -1,0 +1,62 @@
+﻿@page "/subscriptions/details"
+@using Microsoft.EntityFrameworkCore
+@using Pancake_Final.Domain
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h2>Subscription</h2>
+    <hr />
+    @if (subscription is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">SubId</dt>
+            <dd class="col-sm-10">@subscription.SubId</dd>
+            <dt class="col-sm-2">UserId</dt>
+            <dd class="col-sm-10">@subscription.UserId</dd>
+            <dt class="col-sm-2">Name</dt>
+            <dd class="col-sm-10">@subscription.Name</dd>
+            <dt class="col-sm-2">SubStatus</dt>
+            <dd class="col-sm-10">@subscription.SubStatus</dd>
+            <dt class="col-sm-2">SubPlans</dt>
+            <dd class="col-sm-10">@subscription.SubPlans</dd>
+            <dt class="col-sm-2">DateCreated</dt>
+            <dd class="col-sm-10">@subscription.DateCreated</dd>
+            <dt class="col-sm-2">DateUpdated</dt>
+            <dd class="col-sm-10">@subscription.DateUpdated</dd>
+            <dt class="col-sm-2">CreatedBy</dt>
+            <dd class="col-sm-10">@subscription.CreatedBy</dd>
+            <dt class="col-sm-2">UpdateBy</dt>
+            <dd class="col-sm-10">@subscription.UpdateBy</dd>
+        </dl>
+        <div>
+            <a href="@($"/subscriptions/edit?id={subscription.Id}")">Edit</a> |
+            <a href="@($"/subscriptions")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private Subscription? subscription;
+
+    [SupplyParameterFromQuery]
+    private int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        subscription = await context.Subscription.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (subscription is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

@@ -32,11 +32,11 @@
             <img class="logo" src="\images\pancakeLogo.png" alt="Logo">
             <span class="logo-text">Pancake</span>
         </div>
-        <div class="buttons">
+@*         <div class="buttons">
             <button id="premiumButton">Premium</button>
             <button id="supportButton">Support</button>
             <div class="separator"></div>
-        </div>
+        </div> *@
     </div>
     <main>
     <StatusMessage Message="@Message" />
@@ -53,7 +53,7 @@
         <form action="#" method="POST" class="signup-form">
             <!-- Email Address -->
             <div class="createEmail">
-                    <InputText @bind-Value="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Brandonsmells123@example.com" />
+                    <InputText @bind-Value="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Email@example.com" />
                     <label for="email">Email</label>
                     <ValidationMessage For="() => Input.Email" class="text-danger" />
              </div>

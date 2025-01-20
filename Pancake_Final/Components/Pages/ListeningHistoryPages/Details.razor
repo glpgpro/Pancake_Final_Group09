@@ -1,0 +1,60 @@
+﻿@page "/listeninghistories/details"
+@using Microsoft.EntityFrameworkCore
+@using Pancake_Final.Domain
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h2>ListeningHistory</h2>
+    <hr />
+    @if (listeninghistory is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">UserId</dt>
+            <dd class="col-sm-10">@listeninghistory.UserId</dd>
+            <dt class="col-sm-2">SongId</dt>
+            <dd class="col-sm-10">@listeninghistory.SongId</dd>
+            <dt class="col-sm-2">Name</dt>
+            <dd class="col-sm-10">@listeninghistory.Name</dd>
+            <dt class="col-sm-2">Id</dt>
+            <dd class="col-sm-10">@listeninghistory.Id</dd>
+            <dt class="col-sm-2">DateCreated</dt>
+            <dd class="col-sm-10">@listeninghistory.DateCreated</dd>
+            <dt class="col-sm-2">DateUpdated</dt>
+            <dd class="col-sm-10">@listeninghistory.DateUpdated</dd>
+            <dt class="col-sm-2">CreatedBy</dt>
+            <dd class="col-sm-10">@listeninghistory.CreatedBy</dd>
+            <dt class="col-sm-2">UpdateBy</dt>
+            <dd class="col-sm-10">@listeninghistory.UpdateBy</dd>
+        </dl>
+        <div>
+            <a href="@($"/listeninghistories/edit?historyid={listeninghistory.HistoryId}")">Edit</a> |
+            <a href="@($"/listeninghistories")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private ListeningHistory? listeninghistory;
+
+    [SupplyParameterFromQuery]
+    private int HistoryId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        listeninghistory = await context.ListeningHistory.FirstOrDefaultAsync(m => m.HistoryId == HistoryId);
+
+        if (listeninghistory is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

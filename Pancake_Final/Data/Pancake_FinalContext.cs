@@ -22,5 +22,9 @@ namespace Pancake_Final.Data
         public DbSet<Pancake_Final.Domain.Album> Album { get; set; } = default!;
         public DbSet<Pancake_Final.Domain.Genre> Genre { get; set; } = default!;
         public DbSet<Pancake_Final.Domain.Playlist> Playlist { get; set; } = default!;
+        public DbSet<Pancake_Final.Domain.PaymentMethod> PaymentMethod { get; set; } = default!;
+        public DbSet<Pancake_Final.Domain.ListeningHistory> ListeningHistory { get; set; } = default!;
+        public DbSet<Pancake_Final.Domain.Subscription> Subscription { get; set; } = default!;
+        public DbSet<Pancake_Final.Domain.User> User { get; set; } = default!;
     }
 }
