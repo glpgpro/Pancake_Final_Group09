@@ -230,7 +230,7 @@ namespace Pancake_Final.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "598c44d9-c012-4c62-8128-31799aaaaade",
+                            ConcurrencyStamp = "1677d0b0-2e33-4ff7-8ad3-fbd93c92f4a4",
                             Email = "admin@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -238,23 +238,26 @@ namespace Pancake_Final.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPhSejM/hgevOejmT2kDM8qssV79yK9yL+g9a2LC3aG1cr+0KcGo/1/ZBWf9kUjm9A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKWbeixbMxbtQbr85I+RXcnPtaiPF7xS0G9bna0Xm7MDIbjtfG6IORp1GLYpTy9gfw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0d9a752e-2d4f-4c38-be0c-1df751d083b4",
+                            SecurityStamp = "bb69edcb-01ee-4bad-98d9-03dedb4b2f67",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });
                 });
 
-            modelBuilder.Entity("Pancake_Final.Domain.Song", b =>
+            modelBuilder.Entity("Pancake_Final.Domain.Album", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AlbumID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AlbumID"));
 
-                    b.Property<int>("AlbumID")
+                    b.Property<byte>("AlbumImage")
+                        .HasColumnType("tinyint");
+
+                    b.Property<int>("ArtistID")
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
@@ -269,30 +272,162 @@ namespace Pancake_Final.Migrations
                     b.Property<int>("GenID")
                         .HasColumnType("int");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdateBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UpdatedBy")
+                    b.HasKey("AlbumID");
+
+                    b.ToTable("Album");
+                });
+
+            modelBuilder.Entity("Pancake_Final.Domain.Artists", b =>
+                {
+                    b.Property<int>("ArtistID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ArtistID"));
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("SongId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ArtistID");
+
+                    b.ToTable("Artists");
+                });
+
+            modelBuilder.Entity("Pancake_Final.Domain.Genre", b =>
+                {
+                    b.Property<string>("GenreID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("GenreName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("GenreID");
+
+                    b.ToTable("Genre");
+                });
+
+            modelBuilder.Entity("Pancake_Final.Domain.Playlist", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PlaylistID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PlaylistName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.ToTable("Playlist");
+                });
+
+            modelBuilder.Entity("Pancake_Final.Domain.Song", b =>
+                {
+                    b.Property<int>("SongId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SongId"));
+
+                    b.Property<int>("AlbumID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ArtistId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ArtistsArtistID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("GenID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LikedS")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SongId");
+
+                    b.HasIndex("ArtistsArtistID");
 
                     b.ToTable("Song");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            AlbumID = 0,
+                            SongId = 1,
+                            AlbumID = 1,
+                            ArtistId = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 12, 3, 23, 34, 21, 279, DateTimeKind.Local).AddTicks(8053),
-                            DateUpdated = new DateTime(2024, 12, 3, 23, 34, 21, 279, DateTimeKind.Local).AddTicks(8064),
-                            GenID = 0,
-                            Name = "Micheal Jackson",
-                            UpdatedBy = "System"
+                            DateCreated = new DateTime(2025, 1, 20, 15, 49, 13, 774, DateTimeKind.Local).AddTicks(948),
+                            DateUpdated = new DateTime(2025, 1, 20, 15, 49, 13, 774, DateTimeKind.Local).AddTicks(961),
+                            GenID = 1,
+                            Id = 0,
+                            LikedS = "Liked",
+                            Name = "Don Toliver - No Pole",
+                            UpdateBy = "System"
                         });
                 });
 
@@ -345,6 +480,18 @@ namespace Pancake_Final.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Pancake_Final.Domain.Song", b =>
+                {
+                    b.HasOne("Pancake_Final.Domain.Artists", null)
+                        .WithMany("Songs")
+                        .HasForeignKey("ArtistsArtistID");
+                });
+
+            modelBuilder.Entity("Pancake_Final.Domain.Artists", b =>
+                {
+                    b.Navigation("Songs");
                 });
 #pragma warning restore 612, 618
         }
