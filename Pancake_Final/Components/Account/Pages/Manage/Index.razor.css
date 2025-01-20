@@ -1,0 +1,122 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Form Styling */
+form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-floating {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Field */
+input.form-control, input[type="text"], input[type="password"], input[type="email"], input[type="number"], input[type="tel"], textarea {
+    padding: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+    input.form-control:disabled {
+        background-color: #f8f9fa;
+        border-color: #ddd;
+    }
+
+label.form-label {
+    font-weight: 500;
+    color: #495057;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.9rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+input.form-control:focus + .form-label, input.form-control:valid + .form-label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.8rem;
+    color: #007bff;
+}
+
+/* Button Styling */
+button {
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    button:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+    }
+
+/* Validation Message */
+.text-danger {
+    color: #dc3545;
+    font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-floating {
+        margin-bottom: 1rem;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+/* Status Message Styling */
+.status-message {
+    padding: 10px;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    background-color: #e9ecef;
+    color: #495057;
+    font-size: 1rem;
+}
+
+    .status-message.error {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+
+    .status-message.success {
+        background-color: #d4edda;
+        color: #155724;
+    }
