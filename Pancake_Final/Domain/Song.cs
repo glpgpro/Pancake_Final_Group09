@@ -30,7 +30,11 @@ namespace Pancake_Final.Domain
         //Methods
         public string? Name { get; set; }
 
-        public string? LikedS { get; set; } 
+        public string? LikedS { get; set; }
+
+        public string FilePath { get; set; } = string.Empty;
+
+        public TimeSpan Duration { get; set; }
 
         //public string SongImage { get; set;}
 

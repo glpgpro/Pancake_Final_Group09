@@ -14,8 +14,8 @@ namespace Pancake_Final.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.ApplyConfiguration(new Song_Seed());
+            string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "music");
+            modelBuilder.ApplyConfiguration(new Song_Seed(folderPath));
             modelBuilder.ApplyConfiguration(new UserSeed());
         }
         public DbSet<Pancake_Final.Domain.Artists> Artists { get; set; } = default!;
