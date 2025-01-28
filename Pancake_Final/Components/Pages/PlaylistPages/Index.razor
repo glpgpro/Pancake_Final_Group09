@@ -25,7 +25,7 @@
             <input placeholder="Enter playlist name" />
             <button class="SearchPlaylistButton">Search</button>
             <button class="AddPlaylistButton">
-                <a href="/PlaylistCreation">Add Playlist</a>
+                <a href="/PlaylistCreation">Create Playlist</a>
             </button>
             <button class="DeletePlaylistButton">Delete Playlist
             </button>
@@ -57,20 +57,20 @@
 </body>
 </html>
 
-<QuickGrid Class="table" Items="context.Playlist">
-    <PropertyColumn Property="playlist => playlist.PlaylistID" />
-    <PropertyColumn Property="playlist => playlist.UserId" />
-    <PropertyColumn Property="playlist => playlist.PlaylistName" />
-    <PropertyColumn Property="playlist => playlist.DateCreated" />
-    <PropertyColumn Property="playlist => playlist.DateUpdated" />
-    <PropertyColumn Property="playlist => playlist.CreatedBy" />
-    <PropertyColumn Property="playlist => playlist.UpdateBy" />
-    <TemplateColumn Context="playlist">
-        <a href="@($"playlists/edit?id={playlist.Id}")">Edit</a> |
-        <a href="@($"playlists/details?id={playlist.Id}")">Details</a> |
-        <a href="@($"playlists/delete?id={playlist.Id}")">Delete</a>
-    </TemplateColumn>
-</QuickGrid>
+@* <QuickGrid Class="table" Items="context.Playlist"> *@
+@*     <PropertyColumn Property="playlist => playlist.PlaylistID" /> *@
+@*     <PropertyColumn Property="playlist => playlist.UserId" /> *@
+@*     <PropertyColumn Property="playlist => playlist.PlaylistName" /> *@
+@*     <PropertyColumn Property="playlist => playlist.DateCreated" /> *@
+@*     <PropertyColumn Property="playlist => playlist.DateUpdated" /> *@
+@*     <PropertyColumn Property="playlist => playlist.CreatedBy" /> *@
+@*     <PropertyColumn Property="playlist => playlist.UpdateBy" /> *@
+@*     <TemplateColumn Context="playlist"> *@
+@*         <a href="@($"playlists/edit?id={playlist.Id}")">Edit</a> | *@
+@*         <a href="@($"playlists/details?id={playlist.Id}")">Details</a> | *@
+@*         <a href="@($"playlists/delete?id={playlist.Id}")">Delete</a> *@
+@*     </TemplateColumn> *@
+@* </QuickGrid> *@
 
 @code {
 

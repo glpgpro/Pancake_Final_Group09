@@ -6,6 +6,7 @@
 @implements IAsyncDisposable
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,8 +110,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        // Fetch songs from the database
-        filteredSongs = await context.Song.ToListAsync();
+        context = await DbFactory.CreateDbContextAsync(); // Initialize context
+        filteredSongs = await context.Song.ToListAsync(); // Fetch songs
+        Songs = new List<Song>(filteredSongs); // Backup the full list for filtering
     }
 
     private void FilterSongs(ChangeEventArgs e)
