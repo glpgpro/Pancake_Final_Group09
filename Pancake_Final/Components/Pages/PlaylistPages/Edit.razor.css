@@ -1,0 +1,125 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    header h1 {
+        margin: 0;
+    }
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+    .btn.back-btn {
+        background-color: #ccc;
+    }
+
+    .btn.save-btn {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .btn.clear-btn {
+        background-color: #FFC107;
+        color: white;
+    }
+
+    .btn.cancel-btn {
+        background-color: #F44336;
+        color: white;
+    }
+
+    .btn:hover {
+        opacity: 0.8;
+    }
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+input, textarea, select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.radio-group label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.song-list, .selected-songs {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+    .song-list ul, .selected-songs ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .song-list li, .selected-songs li {
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+        .song-list li:last-child, .selected-songs li:last-child {
+            border-bottom: none;
+        }
+
+    .song-list button, .selected-songs button {
+        padding: 5px 10px;
+        background-color: #2196F3;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 12px;
+    }
+
+        .song-list button:hover, .selected-songs button:hover {
+            opacity: 0.8;
+        }

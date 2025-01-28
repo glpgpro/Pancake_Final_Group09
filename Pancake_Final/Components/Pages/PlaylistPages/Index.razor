@@ -5,6 +5,7 @@
 @using Pancake_Final.Data
 @implements IAsyncDisposable
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject NavigationManager NavigationManager
 
 <PageTitle>Index</PageTitle>
 <!DOCTYPE html>
@@ -22,31 +23,33 @@
         </h1>
         <div class="PlaylistSearchbar">
             <input placeholder="Enter playlist name" />
-            <button>Add Playlist</button>
+            <button class="SearchPlaylistButton">Search</button>
+            <button class="AddPlaylistButton">
+                <a href="/PlaylistCreation">Add Playlist</a>
+            </button>
+            <button class="DeletePlaylistButton">Delete Playlist
+            </button>
         </div>
         <div class="playlistcards_container">
             <div class="Playlist_card1">
                 <div class="card-body">
-                    <img src="/images/Music Icon.jpg" alt="Image 1" class="R1image">
                     <h5 class="card-title">Example Playlist 1</h5>
-                    <p class="card-text">Playlist ID: 1</p>
-                    <button class="btn btn-danger">Delete Playlist</button>
+                    <img src="/images/Music Icon.jpg" alt="Image 1" class="R1image">
+                    <button class="btn btn-danger">Play</button>
                 </div>
             </div>
             <div class="Playlist_card2">
                 <div class="card-body">
                     <h5 class="card-title">Example Playlist 2</h5>
                     <img src="/images/Music Icon.jpg" alt="Image 1" class="R1image">
-                    <p class="card-text">Playlist ID: 2</p>
-                    <button class="btn btn-danger">Delete Playlist</button>
+                    <button class="btn btn-danger">Play</button>
                 </div>
             </div>
             <div class="Playlist_card3">
                 <div class="card-body">
                     <h5 class="card-title">Example Playlist 3</h5>
                     <img src="/images/Music Icon.jpg" alt="Image 1" class="R1image">
-                    <p class="card-text">Playlist ID: 3</p>
-                    <button class="btn btn-danger">Delete Playlist</button>
+                    <button class="btn btn-danger">Play</button>
                 </div>
             </div>
         </div>
@@ -62,7 +65,6 @@
     <PropertyColumn Property="playlist => playlist.DateUpdated" />
     <PropertyColumn Property="playlist => playlist.CreatedBy" />
     <PropertyColumn Property="playlist => playlist.UpdateBy" />
-
     <TemplateColumn Context="playlist">
         <a href="@($"playlists/edit?id={playlist.Id}")">Edit</a> |
         <a href="@($"playlists/details?id={playlist.Id}")">Details</a> |
@@ -71,6 +73,7 @@
 </QuickGrid>
 
 @code {
+
     private Pancake_FinalContext context = default!;
 
     protected override void OnInitialized()
