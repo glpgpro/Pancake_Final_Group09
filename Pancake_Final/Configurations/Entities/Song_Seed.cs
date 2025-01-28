@@ -41,7 +41,6 @@ namespace Pancake_Final.Configurations.Entities
                     CreatedBy = "Seeder",
                     UpdateBy = "Seeder",
                     ArtistId = 1, // Placeholder, update later if needed
-                    AlbumID = 1, // Placeholder, update later if needed
                     GenID = 1 // Placeholder, update later if needed
                 };
                 Songs.Add(song);
