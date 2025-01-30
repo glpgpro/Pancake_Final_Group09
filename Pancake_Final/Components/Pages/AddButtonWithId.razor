@@ -1,0 +1,17 @@
+@using Pancake_Final.Domain
+
+<button @onclick="() => InvokeMethod()">Add Song</button>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    [Parameter]
+    public Action<int> CallMethod { get; set; }
+
+    private void InvokeMethod()
+    {
+        CallMethod?.Invoke(id);
+    }
+
+}

@@ -59,3 +59,7 @@ function clearForm() {
     selectedSongs.clear();
     selectedSongsList.innerHTML = "";
 }
+
+function ErrorHandling() {
+    Console.WriteLine("Its Working Mate");
+}

@@ -1,4 +1,5 @@
 ﻿@page "/Playlist"
+@* @rendermode InteractiveServer *@
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.QuickGrid
 @using Pancake_Final.Domain
@@ -6,6 +7,7 @@
 @implements IAsyncDisposable
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
 @inject NavigationManager NavigationManager
+
 
 <PageTitle>Index</PageTitle>
 <!DOCTYPE html>
@@ -24,8 +26,8 @@
         <div class="PlaylistSearchbar">
             <input placeholder="Enter playlist name" />
             <button class="SearchPlaylistButton">Search</button>
-            <button class="AddPlaylistButton">
-                <a href="/PlaylistCreation">Create Playlist</a>
+            <button class="AddPlaylistButton" >
+                <a class="btn btn-primary" href="/PlaylistCreation">Create Playlist</a>
             </button>
             <button class="DeletePlaylistButton">Delete Playlist
             </button>
@@ -73,6 +75,16 @@
 @* </QuickGrid> *@
 
 @code {
+
+    private void TestClick()
+    {
+        Console.WriteLine("Button clicked!");
+    }
+
+    private void NavigateToCreatePlaylist()
+    {
+        NavigationManager.NavigateTo("/PlaylistCreation");
+    }
 
     private Pancake_FinalContext context = default!;
 
