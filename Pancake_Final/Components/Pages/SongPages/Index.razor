@@ -14,71 +14,65 @@
 </header>
 
 <div class="SearchBarDiv">
-    <input class="SearchBar"
+    <input type="text"
+           id="SearchBar"
            placeholder="Enter a song"
-           @bind-value="SearchQuery"
-           @bind-value:event="oninput" />
+           @oninput="SearchSongs">
 </div>
 
-
-    <div class="SongContainer">
-        <table class="song-table">
-            <thead>
+<div class="SongContainer">
+    <table class="song-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Date Added</th>
+                <th>Duration</th>
+                <th>Play</th>
+            </tr>
+        </thead>
+        <p>Total Songs: @Songs.Count</p>
+        @if (PaginatedSongs != null && PaginatedSongs.Any())
+        {
+            @foreach (var song in PaginatedSongs)
+            {
                 <tr>
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Artist</th>
-                    <th>Date Added</th>
-                    <th>Duration</th>
-                    <th>Play</th>
+                    <td>@(FilteredSongs.IndexOf(song) + 1)</td>
+                    <td>@song.Name</td>
+                    <td>@song.ArtistId</td>
+                    <td>@DateTime.Now.ToShortDateString()</td>
+                    <td>@song.Duration</td>
+                    <td>
+                        <button class="btn btn-success btn-sm" @onclick="() => PlaySong(song.FilePath)">Play</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm @(song.LikedS == "Liked" ? "btn-success" : "btn-danger")"
+                                 @onclick="() => ToggleLike(song)">
+                            @(song.LikedS == "Liked" ? "Unlike" : "Like")
+                        </button>
+                    </td>
                 </tr>
-            </thead>
-            <p>Total Songs: @Songs.Count</p>
-            @*<p>Filtered Songs: @FilteredSongs.Count</p> //debugging
-            <p>Paginated Songs: @PaginatedSongs.Count</p> debugging *@ 
-                @if (PaginatedSongs != null && PaginatedSongs.Any())
-                {
-                    @foreach (var song in PaginatedSongs)
-                    {
-                        <tr>
-                            <td>@(FilteredSongs.IndexOf(song) + 1)</td>
-                            <td>@song.Name</td>
-                            <td>@song.ArtistId</td>
-                            <td>@DateTime.Now.ToShortDateString()</td>
-                            <td>@song.Duration</td>
-                            <td>
-                                <button class="btn btn-success btn-sm" @onclick="() => PlaySong(song.FilePath)">Play</button>
-                            </td>
-                            <td>
-                                <button class="btn btn-sm @(song.LikedS == "Liked" ? "btn-success" : "btn-danger")"
-                                         @onclick="() => ToggleLike(song)">
-                                    @(song.LikedS == "Liked" ? "Unlike" : "Like")
-                                </button>
-                            </td>
-                        </tr>
-                    }
-                }
-                else
-                {
-                    <tr>
-                        <td colspan="6">No songs found.</td>
-                    </tr>
-                }
-                <script src="/Js/AudioPlayer.js"></script>
-            
-        </table>
-    </div>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6">No songs found.</td>
+            </tr>
+        }
+    </table>
+</div>
 
-    <div class="PaginationControls">
-        <button @onclick="PreviousPage" class="btn btn-secondary" disabled="@IsFirstPage">Previous</button>
-        <span>Page @CurrentPage of @TotalPages</span>
-        <button @onclick="NextPage" class="btn btn-secondary" disabled="@IsLastPage">Next</button>
-    </div>
+<div class="PaginationControls">
+    <button @onclick="PreviousPage" class="btn btn-secondary" disabled="@IsFirstPage">Previous</button>
+    <span>Page @CurrentPage of @TotalPages</span>
+    <button @onclick="NextPage" class="btn btn-secondary" disabled="@IsLastPage">Next</button>
+</div>
 
-    <div class="AudioPlayback">
-        <audio id="audioPlayer" controls style="width: 100%;"></audio>
-    </div>
-
+<div class="AudioPlayback">
+    <audio id="audioPlayer" controls style="width: 100%;"></audio>
+</div>
 
 @code {
     private Pancake_FinalContext context = default!;
@@ -102,7 +96,7 @@
         {
             context = await DbFactory.CreateDbContextAsync();
             Songs = await context.Song.ToListAsync();
-            FilteredSongs = Songs;
+            FilteredSongs = Songs;  // Initially no filtering
             UpdatePagination();
         }
         finally
@@ -134,40 +128,27 @@
         }
     }
 
-
-    // private void SearchSongs()
-    // {
-    //     if (string.IsNullOrWhiteSpace(SearchQuery))
-    //     {
-    //         FilteredSongs = Songs;
-    //     }
-    //     else
-    //     {
-    //         FilteredSongs = Songs
-    //             .Where(song => song.Name.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase))
-    //             .ToList();
-    //     }
-    //
-    //     CurrentPage = 1;
-    //     UpdatePagination(); // Refresh paginated results
-    // }
-    private void SearchSongs(ChangeEventArgs e)//For the search bar in PlaylistCreationPage
+    private void SearchSongs(ChangeEventArgs e)
     {
         var searchTerm = e.Value?.ToString()?.ToLower();
+        
         if (string.IsNullOrWhiteSpace(searchTerm))
         {
+            // If search is cleared, reset the filtered songs to all songs
             FilteredSongs = new List<Song>(Songs);
         }
         else
         {
-
+            // Filter songs based on the search term (case-insensitive search for song name)
             FilteredSongs = Songs
                 .Where(song => song.Name.ToLower().Contains(searchTerm))
                 .ToList();
         }
+
+        // After filtering, reset to the first page and update pagination
+        CurrentPage = 1;
+        UpdatePagination();
     }
-
-
 
     private void NextPage()
     {

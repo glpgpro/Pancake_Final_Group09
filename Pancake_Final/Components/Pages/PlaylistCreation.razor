@@ -8,8 +8,6 @@
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
-
-@* <!DOCTYPE html> *@
 <div class="container">
     <!-- Header -->
     <header>
@@ -47,16 +45,23 @@
                 }
                 else
                 {
-                    @for(int i = 0; i < filteredSongs.Count; ++i)
+                    @for (int i = (currentPage - 1) * pageSize; i < Math.Min(currentPage * pageSize, filteredSongs.Count); ++i)
                     {
                         <li>
-                            <strong>@filteredSongs[i].Name</strong> (ID: @filteredSongs[i].Id)
+                             <strong>@filteredSongs[i].Name</strong> @*(ID: @filteredSongs[i].Id) *@
                             <br />
                             <AddButtonWithId id=i CallMethod="AddSong"></AddButtonWithId>
                         </li>
                     }
                 }
             </ul>
+
+            <!-- Pagination Controls -->
+            <div class="PaginationControls">
+                <button @onclick="PreviousPage" class="btn btn-secondary" disabled="@IsFirstPage">Previous</button>
+                <span>Page @CurrentPage of @TotalPages</span>
+                <button @onclick="NextPage" class="btn btn-secondary" disabled="@IsLastPage">Next</button>
+            </div>
         </div>
 
         <div class="selected-songs">
@@ -68,10 +73,10 @@
                 }
                 else
                 {
-                    @for(int i = 0; i < SelectedSongs.Count; ++i)
+                    @for (int i = 0; i < SelectedSongs.Count; ++i)
                     {
                         <li>
-                            <strong>@SelectedSongs[i].Name</strong> (ID: @SelectedSongs[i].Id)
+                             <strong>@SelectedSongs[i].Name</strong> @*(ID: @SelectedSongs[i].Id) *@
                             <br />
                             <RemoveButtonWithId id=i CallMethod="RemoveSong"></RemoveButtonWithId>
                         </li>
@@ -82,11 +87,9 @@
     </section>
 
     <!-- Actions Section -->
-    @* <section class="actions"> *@
-        <button class="btn save-btn" @onclick="SavePlaylist">Save Playlist</button>
-        <button class="btn clear-btn" @onclick="ClearForm">Clear Form</button>
-        <button class="btn cancel-btn">Cancel</button>
-    @* </section> *@
+    <button class="btn save-btn" @onclick="SavePlaylist">Save Playlist</button>
+    <button class="btn clear-btn" @onclick="ClearForm">Clear Form</button>
+    <button class="btn cancel-btn">Cancel</button>
 </div>
 
 @code {
@@ -96,8 +99,45 @@
     private List<Song> addedSongs = new();
     private List<Song> filteredSongs = new();
     private List<Song> SelectedSongs = new();
+    private int currentPage = 1;
+    private const int pageSize = 5;
+    private int TotalPages => (int)Math.Ceiling((double)filteredSongs.Count / pageSize);
 
+    // Methods to handle pagination logic
+    private bool IsFirstPage => currentPage == 1;
+    private bool IsLastPage => currentPage == TotalPages;
+    private bool CanGoNext => currentPage * pageSize < filteredSongs.Count;
+    private bool CanGoPrevious => currentPage > 1;
+    private int CurrentPage => currentPage;
+    private void NextPage()
+    {
+        if (!IsLastPage)
+        {
+            currentPage++;
+            UpdatePagination();
+            StateHasChanged();
+        }
+    }
+    
+    private void PreviousPage()
+    {
+        if (!IsFirstPage)
+        {
+            currentPage--;
+            UpdatePagination();
+            StateHasChanged();
+        }
+    }
 
+    // Method to update the pagination data
+    private void UpdatePagination()
+    {
+        // Ensure that the filteredSongs list is updated when switching pages
+        var startIndex = (currentPage - 1) * pageSize;
+        var endIndex = Math.Min(currentPage * pageSize, filteredSongs.Count);
+        var paginatedSongs = filteredSongs.Skip(startIndex).Take(endIndex - startIndex).ToList();
+        StateHasChanged();
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -111,12 +151,10 @@
         using var localContext = await DbFactory.CreateDbContextAsync();
         Songs = await localContext.Song.ToListAsync();
         filteredSongs = new List<Song>(Songs);
-
-        Console.WriteLine($"Loaded {Songs.Count} songs.");//Counting the number of 
-
+        UpdatePagination(); // Initialize pagination state after loading songs
     }
 
-    private void FilterSongs(ChangeEventArgs e)//For the search bar in PlaylistCreationPage
+    private void FilterSongs(ChangeEventArgs e)
     {
         var searchTerm = e.Value?.ToString()?.ToLower();
         if (string.IsNullOrWhiteSpace(searchTerm))
@@ -125,12 +163,16 @@
         }
         else
         {
-
             filteredSongs = Songs
                 .Where(song => song.Name.ToLower().Contains(searchTerm))
                 .ToList();
         }
+
+        // Reset to the first page after applying filter
+        currentPage = 1;
+        UpdatePagination();
     }
+
     private void AddSong(int songId)
     {
         if (SelectedSongs.Any(s => s.SongId == filteredSongs[songId].SongId))
@@ -141,15 +183,15 @@
         // Add to SelectedSongs
         SelectedSongs.Add(filteredSongs[songId]);
         
-        //Remove from filteredSongs
+        // Remove from filteredSongs
         filteredSongs.Remove(filteredSongs[songId]);
         
-        //Debugging Methods for Songs
+        // Debugging Methods for Songs
         Console.WriteLine($"Added song: {filteredSongs[songId].Name}");
-        Console.WriteLine($"Filtered Songs Count: {filteredSongs.Count}");
-        StateHasChanged(); // Notify Blazor to update the UI
+        Console.WriteLine($"Filtered Songs Count:   {filteredSongs.Count}");
+        UpdatePagination(); // Recalculate pagination state
     }
-    
+
     private void RemoveSong(int songId)
     {
         if (SelectedSongs.Any(s => s.SongId == filteredSongs[songId].SongId))
@@ -158,100 +200,72 @@
             return;
         }
         
-        //Add Song to filteredSongs
+        // Add Song to filteredSongs
         filteredSongs.Add(SelectedSongs[songId]);
         
-        //Remove Song from selectedSongs
+        // Remove Song from selectedSongs
         SelectedSongs.Remove(SelectedSongs[songId]);
         
-        //Debugging Methods for Songs
-        // Console.WriteLine($"Added song: {SelectedSongs[songId].Name}");
-        // Console.WriteLine($"Filtered Songs Count: {SelectedSongs.Count}");
-        StateHasChanged(); // Notify Blazor to update the UI
+        // Debugging Methods for Songs
+        UpdatePagination(); // Recalculate pagination state
     }
 
     private async Task SavePlaylist()
     {
-        // Get the authentication state
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        var user = authState.User;
-
-        // Check if the user is authenticated
-        if (!user.Identity.IsAuthenticated)
-        {
-            Console.WriteLine("User is not authenticated. Cannot save playlist.");
-            return;
-        }
-
-        // Retrieve the User ID from claims
-        var UserId = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-
-        if (string.IsNullOrEmpty(UserId))
-        {
-            Console.WriteLine("User ID not found in claims.");
-            return;
-        }
+        //   Get the authentication state 
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync(); 
+        var user = authState.User; 
+ 
+        // Check if the user is authenticated 
+        if (!user.Identity.IsAuthenticated) 
+        { 
+            Console.WriteLine("User is not authenticated. Cannot save playlist."); 
+            return; 
+        } 
+ 
+        // Retrieve the User ID from claims 
+        var UserId = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value; 
+ 
+        if (string.IsNullOrEmpty(UserId)) 
+        { 
+            Console.WriteLine("User ID not found in claims."); 
+            return; 
+        } 
+        
+        using var localContext = await DbFactory.CreateDbContextAsync(); 
+        User gorilla = await localContext.User.FirstOrDefaultAsync((m => m.ASPNetUserID == UserId)); 
         
         
-        using var localContext = await DbFactory.CreateDbContextAsync();
-
-        User gorilla = await localContext.User.FirstOrDefaultAsync((m => m.ASPNetUserID == UserId));
-        
-        // var playlist = new Domain.Playlist
-        //     {
-        //         //Playlist.cs Methods
-        //         PlaylistID = 1,
-        //         
-        //         UserId = gorilla.Id,
-        //         PlaylistName = PlaylistName,
-        //         
-        //         // CoverImagePath = CoverImagePath,
-        //         Songs = SelectedSongs,
-        //         
-        //         //BaseDomainModel Methods
-        //         DateCreated = DateTime.Now,
-        //         DateUpdated = DateTime.Now,
-        //         
-        //         UpdateBy = UserId,
-        //         CreatedBy = UserId,
-        //         
-        //         Id = 0
-        //
-        //     };
-        //
-
-
-
-        var playlist = new Domain.Playlist();
-
-        //BaseDomainModel Methods
-        
-        playlist.DateUpdated = DateTime.Now;
-        playlist.DateCreated = DateTime.Now;
-        playlist.CreatedBy = "gorilla";
-        playlist.UpdateBy = "gorilla";
-        
-        //playlist Methods
-        
-        playlist.PlaylistName = "gorilla";
-        playlist.Songs = new List<Domain.Song>(); // Initialize the Songs collection if not done already.
-
-        // Assuming SelectedSongs is a list of Song objects that already exist in your localContext or are newly created
-        foreach (var song in SelectedSongs)
-        {
-            // Make sure each song is either added to the context or attached
-            if (localContext.Entry(song).State == EntityState.Detached)
-            {
-                // If the song is not tracked, add it to the context
-                localContext.Song.Attach(song);
-            }
-
-            // Now add each song to the playlist's Songs collection
-            playlist.Songs.Add(song);
-        }
-        
-        localContext.Playlist.Add(playlist);
-        await localContext.SaveChangesAsync();
+        var playlist = new Domain.Playlist(); 
+ 
+        //BaseDomainModel Methods 
+         
+        playlist.DateUpdated = DateTime.Now; 
+        playlist.DateCreated = DateTime.Now; 
+        playlist.CreatedBy = "gorilla"; 
+        playlist.UpdateBy = "gorilla"; 
+         
+        //playlist Methods 
+         
+        playlist.PlaylistName = "gorilla"; 
+        playlist.Songs = new List<Domain.Song>(); // Initialize the Songs collection if not done already. 
+ 
+        // Assuming SelectedSongs is a list of Song objects that already exist in your localContext or are newly created 
+        foreach (var song in SelectedSongs) 
+        { 
+            // Make sure each song is either added to the context or attached 
+            if (localContext.Entry(song).State == EntityState.Detached) 
+            { 
+                // If the song is not tracked, add it to the context 
+                localContext.Song.Attach(song); 
+            } 
+ 
+            // Now add each song to the playlist's Songs collection 
+            playlist.Songs.Add(song); 
+        } 
+         
+        localContext.Playlist.Add(playlist); 
+        await localContext.SaveChangesAsync(); 
     }
 
     private void ClearForm()
@@ -260,22 +274,36 @@
         CoverImagePath = null;
         SelectedSongs.Clear();
         filteredSongs = new List<Song>(Songs);
+        currentPage = 1; // Reset to first page after clearing form
     }
 
-    private void HandleCoverImageUpload(InputFileChangeEventArgs e)
-    {
-        // var file = e.File;
-        // if (file != null)
-        // {
-        //     var filePath = Path.Combine("wwwroot/uploads", file.Name);
-        //     await using var fileStream = new FileStream(filePath, FileMode.Create);
-        //     await file.OpenReadStream().CopyToAsync(fileStream);
-        //     CoverImagePath = filePath; Save the uploaded image path
-        // }
-    }
+    //Method to handle cover image uploading
+    
+    // private void HandleCoverImageUpload(InputFileChangeEventArgs e)
+    // {
+    //     var file = e.File;
+    //     
+    //     // Ensure that a file is selected
+    //     if (file == null)
+    //     {
+    //         return;
+    //     }
+    //
+    //     // Generate the upload path
+    //     var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", file.Name);
+    //     
+    //     // Save the file to the server
+    //     using (var stream = new FileStream(uploadPath, FileMode.Create))
+    //     {
+    //         await file.OpenReadStream().CopyToAsync(stream);
+    //     }
+    //
+    //     // Store the relative path for the image
+    //     CoverImagePath = "/images/" + file.Name;
+    // }
 
     public async ValueTask DisposeAsync()
     {
-        // Dispose any resources if needed
+        // Dispose of any resources if necessary
     }
 }
