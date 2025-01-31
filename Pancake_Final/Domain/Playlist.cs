@@ -13,10 +13,10 @@ namespace Pancake_Final.Domain
 
         //Foreign Keys
 
-        public int UserId { get; set; } = 1234;
+        public int? UserId { get; set; }
 
         //Methods
-        public string? PlaylistName { get; set; } = "Gorilla";
+        public string? PlaylistName { get; set; }
         
         // public string? CoverImagePath { get; set; }
         public List<Song> Songs { get; set; } = new List<Song>();

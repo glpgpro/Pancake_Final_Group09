@@ -20,7 +20,7 @@
            @bind-value:event="oninput" />
 </div>
 
-<main>
+
     <div class="SongContainer">
         <table class="song-table">
             <thead>
@@ -34,9 +34,8 @@
                 </tr>
             </thead>
             <p>Total Songs: @Songs.Count</p>
-            <p>Filtered Songs: @FilteredSongs.Count</p>
-            <p>Paginated Songs: @PaginatedSongs.Count</p>
-            <tbody>
+            @*<p>Filtered Songs: @FilteredSongs.Count</p> //debugging
+            <p>Paginated Songs: @PaginatedSongs.Count</p> debugging *@ 
                 @if (PaginatedSongs != null && PaginatedSongs.Any())
                 {
                     @foreach (var song in PaginatedSongs)
@@ -50,6 +49,12 @@
                             <td>
                                 <button class="btn btn-success btn-sm" @onclick="() => PlaySong(song.FilePath)">Play</button>
                             </td>
+                            <td>
+                                <button class="btn btn-sm @(song.LikedS == "Liked" ? "btn-success" : "btn-danger")"
+                                         @onclick="() => ToggleLike(song)">
+                                    @(song.LikedS == "Liked" ? "Unlike" : "Like")
+                                </button>
+                            </td>
                         </tr>
                     }
                 }
@@ -60,7 +65,7 @@
                     </tr>
                 }
                 <script src="/Js/AudioPlayer.js"></script>
-            </tbody>
+            
         </table>
     </div>
 
@@ -73,7 +78,7 @@
     <div class="AudioPlayback">
         <audio id="audioPlayer" controls style="width: 100%;"></audio>
     </div>
-</main>
+
 
 @code {
     private Pancake_FinalContext context = default!;
@@ -109,27 +114,57 @@
 
     public async ValueTask DisposeAsync() => await context.DisposeAsync();
 
-
-
-    // Triggered when the user types in the search bar
-    private void SearchSongs()
+    private async Task ToggleLike(Song song)
     {
-        if (string.IsNullOrWhiteSpace(SearchQuery))
+        try
         {
-            // If search query is empty, reset to show all songs
-            FilteredSongs = Songs;
+            // Toggle the LikedS value
+            song.LikedS = song.LikedS == "Liked" ? "NotLiked" : "Liked";
+
+            // Save the change to the database
+            context.Song.Update(song);
+            await context.SaveChangesAsync();
+
+            // Optionally refresh UI
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error updating song: {ex.Message}");
+        }
+    }
+
+
+    // private void SearchSongs()
+    // {
+    //     if (string.IsNullOrWhiteSpace(SearchQuery))
+    //     {
+    //         FilteredSongs = Songs;
+    //     }
+    //     else
+    //     {
+    //         FilteredSongs = Songs
+    //             .Where(song => song.Name.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase))
+    //             .ToList();
+    //     }
+    //
+    //     CurrentPage = 1;
+    //     UpdatePagination(); // Refresh paginated results
+    // }
+    private void SearchSongs(ChangeEventArgs e)//For the search bar in PlaylistCreationPage
+    {
+        var searchTerm = e.Value?.ToString()?.ToLower();
+        if (string.IsNullOrWhiteSpace(searchTerm))
+        {
+            FilteredSongs = new List<Song>(Songs);
         }
         else
         {
-            // Filter the complete list of songs based on the search query (case-insensitive)
+
             FilteredSongs = Songs
-                .Where(song => song.Name.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase))
+                .Where(song => song.Name.ToLower().Contains(searchTerm))
                 .ToList();
         }
-
-        // Always reset pagination to the first page after a search
-        CurrentPage = 1;
-        UpdatePagination(); // Refresh the paginated list
     }
 
 

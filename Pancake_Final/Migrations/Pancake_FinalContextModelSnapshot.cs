@@ -230,7 +230,7 @@ namespace Pancake_Final.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "88578df1-5655-4301-8743-b832f9319ab2",
+                            ConcurrencyStamp = "f95d5abe-555c-4a15-a5fb-14e8e86403ed",
                             Email = "admin@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -238,9 +238,9 @@ namespace Pancake_Final.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAENpDw8peogMxXsBdNSDbqRCPzFGzy3LJchJUdaAQ+uoXqKYhrUKvZzWZdV/aV+Z7hA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECaz5ad9J01T1M4IdtZrbFm53ts8arg8Ikwwo8K5k/0hrZJPv8VjPt7hIlMAIRcdAw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c59ab5b3-f032-47d4-a228-a331e28d2958",
+                            SecurityStamp = "d9b91eb1-554e-4080-a2fa-7d436bb0dd4f",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });
@@ -433,7 +433,7 @@ namespace Pancake_Final.Migrations
                     b.Property<string>("UpdateBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("PlaylistID");
@@ -449,10 +449,10 @@ namespace Pancake_Final.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SongId"));
 
-                    b.Property<int>("AlbumID")
+                    b.Property<int?>("AlbumID")
                         .HasColumnType("int");
 
-                    b.Property<int>("ArtistId")
+                    b.Property<int?>("ArtistId")
                         .HasColumnType("int");
 
                     b.Property<int?>("ArtistsArtistID")
@@ -474,7 +474,7 @@ namespace Pancake_Final.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("GenID")
+                    b.Property<int?>("GenID")
                         .HasColumnType("int");
 
                     b.Property<int>("Id")
@@ -504,11 +504,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 1,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9762),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9775),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 658, DateTimeKind.Local).AddTicks(9962),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 658, DateTimeKind.Local).AddTicks(9974),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -520,11 +519,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 2,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9783),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9783),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 658, DateTimeKind.Local).AddTicks(9986),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 658, DateTimeKind.Local).AddTicks(9987),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -536,11 +534,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 3,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9785),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9785),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 658, DateTimeKind.Local).AddTicks(9989),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 658, DateTimeKind.Local).AddTicks(9990),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -552,11 +549,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 4,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9786),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9787),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 658, DateTimeKind.Local).AddTicks(9992),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 658, DateTimeKind.Local).AddTicks(9992),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -568,11 +564,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 5,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9788),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9788),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(24),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(25),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -584,11 +579,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 6,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9791),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9791),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(28),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(29),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -600,11 +594,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 7,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9793),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9793),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(31),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(32),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -616,11 +609,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 8,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9794),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9795),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(34),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(34),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -632,11 +624,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 9,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9796),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9796),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(36),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(37),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -648,11 +639,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 10,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9799),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9799),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(40),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(41),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -664,11 +654,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 11,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9800),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9801),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(43),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(43),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -680,11 +669,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 12,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9802),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9802),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(45),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(45),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -696,11 +684,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 13,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9803),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9804),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(47),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(48),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -712,11 +699,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 14,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9805),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9806),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(55),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(56),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -728,11 +714,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 15,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9807),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9807),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(58),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(65),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -744,11 +729,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 16,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9809),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9809),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(85),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(86),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -760,11 +744,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 17,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9811),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9811),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(88),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(89),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -776,11 +759,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 18,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9813),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9813),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(92),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(92),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -792,11 +774,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 19,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9815),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9815),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(94),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(95),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -808,11 +789,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 20,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9850),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9851),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(97),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(97),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -824,11 +804,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 21,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9852),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9853),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(100),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(100),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -840,11 +819,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 22,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9854),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9854),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(102),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(103),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -856,11 +834,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 23,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9856),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9857),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(105),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(105),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -872,11 +849,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 24,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9858),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9858),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(107),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(108),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -888,11 +864,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 25,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9859),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9860),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(110),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(111),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -904,11 +879,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 26,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9861),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9861),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(113),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(113),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -920,11 +894,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 27,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9863),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9863),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(115),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(115),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -936,11 +909,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 28,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9864),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9865),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(122),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(123),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -952,11 +924,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 29,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9866),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9866),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(129),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(129),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -968,11 +939,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 30,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9868),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9868),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(147),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(147),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -984,11 +954,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 31,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9870),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9870),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(150),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(150),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1000,11 +969,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 32,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9871),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9872),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(152),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(152),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1016,11 +984,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 33,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9873),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9873),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(154),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(155),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1032,11 +999,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 34,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9876),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9876),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(158),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(158),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1048,11 +1014,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 35,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9878),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9878),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(161),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(161),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1064,11 +1029,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 36,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9879),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9879),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(214),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(215),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1080,11 +1044,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 37,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9881),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9881),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(218),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(219),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1096,11 +1059,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 38,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9882),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9883),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(221),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(221),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1112,11 +1074,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 39,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9884),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9884),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(223),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(224),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1128,11 +1089,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 40,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9886),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9886),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(226),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(226),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1144,11 +1104,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 41,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9887),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9888),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(228),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(228),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1160,11 +1119,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 42,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9889),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9889),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(230),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(231),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1176,11 +1134,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 43,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9891),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9891),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(233),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(233),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1192,11 +1149,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 44,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9892),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9893),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(235),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(236),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1208,11 +1164,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 45,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9894),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9894),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(238),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(238),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1224,11 +1179,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 46,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9896),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9896),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(240),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(241),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1240,11 +1194,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 47,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9897),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9898),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(242),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(243),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1256,11 +1209,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 48,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9899),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9899),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(245),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(245),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1272,11 +1224,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 49,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9900),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9901),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(247),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(248),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1288,11 +1239,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 50,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9902),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9902),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(249),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(250),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1304,11 +1254,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 51,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9904),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9904),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(252),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(252),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1320,11 +1269,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 52,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9905),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9906),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(254),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(255),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1336,11 +1284,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 53,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9907),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9907),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(256),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(257),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1352,11 +1299,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 54,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9909),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9909),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(259),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(259),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1368,11 +1314,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 55,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9910),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9910),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(261),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(262),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1384,11 +1329,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 56,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9912),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9912),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(264),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(264),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1400,11 +1344,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 57,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9913),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9914),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(266),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(267),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1416,11 +1359,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 58,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9939),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9939),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(268),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(269),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1432,11 +1374,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 59,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9940),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9941),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(271),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(271),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1448,11 +1389,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 60,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9942),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9942),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(273),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(274),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1464,11 +1404,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 61,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9944),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9944),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(275),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(276),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1480,11 +1419,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 62,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9945),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9946),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(278),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(278),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1496,11 +1434,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 63,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9947),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9947),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(280),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(281),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1512,11 +1449,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 64,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9949),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9949),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(283),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(283),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1528,11 +1464,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 65,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9950),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9951),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(285),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(286),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1544,11 +1479,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 66,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9953),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9953),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(289),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(290),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1560,11 +1494,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 67,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9955),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9955),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(292),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(293),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1576,11 +1509,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 68,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9956),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9957),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(294),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(295),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1592,11 +1524,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 69,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9958),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9958),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(336),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(337),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1608,11 +1539,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 70,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9960),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9960),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(339),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(339),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1624,11 +1554,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 71,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9961),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9962),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(341),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(342),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1640,11 +1569,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 72,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9963),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9963),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(343),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(344),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1656,11 +1584,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 73,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9964),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9965),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(346),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(346),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1672,11 +1599,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 74,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9966),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9966),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(348),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(349),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1688,11 +1614,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 75,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9968),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9968),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(350),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(351),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1704,11 +1629,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 76,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9969),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9970),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(353),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(353),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1720,11 +1644,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 77,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9971),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9971),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(355),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(355),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1736,11 +1659,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 78,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9972),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9973),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(357),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(358),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1752,11 +1674,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 79,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9974),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9974),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(360),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(360),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1768,11 +1689,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 80,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9976),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9976),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(362),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(363),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1784,11 +1704,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 81,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9977),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9978),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(364),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(365),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1800,11 +1719,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 82,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9979),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9979),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(367),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(368),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1816,11 +1734,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 83,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9981),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9981),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(370),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(370),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1832,11 +1749,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 84,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9982),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9982),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(372),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(373),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1848,11 +1764,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 85,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9984),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9984),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(375),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(375),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1864,11 +1779,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 86,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9986),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9986),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(377),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(378),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1880,11 +1794,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 87,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9987),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9988),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(380),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(380),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1896,11 +1809,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 88,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9989),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9989),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(382),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(383),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1912,11 +1824,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 89,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9990),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9991),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(385),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(385),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1928,11 +1839,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 90,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9992),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9993),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(387),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(388),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1944,11 +1854,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 91,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9994),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 109, DateTimeKind.Local).AddTicks(9994),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(389),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(390),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1960,11 +1869,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 92,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(21),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(22),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(392),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(392),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1976,11 +1884,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 93,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(23),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(24),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(394),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(395),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -1992,11 +1899,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 94,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(25),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(26),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(396),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(397),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2008,11 +1914,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 95,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(27),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(27),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(399),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(399),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2024,11 +1929,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 96,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(28),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(29),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(401),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(401),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2040,11 +1944,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 97,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(30),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(30),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(403),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(404),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2056,11 +1959,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 98,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(31),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(32),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(405),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(406),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2072,11 +1974,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 99,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(33),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(33),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(408),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(408),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2088,11 +1989,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 100,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(35),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(35),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(410),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(411),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2104,11 +2004,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 101,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(36),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(37),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(412),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(413),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2120,11 +2019,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 102,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(38),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(38),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(415),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(415),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2136,11 +2034,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 103,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(39),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(40),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(417),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(418),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2152,11 +2049,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 104,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(41),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(41),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(419),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(420),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2168,11 +2064,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 105,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(43),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(43),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(422),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(422),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2184,11 +2079,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 106,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(44),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(45),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(424),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(425),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2200,11 +2094,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 107,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(46),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(46),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(454),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(454),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2216,11 +2109,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 108,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(48),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(48),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(456),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(457),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2232,11 +2124,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 109,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(49),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(50),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(459),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(459),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2248,11 +2139,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 110,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(51),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(51),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(461),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(462),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2264,11 +2154,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 111,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(53),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(53),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(464),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(464),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2280,11 +2169,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 112,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(54),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(55),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(467),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(467),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2296,11 +2184,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 113,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(56),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(56),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(469),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(470),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2312,11 +2199,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 114,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(57),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(58),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(471),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(472),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2328,11 +2214,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 115,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(59),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(59),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(474),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(474),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2344,11 +2229,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 116,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(61),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(61),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(476),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(476),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2360,11 +2244,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 117,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(62),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(63),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(478),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(479),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2376,11 +2259,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 118,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(64),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(64),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(481),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(481),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2392,11 +2274,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 119,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(65),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(66),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(483),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(484),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2408,11 +2289,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 120,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(67),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(67),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(485),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(486),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2424,11 +2304,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 121,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(68),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(69),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(488),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(488),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2440,11 +2319,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 122,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(70),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(71),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(490),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(490),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2456,11 +2334,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 123,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(72),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(72),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(492),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(493),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2472,11 +2349,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 124,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(73),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(74),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(495),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(495),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2488,11 +2364,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 125,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(75),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(75),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(497),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(498),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2504,11 +2379,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 126,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(77),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(77),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(499),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(500),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2520,11 +2394,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 127,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(78),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(78),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(502),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(502),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2536,11 +2409,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 128,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(80),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(80),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(504),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(505),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2552,11 +2424,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 129,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(81),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(81),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(507),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(507),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2568,11 +2439,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 130,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(98),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(98),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(510),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(511),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2584,11 +2454,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 131,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(100),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(100),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(513),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(513),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2600,11 +2469,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 132,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(101),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(101),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(515),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(516),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2616,11 +2484,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 133,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(103),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(103),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(517),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(518),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2632,11 +2499,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 134,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(104),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(105),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(547),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(547),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2648,11 +2514,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 135,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(106),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(106),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(549),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(550),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2664,11 +2529,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 136,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(108),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(108),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(552),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(552),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2680,11 +2544,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 137,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(109),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(110),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(554),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(555),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2696,11 +2559,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 138,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(111),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(111),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(556),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(557),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2712,11 +2574,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 139,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(113),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(113),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(559),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(559),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2728,11 +2589,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 140,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(114),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(115),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(561),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(562),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2744,11 +2604,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 141,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(116),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(116),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(563),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(564),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2760,11 +2619,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 142,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(118),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(118),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(566),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(566),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2776,11 +2634,10 @@ namespace Pancake_Final.Migrations
                         new
                         {
                             SongId = 143,
-                            AlbumID = 0,
                             ArtistId = 1,
                             CreatedBy = "Seeder",
-                            DateCreated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(119),
-                            DateUpdated = new DateTime(2025, 1, 30, 15, 49, 26, 110, DateTimeKind.Local).AddTicks(120),
+                            DateCreated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(568),
+                            DateUpdated = new DateTime(2025, 1, 31, 1, 47, 18, 659, DateTimeKind.Local).AddTicks(569),
                             Duration = new TimeSpan(0, 0, 0, 0, 0),
                             FilePath = "",
                             GenID = 1,
@@ -2833,11 +2690,11 @@ namespace Pancake_Final.Migrations
 
             modelBuilder.Entity("Pancake_Final.Domain.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
                     b.Property<string>("ASPNetUserID")
                         .IsRequired()
@@ -2855,6 +2712,9 @@ namespace Pancake_Final.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -2864,10 +2724,7 @@ namespace Pancake_Final.Migrations
                     b.Property<string>("UpdateBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.HasIndex("ASPNetUserID");
 
