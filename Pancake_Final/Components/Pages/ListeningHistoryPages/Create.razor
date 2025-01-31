@@ -19,12 +19,12 @@
                 <label for="userid" class="form-label">UserId:</label> 
                 <InputNumber id="userid" @bind-Value="ListeningHistory.UserId" class="form-control" /> 
                 <ValidationMessage For="() => ListeningHistory.UserId" class="text-danger" /> 
-            </div>        
+            </div>
             <div class="mb-3">
-                <label for="songid" class="form-label">SongId:</label> 
-                <InputText id="songid" @bind-Value="ListeningHistory.SongId" class="form-control" /> 
-                <ValidationMessage For="() => ListeningHistory.SongId" class="text-danger" /> 
-            </div>        
+                <label for="songid" class="form-label">SongId:</label>
+                <InputNumber id="songid" @bind-Value="ListeningHistory.SongId" class="form-control" />
+                <ValidationMessage For="() => ListeningHistory.SongId" class="text-danger" />
+            </div>      
             <div class="mb-3">
                 <label for="name" class="form-label">Name:</label> 
                 <InputText id="name" @bind-Value="ListeningHistory.Name" class="form-control" /> 

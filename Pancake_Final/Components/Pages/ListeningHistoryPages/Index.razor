@@ -6,48 +6,38 @@
 @implements IAsyncDisposable
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
 
-<PageTitle>Listening History</PageTitle>
+<PageTitle>Index</PageTitle>
 
-<h1>Listening History</h1>
+<h1>Index</h1>
 
 <p>
-    <a href="/listeninghistories/create" class="btn btn-primary">Create New</a>
+    <a href="listeninghistories/create">Create New</a>
 </p>
 
-<QuickGrid Class="table table-striped" Items="ListeningHistories" RowClass="row-class">
-    <PropertyColumn Title="User ID" Property="listeninghistory => listeninghistory.UserId" />
-    <PropertyColumn Title="Song Name" Property="listeninghistory => listeninghistory.Name" />
-    <PropertyColumn Title="Date Played" Property="listeninghistory => listeninghistory.DateCreated" />
-    <PropertyColumn Title="Played By" Property="listeninghistory => listeninghistory.CreatedBy" />
+<QuickGrid Class="table" Items="context.ListeningHistory">
+    <PropertyColumn Property="listeninghistory => listeninghistory.UserId" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.SongId" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.Name" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.Id" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.DateCreated" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.DateUpdated" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.CreatedBy" />
+    <PropertyColumn Property="listeninghistory => listeninghistory.UpdateBy" />
+
     <TemplateColumn Context="listeninghistory">
-        <a href="@($"listeninghistories/edit?historyid={listeninghistory.Id}")">Edit</a> |
-        <a href="@($"listeninghistories/details?historyid={listeninghistory.Id}")">Details</a> |
-        <a href="@($"listeninghistories/delete?historyid={listeninghistory.Id}")">Delete</a>
+        <a href="@($"listeninghistories/edit?historyid={listeninghistory.HistoryId}")">Edit</a> |
+        <a href="@($"listeninghistories/details?historyid={listeninghistory.HistoryId}")">Details</a> |
+        <a href="@($"listeninghistories/delete?historyid={listeninghistory.HistoryId}")">Delete</a>
     </TemplateColumn>
 </QuickGrid>
 
 @code {
     private Pancake_FinalContext context = default!;
-    private List<ListeningHistory> ListeningHistories = new();
 
-    // Fetch listening history data
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        context = await DbFactory.CreateDbContextAsync();
-
-        // Fetch all listening history records, including song details
-        ListeningHistories = await context.ListeningHistory
-            .Include(lh => lh.Song) // Include related song information
-            .ToListAsync();
+        context = DbFactory.CreateDbContext();
     }
 
-    // Clean up database context when the component is disposed
     public async ValueTask DisposeAsync() => await context.DisposeAsync();
-
-    // Optional: Apply row styles dynamically
-    private string row-class(ListeningHistory history)
-    {
-        return history.DateCreated.Date == DateTime.UtcNow.Date ? "table-success" : "";
-    }
 }
-

@@ -12,15 +12,15 @@ namespace Pancake_Final.Domain
 
         //Foreign key
 
-        public int UserId       { get; set; }
+        public int? UserId       { get; set; }
 
-        public int SongId   { get; set; }
+        public int? SongId   { get; set; }
 
         //methods
         public string? Name { get; set; }
         
         // Navigation property
-        public Song Song { get; set; } = default!;
+        // public Song Song { get; set; } = default!;
 
     }
 }
