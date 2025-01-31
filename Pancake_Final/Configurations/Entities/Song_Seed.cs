@@ -33,7 +33,7 @@ namespace Pancake_Final.Configurations.Entities
                 {
                     SongId = i + 1, // Auto-increment SongId
                     Name = Path.GetFileNameWithoutExtension(files[i]),
-                    FilePath = files[i],
+                    //FilePath = files[i],
                     Duration = TimeSpan.Zero, // Placeholder (update if you fetch duration)
                     LikedS = "NotLiked", // Default value
                     DateCreated = DateTime.Now,

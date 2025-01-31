@@ -1,119 +1,122 @@
 ﻿@page "/PlaylistCreation"
+@rendermode InteractiveServer
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.QuickGrid
 @using Pancake_Final.Domain
 @using Pancake_Final.Data
 @implements IAsyncDisposable
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a Playlist</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <h1>Create a New Playlist</h1>
-            <button class="btn back-btn" onclick="window.history.back();">Back to Dashboard</button>
-        </header>
 
-        <!-- Playlist Details Section -->
-        <section class="playlist-details">
-            <h2>Playlist Details</h2>
-            <form id="playlistForm">
-                <div class="form-group">
-                    <label for="playlistName">Playlist Name:</label>
-                    <input type="text" id="playlistName" placeholder="Enter playlist name" required>
-                </div>
-                <div class="form-group">
-                    <label for="coverImage">Cover Image:</label>
-                    <input type="file" id="coverImage" accept="image/*">
-                </div>
-            </form>
-        </section>
+@* <!DOCTYPE html> *@
+<div class="container">
+    <!-- Header -->
+    <header>
+        <h1>Create a New Playlist</h1>
+        <button class="btn back-btn" onclick="window.history.back();">Back to Dashboard</button>
+    </header>
 
-        <!-- Song Selection Section -->
-        <section class="song-selection">
-            <h2>Search and Select Songs</h2>
+    <!-- Playlist Details Section -->
+    <section class="playlist-details">
+        <h2>Playlist Details</h2>
+        <form id="playlistForm">
             <div class="form-group">
-                <input type="text" id="searchBar" placeholder="Search songs by title, artist, or album">
+                <label for="playlistName">Playlist Name:</label>
+                <input type="text" id="playlistName" placeholder="Enter playlist name" required @bind="PlaylistName">
             </div>
-            <div class="song-list">
-                <h3>Available Songs</h3>
-                <ul id="availableSongs">
-                    @if (filteredSongs == null || !filteredSongs.Any())
-                    {
-                        <li>No songs available</li>
-                    }
-                    else
-                    {
-                        @foreach (var song in filteredSongs)
-                        {
-                            <li>
-                                <strong>@song.Name</strong> - @song.Duration
-                                <br />
-                                <small>@song.FilePath</small>
-                            </li>
-                        }
-                    }
-                </ul>
+            <div class="form-group">
+                <label for="coverImage">Cover Image:</label>
+                @* <input type="file" id="coverImage" accept="image/*" @onchange="HandleCoverImageUpload"> *@
             </div>
-            <div class="selected-songs">
-                <h3>Selected Songs</h3>
-                <ul id="selectedSongs">
-                    <!-- Selected songs will be shown here -->
-                </ul>
-            </div>
-        </section>
+        </form>
+    </section>  
 
-        <!-- Actions Section -->
-        <section class="actions">
-            <button class="btn save-btn" onclick="savePlaylist()">Save Playlist</button>
-            <button class="btn clear-btn" onclick="clearForm()">Clear Form</button>
-            <button class="btn cancel-btn">Cancel</button>
-        </section>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- Song Selection Section -->
+    <section class="song-selection">
+        <h2>Search and Select Songs</h2>
+        <div class="form-group">
+            <input type="text" id="searchBar" placeholder="Search songs by title, artist, or album" @oninput="FilterSongs">
+        </div>
+        <div class="song-list">
+            <h3>Available Songs</h3>
+            <ul id="availableSongs">
+                @if (filteredSongs == null || !filteredSongs.Any())
+                {
+                    <li>No songs available</li>
+                }
+                else
+                {
+                    @for(int i = 0; i < filteredSongs.Count; ++i)
+                    {
+                        <li>
+                            <strong>@filteredSongs[i].Name</strong> (ID: @filteredSongs[i].Id)
+                            <br />
+                            <AddButtonWithId id=i CallMethod="AddSong"></AddButtonWithId>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
 
-<QuickGrid Class="table" Items="context.Playlist">
-    <PropertyColumn Property="playlist => playlist.PlaylistID" />
-    <PropertyColumn Property="playlist => playlist.UserId" />
-    <PropertyColumn Property="playlist => playlist.PlaylistName" />
-    <PropertyColumn Property="playlist => playlist.DateCreated" />
-    <PropertyColumn Property="playlist => playlist.DateUpdated" />
-    <PropertyColumn Property="playlist => playlist.CreatedBy" />
-    <PropertyColumn Property="playlist => playlist.UpdateBy" />
-    <TemplateColumn Context="playlist">
-        <a href="@($"playlists/edit?id={playlist.Id}")">Edit</a> |
-        <a href="@($"playlists/details?id={playlist.Id}")">Details</a> |
-        <a href="@($"playlists/delete?id={playlist.Id}")">Delete</a>
-    </TemplateColumn>
-</QuickGrid>
+        <div class="selected-songs">
+            <h3>Selected Songs</h3>
+            <ul id="selectedSongs">
+                @if (SelectedSongs == null || !SelectedSongs.Any())
+                {
+                    <li>No songs available</li>
+                }
+                else
+                {
+                    @for(int i = 0; i < SelectedSongs.Count; ++i)
+                    {
+                        <li>
+                            <strong>@SelectedSongs[i].Name</strong> (ID: @SelectedSongs[i].Id)
+                            <br />
+                            <RemoveButtonWithId id=i CallMethod="RemoveSong"></RemoveButtonWithId>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </section>
+
+    <!-- Actions Section -->
+    @* <section class="actions"> *@
+        <button class="btn save-btn" @onclick="SavePlaylist">Save Playlist</button>
+        <button class="btn clear-btn" @onclick="ClearForm">Clear Form</button>
+        <button class="btn cancel-btn">Cancel</button>
+    @* </section> *@
+</div>
 
 @code {
-
-
-    private Pancake_FinalContext context = default!;
     private string PlaylistName = string.Empty;
     private string? CoverImagePath;
     private List<Song> Songs = new();
+    private List<Song> addedSongs = new();
     private List<Song> filteredSongs = new();
     private List<Song> SelectedSongs = new();
 
+
+
     protected override async Task OnInitializedAsync()
     {
-        // Fetch songs from the database
-        filteredSongs = await context.Song.ToListAsync();
+        await LoadSongsAsync();
+        SelectedSongs = new List<Song>(); // Ensure SelectedSongs is initialized
+        filteredSongs = new List<Song>(Songs); // Initialize filteredSongs from Songs
     }
 
-    private void FilterSongs(ChangeEventArgs e)
+    private async Task LoadSongsAsync()
+    {
+        using var localContext = await DbFactory.CreateDbContextAsync();
+        Songs = await localContext.Song.ToListAsync();
+        filteredSongs = new List<Song>(Songs);
+
+        Console.WriteLine($"Loaded {Songs.Count} songs.");//Counting the number of 
+
+    }
+
+    private void FilterSongs(ChangeEventArgs e)//For the search bar in PlaylistCreationPage
     {
         var searchTerm = e.Value?.ToString()?.ToLower();
         if (string.IsNullOrWhiteSpace(searchTerm))
@@ -122,29 +125,126 @@
         }
         else
         {
+
             filteredSongs = Songs
                 .Where(song => song.Name.ToLower().Contains(searchTerm))
                 .ToList();
         }
     }
-
-    private void AddSong(Song song)
+    private void AddSong(int songId)
     {
-        if (!SelectedSongs.Contains(song))
+        if (SelectedSongs.Any(s => s.SongId == filteredSongs[songId].SongId))
         {
-            SelectedSongs.Add(song);
-            filteredSongs.Remove(song);
+            Console.WriteLine("Song is already in the selected list.");
+            return;
         }
+        // Add to SelectedSongs
+        SelectedSongs.Add(filteredSongs[songId]);
+        
+        //Remove from filteredSongs
+        filteredSongs.Remove(filteredSongs[songId]);
+        
+        //Debugging Methods for Songs
+        Console.WriteLine($"Added song: {filteredSongs[songId].Name}");
+        Console.WriteLine($"Filtered Songs Count: {filteredSongs.Count}");
+        StateHasChanged(); // Notify Blazor to update the UI
+    }
+    
+    private void RemoveSong(int songId)
+    {
+        if (SelectedSongs.Any(s => s.SongId == filteredSongs[songId].SongId))
+        {
+            Console.WriteLine("Song is already in the filtered list.");
+            return;
+        }
+        
+        //Add Song to filteredSongs
+        filteredSongs.Add(SelectedSongs[songId]);
+        
+        //Remove Song from selectedSongs
+        SelectedSongs.Remove(SelectedSongs[songId]);
+        
+        //Debugging Methods for Songs
+        // Console.WriteLine($"Added song: {SelectedSongs[songId].Name}");
+        // Console.WriteLine($"Filtered Songs Count: {SelectedSongs.Count}");
+        StateHasChanged(); // Notify Blazor to update the UI
     }
 
-    private void RemoveSong(Song song)
+    private async Task SavePlaylist()
     {
-        if (SelectedSongs.Contains(song))
+        // Get the authentication state
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        // Check if the user is authenticated
+        if (!user.Identity.IsAuthenticated)
         {
-            SelectedSongs.Remove(song);
-            filteredSongs.Add(song);
+            Console.WriteLine("User is not authenticated. Cannot save playlist.");
+            return;
         }
+
+        // Retrieve the User ID from claims
+        var UserId = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+        if (string.IsNullOrEmpty(UserId))
+        {
+            Console.WriteLine("User ID not found in claims.");
+            return;
+        }
+        
+        
+        using var localContext = await DbFactory.CreateDbContextAsync();
+
+        User gorilla = await localContext.User.FirstOrDefaultAsync((m => m.ASPNetUserID == UserId));
+        
+        var playlist = new Domain.Playlist
+            {
+                //Playlist.cs Methods
+                PlaylistID = 1,
+                
+                UserId = gorilla.Id,
+                PlaylistName = PlaylistName,
+                
+                // CoverImagePath = CoverImagePath,
+                Songs = SelectedSongs,
+                
+                //BaseDomainModel Methods
+                DateCreated = DateTime.Now,
+                DateUpdated = DateTime.Now,
+                
+                UpdateBy = UserId,
+                CreatedBy = UserId,
+                
+                Id = 0
+
+            };
+        
+        localContext.Playlist.Add(playlist);
+        await localContext.SaveChangesAsync();
     }
 
-    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+    private void ClearForm()
+    {
+        PlaylistName = string.Empty;
+        CoverImagePath = null;
+        SelectedSongs.Clear();
+        filteredSongs = new List<Song>(Songs);
+    }
+
+    private void HandleCoverImageUpload(InputFileChangeEventArgs e)
+    {
+        // var file = e.File;
+        // if (file != null)
+        // {
+        //     var filePath = Path.Combine("wwwroot/uploads", file.Name);
+        //     await using var fileStream = new FileStream(filePath, FileMode.Create);
+        //     await file.OpenReadStream().CopyToAsync(fileStream);
+        //     CoverImagePath = filePath; Save the uploaded image path
+        // }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        // Dispose any resources if needed
+    }
 }
