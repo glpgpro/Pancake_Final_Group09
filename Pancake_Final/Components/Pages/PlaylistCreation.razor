@@ -197,27 +197,58 @@
 
         User gorilla = await localContext.User.FirstOrDefaultAsync((m => m.ASPNetUserID == UserId));
         
-        var playlist = new Domain.Playlist
-            {
-                //Playlist.cs Methods
-                PlaylistID = 1,
-                
-                UserId = gorilla.Id,
-                PlaylistName = PlaylistName,
-                
-                // CoverImagePath = CoverImagePath,
-                Songs = SelectedSongs,
-                
-                //BaseDomainModel Methods
-                DateCreated = DateTime.Now,
-                DateUpdated = DateTime.Now,
-                
-                UpdateBy = UserId,
-                CreatedBy = UserId,
-                
-                Id = 0
+        // var playlist = new Domain.Playlist
+        //     {
+        //         //Playlist.cs Methods
+        //         PlaylistID = 1,
+        //         
+        //         UserId = gorilla.Id,
+        //         PlaylistName = PlaylistName,
+        //         
+        //         // CoverImagePath = CoverImagePath,
+        //         Songs = SelectedSongs,
+        //         
+        //         //BaseDomainModel Methods
+        //         DateCreated = DateTime.Now,
+        //         DateUpdated = DateTime.Now,
+        //         
+        //         UpdateBy = UserId,
+        //         CreatedBy = UserId,
+        //         
+        //         Id = 0
+        //
+        //     };
+        //
 
-            };
+
+
+        var playlist = new Domain.Playlist();
+
+        //BaseDomainModel Methods
+        
+        playlist.DateUpdated = DateTime.Now;
+        playlist.DateCreated = DateTime.Now;
+        playlist.CreatedBy = "gorilla";
+        playlist.UpdateBy = "gorilla";
+        
+        //playlist Methods
+        
+        playlist.PlaylistName = "gorilla";
+        playlist.Songs = new List<Domain.Song>(); // Initialize the Songs collection if not done already.
+
+        // Assuming SelectedSongs is a list of Song objects that already exist in your localContext or are newly created
+        foreach (var song in SelectedSongs)
+        {
+            // Make sure each song is either added to the context or attached
+            if (localContext.Entry(song).State == EntityState.Detached)
+            {
+                // If the song is not tracked, add it to the context
+                localContext.Song.Attach(song);
+            }
+
+            // Now add each song to the playlist's Songs collection
+            playlist.Songs.Add(song);
+        }
         
         localContext.Playlist.Add(playlist);
         await localContext.SaveChangesAsync();

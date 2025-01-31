@@ -7,11 +7,11 @@ namespace Pancake_Final.Domain
 
     {
         //Foreign Key
-        public int ArtistId { get; set; }
+        public int? ArtistId { get; set; }
 
-        public int AlbumID { get; set; }
+        public int? AlbumID { get; set; }
 
-        public int GenID { get; set; }
+        public int? GenID { get; set; }
 
         // Navigation property
 
