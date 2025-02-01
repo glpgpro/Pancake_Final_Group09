@@ -1,0 +1,152 @@
+﻿@rendermode InteractiveServer
+@page "/uploadsong"
+@using Microsoft.EntityFrameworkCore
+@using Pancake_Final.Domain
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject IWebHostEnvironment WebHostEnvironment
+
+
+<PageTitle>Upload Song</PageTitle>
+
+<h1>Upload a New Song</h1>
+
+@if (isUploading)
+{
+    <p>Uploading, please wait...</p>
+}
+else
+{
+    <EditForm Model="newSong" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div>
+            <label for="name">Song Name:</label>
+            <InputText id="name" @bind-Value="newSong.Name" class="form-control" />
+        </div>
+        
+
+        <div>
+            <label for="file">Upload MP3 File:</label>
+            <InputFile OnChange="HandleFileSelected" accept=".mp3" />
+        </div>
+
+      
+        <button type="submit" class="btn btn-primary" disabled="@isUploading">Upload</button>
+    </EditForm>
+}
+
+@code {
+    private Song newSong = new(); // Model for the song
+    private IBrowserFile? uploadedFile; // Selected file
+    private string uploadError = string.Empty; // Error message
+    private bool isUploading = false;
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        uploadedFile = e.File;
+        if (uploadedFile == null || !uploadedFile.ContentType.Equals("audio/mpeg", StringComparison.OrdinalIgnoreCase))
+        {
+            uploadError = "Please select a valid MP3 file.";
+            uploadedFile = null;
+        }
+        else
+        {
+            uploadError = string.Empty;
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (uploadedFile == null)
+        {
+            uploadError = "Please upload an MP3 file.";
+            return;
+        }
+
+        isUploading = true;
+        try
+        {
+            // Save the MP3 file to the server
+            var uploadsFolder = Path.Combine(WebHostEnvironment.WebRootPath, "uploads");
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
+
+            var fileName = $"{Guid.NewGuid()}.mp3";
+            var filePath = Path.Combine(uploadsFolder, fileName);
+
+            // Save the file
+            await using var fileStream = new FileStream(filePath, FileMode.Create);
+            await uploadedFile.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024).CopyToAsync(fileStream);
+
+            // Extract the duration using TagLib
+            var fullFilePath = Path.Combine(WebHostEnvironment.WebRootPath, "uploads", fileName);
+            var duration = GetMp3Duration(fullFilePath);
+
+            // Set default values and duration
+            newSong.FilePath = $"/uploads/{fileName}"; // Relative URL for the file
+            newSong.DateAdded = DateTime.UtcNow;
+            newSong.GenID = 1; // Default GenreId
+            newSong.ArtistId = 1; // Default ArtistId
+            newSong.LikedS = "NotLiked"; // Default value for LikedS
+            newSong.Duration = duration; // Save the duration
+
+            // Save song details to the database
+            await using var context = await DbFactory.CreateDbContextAsync();
+            await context.Song.AddAsync(newSong);
+            await context.SaveChangesAsync();
+
+            // Reset form and show success
+            newSong = new Song();
+            uploadedFile = null;
+            uploadError = string.Empty;
+
+            Console.WriteLine("Upload successful!");
+        }
+        catch (Exception ex)
+        {
+            uploadError = $"An error occurred while uploading the file: {ex.Message}";
+            Console.WriteLine(ex);
+        }
+        finally
+        {
+            isUploading = false;
+        }
+        
+    }
+    private TimeSpan GetMp3Duration(string filePath)
+    {
+        try
+        {
+            Console.WriteLine($"Attempting to read MP3 file at: {filePath}");
+
+            using var file = TagLib.File.Create(filePath);
+
+            // Check for valid duration
+            var duration = file.Properties.Duration;
+            if (duration == TimeSpan.Zero)
+            {
+                Console.WriteLine("Error: Duration is zero. File may be invalid or missing metadata.");
+            }
+            else
+            {
+                Console.WriteLine($"Successfully retrieved duration: {duration}");
+            }
+
+            return duration;
+        }
+        catch (TagLib.UnsupportedFormatException ex)
+        {
+            Console.WriteLine($"Unsupported format: {ex.Message}");
+            return TimeSpan.Zero;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error reading MP3 metadata: {ex.Message}");
+            return TimeSpan.Zero;
+        }
+    }
+    }
+

@@ -8,9 +8,6 @@
 
   <ItemGroup>
     <Compile Remove="Migrations\Pancake_FinalContextModelSnapshot.cs" />
-    <Compile Update="Migrations\20250131074007_Initial_migrate.cs">
-      <DependentUpon>20250130174720_chimpanzee.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +27,7 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
   <ItemGroup>

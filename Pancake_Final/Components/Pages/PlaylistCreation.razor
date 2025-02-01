@@ -249,7 +249,8 @@
          
         //playlist Methods 
          
-        playlist.PlaylistName = "gorilla"; 
+        playlist.PlaylistName = "gorilla";
+        playlist.CoverImagePath = CoverImagePath;
         playlist.Songs = new List<Domain.Song>(); // Initialize the Songs collection if not done already. 
  
         // Assuming SelectedSongs is a list of Song objects that already exist in your localContext or are newly created 
@@ -281,28 +282,27 @@
 
     //Method to handle cover image uploading
     
-    private async Task HandleCoverImageUpload(InputFileChangeEventArgs e)
-    {
-        var file = e.File;
-        
-        // Ensure that a file is selected
-        if (file == null)
-        {
-            return;
-        }
+     private async Task HandleCoverImageUpload(InputFileChangeEventArgs e)
+     {
+         var file = e.File;
+         // Ensure that a file is selected
+         if (file == null)
+         {
+             return;
+         }
     
-        // Generate the upload path
-        var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", file.Name);
-        
-        // Save the file to the server
-        using (var stream = new FileStream(uploadPath, FileMode.Create))
-        {
-            await file.OpenReadStream().CopyToAsync(stream);
-        }
+         // Generate the upload path
+         var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", file.Name);
+         
+         // Save the file to the server
+         using (var stream = new FileStream(uploadPath, FileMode.Create))
+         {
+             await file.OpenReadStream().CopyToAsync(stream);
+         }
     
-        // Store the relative path for the image
-        CoverImagePath = "/images/" + file.Name;
-    }
+         // Store the relative path for the image
+         CoverImagePath = "/images/" + file.Name;
+     }
 
     public async ValueTask DisposeAsync()
     {

@@ -9,7 +9,7 @@ namespace Pancake_Final.Domain
 
         //Primary Key
         [Key]
-        public int PlaylistID { get; set; }
+        public int PlaylistId { get; set; }
 
         //Foreign Keys
 
@@ -20,7 +20,6 @@ namespace Pancake_Final.Domain
         
         public string? CoverImagePath { get; set; }
         public List<Song> Songs { get; set; } = new List<Song>();
-
-
+        
     }
 }
