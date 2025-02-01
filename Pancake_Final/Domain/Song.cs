@@ -35,6 +35,8 @@ namespace Pancake_Final.Domain
         public string FilePath { get; set; } = string.Empty;
 
         public TimeSpan Duration { get; set; }
+        public DateTime DateAdded { get; set; }
+
 
         //public string SongImage { get; set;}
 

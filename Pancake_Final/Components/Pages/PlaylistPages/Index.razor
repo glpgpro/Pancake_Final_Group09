@@ -32,31 +32,35 @@
                 <button class="DeletePlaylistButton">Delete Playlist
                 </button>
             </div>
-            @* <div class="playlistcards_container"> *@
-            @*     @if (playlists != null && playlists.Any()) *@
-            @*     { *@
-            @*         @foreach (var playlist in playlists) *@
-            @*         { *@
-            @*             <div class="Playlist_card" key="@playlist.PlaylistId"> *@
-            @*                 <div class="card-body"> *@
-            @*                     <h5 class="card-title">@playlist.PlaylistName</h5> *@
-            @*                     <img src="@playlist.CoverImagePath ?? "/images/Music Icon.jpg"" alt="@playlist.PlaylistName" class="R1image"> *@
-            @*                     <button class="btn btn-danger" @onclick="() => PlayPlaylist(playlist)">Play</button> *@
-            @*                 </div> *@
-            @*             </div> *@
-            @*         } *@
-            @*     } *@
-            @*     else *@
-            @*     { *@
-            @*         <p>No playlists found.</p> *@
-            @*     } *@
-            @* </div> *@
+            <div class="playlistcards_container">
+                @if (playlists != null && playlists.Any())
+                {
+                    @foreach (var playlist in playlists)
+                    {
+                        <div class="Playlist_card" key="@playlist.PlaylistId">
+                            <div class="card-body">
+                                <h5 class="card-title">@playlist.PlaylistName</h5>
+                                <img src="@playlist.CoverImagePath" alt="@playlist.PlaylistName" class="R1image">
+                                <button class="btn btn-danger" @onclick="() => PlayPlaylist(playlist)">Play</button>
+                                <div class="AudioPlayback">
+                                    <audio id="audioPlayer" controls style="width: 100%;"></audio>
+                                </div>
+                                <!-- Link for JavaScript file -->
+                                <script src="/Js/AudioPlayer.js"></script>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No playlists found.</p>
+                }
+            </div>
         </main>
     </body>
     </html>
-
     <QuickGrid Class="table" Items="context.Playlist">
-        <PropertyColumn Property="playlist => playlist.PlaylistID"/>
+        <PropertyColumn Property="playlist => playlist.PlaylistId"/>
         <PropertyColumn Property="playlist => playlist.UserId" />
         <PropertyColumn Property="playlist => playlist.PlaylistName" />
         <PropertyColumn Property="playlist => playlist.DateCreated" />
@@ -86,13 +90,14 @@
         {   
             LoadPlaylistsAsync().Wait(); // Re-fetch playlists based on the search query
         }
+        
 
-        // private void PlayPlaylist(Playlist playlist)
-        // {
-        //     Console.WriteLine($"Playing playlist: {playlist.PlaylistName}");
-        //     // Implement song playback logic here, e.g., navigate to a playlist detail page or trigger audio playback
-        //     NavigationManager.NavigateTo($"/PlaylistDetails/{playlist.PlaylistId}");
-        // }
+        private void PlayPlaylist(Playlist playlist)
+        {
+            Console.WriteLine($"Playing playlist: {playlist.PlaylistName}");
+            // Implement song playback logic here, e.g., navigate to a playlist detail page or trigger audio playback
+        }
+        
         
         private void NavigateToCreatePlaylist()
         {

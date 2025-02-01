@@ -198,8 +198,9 @@
 
         try
         {
-            // Find the song based on the filePath
+            // Fetch the song using the file path
             var song = await context.Song.FirstOrDefaultAsync(s => s.FilePath == filePath);
+
             if (song == null)
             {
                 Console.WriteLine("Error: Song not found in the database.");
@@ -210,7 +211,7 @@
             var history = new ListeningHistory
             {
                 UserId = 1, // Replace with actual logged-in user ID
-                SongId = song.Id,
+                // SongId = song.Id, // Use the SongId from the database
                 Name = song.Name,
                 DatePlayed = DateTime.UtcNow
             };
