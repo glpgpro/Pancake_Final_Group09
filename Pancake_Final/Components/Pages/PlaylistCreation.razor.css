@@ -1,9 +1,8 @@
-﻿/* General Styling */
-body {
+﻿body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #FFF3E0; /* Light Orange Background */
 }
 
 .container {
@@ -12,16 +11,21 @@ body {
     padding: 20px;
 }
 
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    background-color: #FF6F61; /* Coral Orange Header */
+    padding: 15px 20px;
+    border-radius: 8px;
 }
 
-    header h1 {
-        margin: 0;
-    }
+header h1 {
+    margin: 0;
+    color: #FFFFFF; /* White Text */
+}
 
 .btn {
     padding: 10px 20px;
@@ -32,95 +36,125 @@ header {
     transition: all 0.3s ease;
 }
 
-    .btn.back-btn {
-        background-color: #ccc;
-    }
+.btn.back-btn {
+    background-color: #FFCCBC; /* Light Orange */
+    color: #333333; /* Dark Gray Text */
+}
 
-    .btn.save-btn {
-        background-color: #4CAF50;
-        color: white;
-    }
+.btn.save-btn {
+    background-color: #FF6F61; /* Coral Orange */
+    color: white;
+}
 
-    .btn.clear-btn {
-        background-color: #FFC107;
-        color: white;
-    }
+.btn.clear-btn {
+    background-color: #FFD700; /* Gold */
+    color: white;
+}
 
-    .btn.cancel-btn {
-        background-color: #F44336;
-        color: white;
-    }
+.btn.cancel-btn {
+    background-color: #FF4444; /* Light Red */
+    color: white;
+}
 
-    .btn:hover {
-        opacity: 0.8;
-    }
+.btn:hover {
+    opacity: 0.8;
+}
 
+/* Sections */
 section {
     margin-bottom: 20px;
 }
 
 h2 {
     margin-bottom: 10px;
-    color: #333;
+    color: #333333; /* Dark Gray */
 }
 
+/* Form Group */
 .form-group {
     margin-bottom: 15px;
 }
 
-    .form-group label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333333; /* Dark Gray */
+}
 
 input, textarea, select {
     width: 100%;
     padding: 8px;
     margin: 5px 0 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #FFCCBC; /* Light Orange Border */
     border-radius: 5px;
+    background-color: #FFFFFF; /* White Background */
+    color: #333333; /* Dark Gray Text */
 }
 
-.radio-group label {
-    display: inline-block;
-    margin-right: 15px;
-}
-
+/* Song List and Selected Songs */
 .song-list, .selected-songs {
-    border: 1px solid #ddd;
+    border: 1px solid #FFCCBC; /* Light Orange Border */
     padding: 10px;
-    background: #fff;
+    background: #FFFFFF; /* White Background */
     border-radius: 5px;
 }
 
-    .song-list ul, .selected-songs ul {
-        list-style: none;
-        padding: 0;
-    }
+.song-list ul, .selected-songs ul {
+    list-style: none;
+    padding: 0;
+}
 
-    .song-list li, .selected-songs li {
-        padding: 5px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #ddd;
-    }
+.song-list li, .selected-songs li {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #FFCCBC; /* Light Orange Border */
+}
 
-        .song-list li:last-child, .selected-songs li:last-child {
-            border-bottom: none;
-        }
+.song-list li:last-child, .selected-songs li:last-child {
+    border-bottom: none;
+}
 
-    .song-list button, .selected-songs button {
-        padding: 5px 10px;
-        background-color: #2196F3;
-        color: white;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-        font-size: 12px;
-    }
+.song-list button, .selected-songs button {
+    padding: 5px 10px;
+    background-color: #FF6F61; /* Coral Orange */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
 
-        .song-list button:hover, .selected-songs button:hover {
-            opacity: 0.8;
-        }
+.song-list button:hover, .selected-songs button:hover {
+    opacity: 0.8;
+}
+
+/* Pagination Controls */
+.PaginationControls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.PaginationControls button {
+    background-color: #FF6F61; /* Coral Orange */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.PaginationControls button:disabled {
+    background-color: #FFCCBC; /* Light Orange */
+    cursor: not-allowed;
+}
+
+.PaginationControls span {
+    margin: 0 10px;
+    color: #333333; /* Dark Gray */
+}

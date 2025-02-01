@@ -42,7 +42,7 @@
                     <td>@song.Name</td>
                     <td>@song.ArtistId</td>
                     <td>@DateTime.Now.ToShortDateString()</td>
-                    <td>@song.Duration</td>
+                    <td>@FormatDuration(song.Duration)</td>
                     <td>
                         <button class="btn btn-success btn-sm" @onclick="() => PlaySong(song.FilePath)">Play</button>
                     </td>
@@ -73,10 +73,11 @@
 <div class="AudioPlayback">
     <audio id="audioPlayer" controls style="width: 100%;"></audio>
 </div>
+<!-- Link for JavaScript file -->
+<script src="/Js/AudioPlayer.js"></script>
 
 @code {
     private Pancake_FinalContext context = default!;
-    private string SearchQuery = ""; // Search bar input
     private List<Song> Songs = new(); // List of all songs
     private List<Song> FilteredSongs = new(); // Filtered songs for search
     private List<Song> PaginatedSongs = new(); // Songs displayed on the current page
@@ -177,9 +178,22 @@
             .Take(PageSize) // Take only the songs for the current page
             .ToList();
     }
+    private string FormatDuration(TimeSpan duration)
+    {
+        int minutes = (int)duration.TotalMinutes;
+        double seconds = Math.Round(duration.Seconds + duration.Milliseconds / 1000.0, 2);
+        return $"{minutes}:{seconds:00.00}";
+    }
 
     private async Task PlaySong(string filePath)
     {
-        await JSRuntime.InvokeVoidAsync("playAudio", filePath); // Call the JavaScript function
+        if (string.IsNullOrEmpty(filePath))
+        {
+            Console.WriteLine("Error: FilePath is empty!");
+            return;
+        }
+    
+        Console.WriteLine($"Attempting to play: {filePath}");
+        await JSRuntime.InvokeVoidAsync("playAudio", filePath);
     }
 }

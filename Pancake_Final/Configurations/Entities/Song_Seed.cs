@@ -6,6 +6,7 @@ using Pancake_Final.Domain;
 using System;
 using System.IO;
 using System.Linq;
+using TagLib;
 
 namespace Pancake_Final.Configurations.Entities
 {
@@ -20,28 +21,37 @@ namespace Pancake_Final.Configurations.Entities
         }
 
 
+
+
         public void Configure(EntityTypeBuilder<Song> builder)
         {
+            string rootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+            string audioFolder = Path.Combine(rootPath, "music"); // Assuming files are in wwwroot/music
+            string[] files = Directory.GetFiles(audioFolder, "*.mp3"); // Get all MP3 files
 
-            List<Song> Songs = new();
-            // Read MP3 files from the folder
-            var files = Directory.GetFiles(_folderPath, "*.mp3");
+            List<Song> Songs = new List<Song>();
 
             for (int i = 0; i < files.Length; i++)
             {
+                string relativePath = Path.GetRelativePath(rootPath, files[i]); // Calculate the relative path
+
+                // Use TagLib to fetch duration
+                var tfile = TagLib.File.Create(files[i]);
+                TimeSpan duration = tfile.Properties.Duration; // Fetch the duration as TimeSpan
+
                 Song song = new Song()
                 {
                     SongId = i + 1, // Auto-increment SongId
-                    Name = Path.GetFileNameWithoutExtension(files[i]),
-                    //FilePath = files[i],
-                    Duration = TimeSpan.Zero, // Placeholder (update if you fetch duration)
+                    Name = Path.GetFileNameWithoutExtension(files[i]), // File name without extension
+                    FilePath = $"/{relativePath.Replace("\\", "/")}", // Web-compatible relative path
+                    Duration = duration, // Use fetched duration
                     LikedS = "NotLiked", // Default value
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
                     CreatedBy = "Seeder",
                     UpdateBy = "Seeder",
-                    ArtistId = 1, // Placeholder, update later if needed
-                    GenID = 1 // Placeholder, update later if needed
+                    ArtistId = 1, // Placeholder
+                    GenID = 1 // Placeholder
                 };
                 Songs.Add(song);
             }
