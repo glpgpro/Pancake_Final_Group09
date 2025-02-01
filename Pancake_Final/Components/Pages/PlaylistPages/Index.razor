@@ -32,12 +32,13 @@
                 <button class="DeletePlaylistButton">Delete Playlist
                 </button>
             </div>
-            @* <div class="playlistcards_container"> *@
+            @* Method to create Playlist cards after saving from PlaylistCreation.cs  *@
+            @* <div class="playlistcards_container">   *@
             @*     @if (playlists != null && playlists.Any()) *@
             @*     { *@
             @*         @foreach (var playlist in playlists) *@
             @*         { *@
-            @*             <div class="Playlist_card" key="@playlist.PlaylistId"> *@
+            @*             <div class="Playlist_card" key="@Playlist.PlaylistId"> *@
             @*                 <div class="card-body"> *@
             @*                     <h5 class="card-title">@playlist.PlaylistName</h5> *@
             @*                     <img src="@playlist.CoverImagePath ?? "/images/Music Icon.jpg"" alt="@playlist.PlaylistName" class="R1image"> *@
@@ -71,6 +72,7 @@
     </QuickGrid>
 
     @code {
+        private Playlist PlaylistId;
         private string searchQuery = string.Empty;
         private List<Playlist> playlists = new();
         

@@ -18,7 +18,7 @@ namespace Pancake_Final.Domain
         //Methods
         public string? PlaylistName { get; set; }
         
-        // public string? CoverImagePath { get; set; }
+        public string? CoverImagePath { get; set; }
         public List<Song> Songs { get; set; } = new List<Song>();
 
 
