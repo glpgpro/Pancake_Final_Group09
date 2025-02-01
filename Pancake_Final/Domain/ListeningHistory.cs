@@ -21,6 +21,8 @@ namespace Pancake_Final.Domain
         
         // Navigation property
         // public Song Song { get; set; } = default!;
+        
+        public DateTime DatePlayed { get; set; } = DateTime.UtcNow;
 
     }
 }

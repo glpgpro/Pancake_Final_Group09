@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pancake_Final.Data;
 
@@ -11,9 +12,11 @@ using Pancake_Final.Data;
 namespace Pancake_Final.Migrations
 {
     [DbContext(typeof(Pancake_FinalContext))]
-    partial class Pancake_FinalContextModelSnapshot : ModelSnapshot
+    [Migration("20250201125852_ListenCarefully")]
+    partial class ListenCarefully
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
