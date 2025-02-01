@@ -17,7 +17,7 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    background-color: #FF6F61; /* Coral Orange Header */
+    background-color: #D19866; /* Updated to #D19866 */
     padding: 15px 20px;
     border-radius: 8px;
 }
@@ -42,7 +42,7 @@ header h1 {
 }
 
 .btn.save-btn {
-    background-color: #FF6F61; /* Coral Orange */
+    background-color: #4CAF50; /* Green */
     color: white;
 }
 
@@ -57,6 +57,21 @@ header h1 {
 }
 
 .btn:hover {
+    opacity: 0.8;
+}
+
+/* Add Song Button */
+.song-list button, .btn.add-song-btn {
+    padding: 5px 10px;
+    background-color: #4CAF50 !important; /* Green */
+    color: white !important;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.song-list button:hover, .btn.add-song-btn:hover {
     opacity: 0.8;
 }
 
@@ -115,20 +130,6 @@ input, textarea, select {
 
 .song-list li:last-child, .selected-songs li:last-child {
     border-bottom: none;
-}
-
-.song-list button, .selected-songs button {
-    padding: 5px 10px;
-    background-color: #FF6F61; /* Coral Orange */
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 12px;
-}
-
-.song-list button:hover, .selected-songs button:hover {
-    opacity: 0.8;
 }
 
 /* Pagination Controls */

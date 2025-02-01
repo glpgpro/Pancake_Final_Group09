@@ -192,8 +192,35 @@
             Console.WriteLine("Error: FilePath is empty!");
             return;
         }
-    
+
         Console.WriteLine($"Attempting to play: {filePath}");
         await JSRuntime.InvokeVoidAsync("playAudio", filePath);
+
+        try
+        {
+            // Find the song based on the filePath
+            var song = await context.Song.FirstOrDefaultAsync(s => s.FilePath == filePath);
+            if (song == null)
+            {
+                Console.WriteLine("Error: Song not found in the database.");
+                return;
+            }
+
+            // Save the song in the listening history
+            var history = new ListeningHistory
+            {
+                UserId = 1, // Replace with actual logged-in user ID
+                SongId = song.Id,
+                Name = song.Name,
+                DatePlayed = DateTime.UtcNow
+            };
+
+            await context.ListeningHistory.AddAsync(history);
+            await context.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error saving listening history: {ex.Message}");
+        }
     }
 }
