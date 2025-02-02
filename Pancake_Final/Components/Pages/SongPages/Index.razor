@@ -180,9 +180,18 @@
     }
     private string FormatDuration(TimeSpan duration)
     {
-        int minutes = (int)duration.TotalMinutes;
-        double seconds = Math.Round(duration.Seconds + duration.Milliseconds / 1000.0, 2);
-        return $"{minutes}:{seconds:00.00}";
+        int hours = duration.Hours;
+        int minutes = duration.Minutes;
+        int seconds = duration.Seconds;
+
+        // Format the duration as "HH:mm:ss"
+        if (hours > 0)
+        {
+            return $"{hours:D2}:{minutes:D2}:{seconds:D2}";
+        }
+
+        // If the duration has no hours, format it as "mm:ss"
+        return $"{minutes:D2}:{seconds:D2}";
     }
 
     private async Task PlaySong(string filePath)
