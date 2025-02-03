@@ -7,6 +7,7 @@
 @implements IAsyncDisposable
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager navigationManager
 
 
 <div class="container">
@@ -101,6 +102,7 @@
     private List<Song> addedSongs = new();
     private List<Song> filteredSongs = new();
     private List<Song> SelectedSongs = new();
+    private List<Playlist> playlists = new();
     private int currentPage = 1;
     private const int pageSize = 5;
     private int TotalPages => (int)Math.Ceiling((double)filteredSongs.Count / pageSize);
@@ -201,16 +203,17 @@
             Console.WriteLine("Song is already in the filtered list.");
             return;
         }
-        
+
         // Add Song to filteredSongs
         filteredSongs.Add(SelectedSongs[songId]);
-        
+
         // Remove Song from selectedSongs
         SelectedSongs.Remove(SelectedSongs[songId]);
-        
+
         // Debugging Methods for Songs
         UpdatePagination(); // Recalculate pagination state
     }
+
 
     private async Task SavePlaylist()
     {
@@ -244,12 +247,12 @@
          
         playlist.DateUpdated = DateTime.Now; 
         playlist.DateCreated = DateTime.Now; 
-        playlist.CreatedBy = "gorilla"; 
-        playlist.UpdateBy = "gorilla"; 
+        playlist.CreatedBy = UserId; 
+        playlist.UpdateBy = UserId; 
          
         //playlist Methods 
          
-        playlist.PlaylistName = "gorilla";
+        playlist.PlaylistName = PlaylistName;
         playlist.CoverImagePath = CoverImagePath;
         playlist.Songs = new List<Domain.Song>(); // Initialize the Songs collection if not done already. 
  
@@ -261,14 +264,25 @@
             { 
                 // If the song is not tracked, add it to the context 
                 localContext.Song.Attach(song); 
+                
+                playlist.Songs.Add(song); 
             } 
- 
-            // Now add each song to the playlist's Songs collection 
+            
             playlist.Songs.Add(song); 
+            Console.WriteLine($"Number of Songs saved into playlist: {Songs.Count}");
+
+            navigationManager.NavigateTo("/Playlist");
         } 
          
+        playlists = await localContext.Playlist.ToListAsync();
+        Console.WriteLine($"Number of playlists before: {playlists?.Count}");
         localContext.Playlist.Add(playlist); 
+        
         await localContext.SaveChangesAsync(); 
+        
+        playlists = await localContext.Playlist.ToListAsync();
+        Console.WriteLine($"Number of playlists after: {playlists?.Count}");
+
     }
 
     private void ClearForm()

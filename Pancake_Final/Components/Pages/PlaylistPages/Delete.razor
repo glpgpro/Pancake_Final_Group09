@@ -47,9 +47,9 @@
         </dl>
         <EditForm method="post" Model="playlist" OnValidSubmit="DeletePlaylist" FormName="delete" Enhance>
             <button type="submit" class="btn btn-danger" disabled="@(playlist is null)">Delete</button> |
-            <a href="/playlists">Back to List</a>
-        </EditForm>
-    }
+            <a href="/Playlist">Back to List</a>
+        </EditForm>  
+    }     
 </div>
 
 @code {
@@ -71,9 +71,29 @@
 
     private async Task DeletePlaylist()
     {
-        using var context = DbFactory.CreateDbContext();
-        context.Playlist.Remove(playlist!);
-        await context.SaveChangesAsync();
-        NavigationManager.NavigateTo("/playlists");
+        // using var context = DbFactory.CreateDbContext();
+        //
+        // context.Playlist.Remove(playlist!);
+        // await context.SaveChangesAsync();
+        // NavigationManager.NavigateTo("/Playlist");
+        
+        using var context = await DbFactory.CreateDbContextAsync();
+
+        var playlist = await context.Playlist
+            .Include(p => p.Songs) // ✅ Load songs
+            .FirstOrDefaultAsync(p => p.PlaylistId == p.PlaylistId);
+
+        if (playlist == null)
+        {
+            Console.WriteLine("❌ Error: Playlist not found.");
+            return;
+        }
+        
+        //Delete the Playlist
+        context.Playlist.Remove(playlist);
+
+        await context.SaveChangesAsync(); // Commit transaction
+        NavigationManager.NavigateTo("/");
+        Console.WriteLine($"✅ Playlist '{playlist.PlaylistName}' deleted successfully.");
     }
 }

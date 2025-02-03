@@ -1,27 +1,25 @@
 ﻿    @page "/Playlist"
-    @* @rendermode InteractiveServer *@
-    @using Microsoft.EntityFrameworkCore
+    @rendermode InteractiveServer
+    @using System.Reflection.Metadata    @using Microsoft.EntityFrameworkCore
     @using Microsoft.AspNetCore.Components.QuickGrid
     @using Pancake_Final.Domain
     @using Pancake_Final.Data
     @implements IAsyncDisposable
     @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
     @inject NavigationManager NavigationManager
+    @inject IJSRuntime JS
 
 
     <PageTitle>Index</PageTitle>
     <!DOCTYPE html>
-    <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Playlist</title>
         <link rel="stylesheet" href="Playlist.razor.css">
     </head>
-    <body>
-        <main>
             <h1>
-                <img class="logo" src="/images/pancakeLogo.png" alt="Logo">Your Playlist
+                <img class="logo" src="/images/pancakeLogo.png" alt="Logo">Your Playlists
             </h1>
             <div class="PlaylistSearchbar">
                 <input placeholder="Enter playlist name" />
@@ -33,32 +31,29 @@
                 </button>
             </div>
             <div class="playlistcards_container">
-                @if (playlists != null && playlists.Any())
+                @if (playlists.Count > 0)
                 {
+                    Console.WriteLine("The number of playlists is: " + playlists.Count());
                     @foreach (var playlist in playlists)
                     {
                         <div class="Playlist_card" key="@playlist.PlaylistId">
                             <div class="card-body">
                                 <h5 class="card-title">@playlist.PlaylistName</h5>
-                                <img src="@playlist.CoverImagePath" alt="@playlist.PlaylistName" class="R1image">
+                                <img src="@playlist.CoverImagePath" alt="@playlist.PlaylistName" class="R1image" />
                                 <button class="btn btn-danger" @onclick="() => PlayPlaylist(playlist)">Play</button>
-                                <div class="AudioPlayback">
-                                    <audio id="audioPlayer" controls style="width: 100%;"></audio>
-                                </div>
-                                <!-- Link for JavaScript file -->
-                                <script src="/Js/AudioPlayer.js"></script>
                             </div>
                         </div>
                     }
                 }
-                else
-                {
-                    <p>No playlists found.</p>
+                else {
+                    <p> No Playlist Found</p>
                 }
             </div>
-        </main>
-    </body>
-    </html>
+            @* <div class="AudioPlayback"> *@
+            @*     <audio id="audioPlayer" controls style="width: 100%;"></audio> *@
+            @* </div> *@
+            <!-- Link for JavaScript file -->
+            <script src="/Js/AudioPlayer.js"></script>
     <QuickGrid Class="table" Items="context.Playlist">
         <PropertyColumn Property="playlist => playlist.PlaylistId"/>
         <PropertyColumn Property="playlist => playlist.UserId" />
@@ -74,16 +69,25 @@
         </TemplateColumn>
     </QuickGrid>
 
-    @code {
+    @code { 
+        
+        private Playlist? currentPlaylist; // 🔹 Stores the selected playlist
+        private int currentSongIndex = 0;
+        private bool isPlaying = false;
         private string searchQuery = string.Empty;
         private List<Playlist> playlists = new();
         
         private async Task LoadPlaylistsAsync()
         {
             using var localContext = await DbFactory.CreateDbContextAsync();
-            playlists = await localContext.Playlist
-                .Where(p => string.IsNullOrEmpty(searchQuery) || p.PlaylistName.Contains(searchQuery))
-                .ToListAsync();
+            playlists = await localContext.Playlist.Where(p => string.IsNullOrEmpty(searchQuery) || p.PlaylistName.Contains(searchQuery)).ToListAsync();
+
+            StateHasChanged();
+        }
+        
+        protected override async Task OnInitializedAsync()
+        {
+            await LoadPlaylistsAsync(); // To load the playlists when the Playlist Page opens.
         }
 
         private void SearchPlaylists()
@@ -94,8 +98,41 @@
 
         private void PlayPlaylist(Playlist playlist)
         {
+                if (playlist == null)
+                {
+                    Console.WriteLine("❌ Error: Playlist is NULL!");
+                    return;
+                }
+
+                if (playlist.Songs == null)
+                {
+                    Console.WriteLine($"❌ Error: Playlist '{playlist.PlaylistName}' has a NULL Songs list!");
+                    return;
+                }
+
+                if (playlist.Songs.Count == 0)
+                {
+                    Console.WriteLine($"❌ Error: Playlist '{playlist.PlaylistName}' has NO songs!");
+                    return;
+                }
+
             Console.WriteLine($"Playing playlist: {playlist.PlaylistName}");
-            // Implement song playback logic here, e.g., navigate to a playlist detail page or trigger audio playback
+            if (playlist == null || playlist.Songs.Count == 0)
+            {
+                currentPlaylist = playlist;
+                currentSongIndex = 0;
+                isPlaying = true;
+
+                Console.WriteLine($"Now playing: {playlist.Songs[currentSongIndex].Name}");
+
+                // 🔹 Call JavaScript to play the song
+                JS.InvokeVoidAsync("playAudio", playlist.Songs[currentSongIndex]);
+            }
+            else
+            {
+                Console.WriteLine("No songs available in this playlist.");
+                return;
+            }
         }
         
         
