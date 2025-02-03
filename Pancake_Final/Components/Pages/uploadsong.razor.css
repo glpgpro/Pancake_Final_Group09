@@ -9,11 +9,12 @@ body {
 
 
 h1 {
-    color: burlywood;
+    color: #4B2E2D;
     text-align: center;
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 20px;
+    Background-color: #D19A66;
 }
 
 
@@ -37,7 +38,7 @@ input[type="text"], input[type="file"] {
 
 
 button {
-    background-color: burlywood;
+    background-color: darkred;
     color: white;
     padding: 10px 15px;
     border: none;
