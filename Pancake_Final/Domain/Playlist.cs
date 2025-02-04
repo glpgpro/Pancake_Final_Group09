@@ -20,6 +20,6 @@ namespace Pancake_Final.Domain
         
         public string? CoverImagePath { get; set; }
         public List<Song> Songs { get; set; } = new List<Song>();
-        
+            
     }
 }

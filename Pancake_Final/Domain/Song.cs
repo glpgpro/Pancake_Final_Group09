@@ -12,6 +12,8 @@ namespace Pancake_Final.Domain
         public int? AlbumID { get; set; }
 
         public int? GenID { get; set; }
+        
+        public int? PlaylistId { get; set; }
 
         // Navigation property
 
@@ -25,7 +27,7 @@ namespace Pancake_Final.Domain
         //Primary Key
 
         [Key]
-        public int SongId { get; set; }
+        public int? SongId { get; set; }
 
         //Methods
         public string? Name { get; set; }
@@ -36,7 +38,7 @@ namespace Pancake_Final.Domain
 
         public TimeSpan Duration { get; set; }
         public DateTime DateAdded { get; set; }
-
+  
 
         //public string SongImage { get; set;}
 
