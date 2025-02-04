@@ -1,6 +1,7 @@
 ﻿    @page "/Playlist"
     @rendermode InteractiveServer
-    @using System.Reflection.Metadata    @using Microsoft.EntityFrameworkCore
+    @using System.Reflection.Metadata 
+    @using Microsoft.EntityFrameworkCore
     @using Microsoft.AspNetCore.Components.QuickGrid
     @using Pancake_Final.Domain
     @using Pancake_Final.Data
@@ -31,7 +32,7 @@
                 </button>
             </div>
             <div class="playlistcards_container">
-                @if (playlists.Count > 0)
+                @if (playlists != null)
                 {
                     Console.WriteLine("The number of playlists is: " + playlists.Count());
                     @foreach (var playlist in playlists)
@@ -40,7 +41,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">@playlist.PlaylistName</h5>
                                 <img src="@playlist.CoverImagePath" alt="@playlist.PlaylistName" class="R1image" />
-                                <button class="btn btn-danger" @onclick="() => PlayPlaylist(playlist)">Play</button>
+                                <button class="btn btn-danger" @onclick="() => PlayCurrentSong(_song)">Play</button>
                             </div>
                         </div>
                     }
@@ -49,11 +50,8 @@
                     <p> No Playlist Found</p>
                 }
             </div>
-            @* <div class="AudioPlayback"> *@
-            @*     <audio id="audioPlayer" controls style="width: 100%;"></audio> *@
-            @* </div> *@
             <!-- Link for JavaScript file -->
-            <script src="/Js/AudioPlayer.js"></script>
+            <script src="/Js/site.js"></script>
     <QuickGrid Class="table" Items="context.Playlist">
         <PropertyColumn Property="playlist => playlist.PlaylistId"/>
         <PropertyColumn Property="playlist => playlist.UserId" />
@@ -74,13 +72,18 @@
         private Playlist? currentPlaylist; // 🔹 Stores the selected playlist
         private int currentSongIndex = 0;
         private bool isPlaying = false;
-        private string searchQuery = string.Empty;
-        private List<Playlist> playlists = new();
-        
+        public string searchQuery = string.Empty;
+        private List<Playlist>? playlists;
+        private Song? _song;
+
         private async Task LoadPlaylistsAsync()
         {
             using var localContext = await DbFactory.CreateDbContextAsync();
             playlists = await localContext.Playlist.Where(p => string.IsNullOrEmpty(searchQuery) || p.PlaylistName.Contains(searchQuery)).ToListAsync();
+            if (playlists == null)
+            {
+                Console.WriteLine("PLAYLIST VARIABLE IS NULL");
+            }
 
             StateHasChanged();
         }
@@ -96,44 +99,91 @@
         }
         
 
-        private void PlayPlaylist(Playlist playlist)
+        private async Task PlayPlaylist(Playlist playlist)
         {
-                if (playlist == null)
-                {
-                    Console.WriteLine("❌ Error: Playlist is NULL!");
-                    return;
-                }
+        
+            var SelectedPlaylist = context.Playlist.FirstOrDefault(d => d.PlaylistId == playlist.PlaylistId);
+            var songsInLists = await context.Song.Where(d => d.PlaylistId == SelectedPlaylist.PlaylistId).ToListAsync();
+        
+            Console.WriteLine($"▶️ Playing playlist: {SelectedPlaylist.PlaylistName}");
+            Console.WriteLine($"The number of Songs in playlists: {songsInLists.Count}");
+        
+            // Store the current playlist and start playing
+            currentPlaylist = playlist;
+            currentSongIndex = 0;
+            isPlaying = true;
+        
+             if (currentPlaylist == null || currentSongIndex >= currentPlaylist.Songs.Count)
+              {
+                  Console.WriteLine("🎵 Playlist finished.");
+                  isPlaying = false;
+                  return;
+              }
+        
+            // Call JavaScript function to play the song
+            await JS.InvokeVoidAsync("playAudio", _song.FilePath);
+        
+            // Move to the next song when current song finishes
+            currentSongIndex++;
+            
+        }
 
-                if (playlist.Songs == null)
-                {
-                    Console.WriteLine($"❌ Error: Playlist '{playlist.PlaylistName}' has a NULL Songs list!");
-                    return;
-                }
-
-                if (playlist.Songs.Count == 0)
-                {
-                    Console.WriteLine($"❌ Error: Playlist '{playlist.PlaylistName}' has NO songs!");
-                    return;
-                }
-
-            Console.WriteLine($"Playing playlist: {playlist.PlaylistName}");
-            if (playlist == null || playlist.Songs.Count == 0)
+        private async Task PlayCurrentSong(Song song)
+        {
+            
+            var SelectedPlaylist = context.Playlist.FirstOrDefault(d => d.PlaylistId == d.PlaylistId);
+            var songsInLists = await context.Song.Where(d => d.SongId == SelectedPlaylist.PlaylistId).ToListAsync();
+            
+            Console.WriteLine($"The number of songs in the list is: {songsInLists}");
+            foreach (var i in songsInLists)
             {
-                currentPlaylist = playlist;
-                currentSongIndex = 0;
-                isPlaying = true;
 
-                Console.WriteLine($"Now playing: {playlist.Songs[currentSongIndex].Name}");
-
-                // 🔹 Call JavaScript to play the song
-                JS.InvokeVoidAsync("playAudio", playlist.Songs[currentSongIndex]);
-            }
-            else
-            {
-                Console.WriteLine("No songs available in this playlist.");
-                return;
+                await PlayCurrentSong(i);
             }
         }
+        
+        private async Task PlayPlaylist(Song song)
+        {
+            
+            var selectedPlaylist = context.Playlist.FirstOrDefault(d => d.PlaylistId == song.PlaylistId);
+            var songsInLists = await context.Song.Where(d => d.PlaylistId == selectedPlaylist.PlaylistId).ToListAsync();
+            
+            Console.WriteLine($"▶️ Playing playlist: {selectedPlaylist.PlaylistName}");
+            Console.WriteLine($"The number of Songs in playlists: {songsInLists.Count}");
+            
+            // Store the current playlist and start playing
+            currentSongIndex = 0;
+            isPlaying = true;
+            foreach (var i in songsInLists)
+            {
+                if (i == null)
+                { 
+                    Console.WriteLine("⚠️ Skipping null song."); 
+                    continue; // Skip null songs
+                }
+                    await PlayPlaylist(i);
+            }
+        
+              
+            // Call JavaScript function to play the song
+            await JS.InvokeVoidAsync("playAudio", song.FilePath);
+        
+            // Move to the next song when current song finishes
+            currentSongIndex++;
+        }
+        
+        [JSInvokable]
+        public async Task PlayNextSong()
+        {
+            if (currentPlaylist == null || currentSongIndex >= currentPlaylist.Songs.Count)
+            {
+                Console.WriteLine("🎵 Playlist finished.");
+                isPlaying = false;
+                return;
+            }
+
+            await PlayCurrentSong(_song);
+        }   
         
         
         private void NavigateToCreatePlaylist()

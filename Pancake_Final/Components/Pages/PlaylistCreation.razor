@@ -241,7 +241,7 @@
         User gorilla = await localContext.User.FirstOrDefaultAsync((m => m.ASPNetUserID == UserId)); 
         
         
-        var playlist = new Domain.Playlist(); 
+        var playlist = new Playlist(); 
  
         //BaseDomainModel Methods 
          
@@ -254,8 +254,8 @@
          
         playlist.PlaylistName = PlaylistName;
         playlist.CoverImagePath = CoverImagePath;
-        playlist.Songs = new List<Domain.Song>(); // Initialize the Songs collection if not done already. 
- 
+        playlist.Songs = new List<Song>(); // Initialize the Songs collection if not done already. 
+        
         // Assuming SelectedSongs is a list of Song objects that already exist in your localContext or are newly created 
         foreach (var song in SelectedSongs) 
         { 
@@ -268,20 +268,17 @@
                 playlist.Songs.Add(song); 
             } 
             
-            playlist.Songs.Add(song); 
             Console.WriteLine($"Number of Songs saved into playlist: {Songs.Count}");
-
             navigationManager.NavigateTo("/Playlist");
         } 
          
         playlists = await localContext.Playlist.ToListAsync();
-        Console.WriteLine($"Number of playlists before: {playlists?.Count}");
-        localContext.Playlist.Add(playlist); 
-        
+        localContext.Playlist.Add(playlist);
         await localContext.SaveChangesAsync(); 
         
-        playlists = await localContext.Playlist.ToListAsync();
-        Console.WriteLine($"Number of playlists after: {playlists?.Count}");
+        //Check if Playlist has been made
+        Console.WriteLine($"Playlist '{playlist.PlaylistName}' has {playlist.Songs?.Count ?? -1} songs.");
+        Console.WriteLine($"Number of playlists added: {playlists?.Count}");
 
     }
 
