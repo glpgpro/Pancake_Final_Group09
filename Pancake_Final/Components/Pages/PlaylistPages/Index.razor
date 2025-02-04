@@ -1,202 +1,254 @@
-﻿    @page "/Playlist"
-    @rendermode InteractiveServer
-    @using System.Reflection.Metadata 
-    @using Microsoft.EntityFrameworkCore
-    @using Microsoft.AspNetCore.Components.QuickGrid
-    @using Pancake_Final.Domain
-    @using Pancake_Final.Data
-    @implements IAsyncDisposable
-    @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
-    @inject NavigationManager NavigationManager
-    @inject IJSRuntime JS
+﻿@page "/Playlist"
+@rendermode InteractiveServer
+@using System.Reflection.Metadata
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using Pancake_Final.Domain
+@using Pancake_Final.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS
 
-
-    <PageTitle>Index</PageTitle>
-    <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Playlist</title>
-        <link rel="stylesheet" href="Playlist.razor.css">
-    </head>
-            <h1>
-                <img class="logo" src="/images/pancakeLogo.png" alt="Logo">Your Playlists
-            </h1>
-            <div class="PlaylistSearchbar">
-                <input placeholder="Enter playlist name" />
-                <button class="SearchPlaylistButton">Search</button>
-                <button class="AddPlaylistButton" >
-                    <a class="btn btn-primary" href="/PlaylistCreation">Create Playlist</a>
-                </button>
-                <button class="DeletePlaylistButton">Delete Playlist
-                </button>
+<PageTitle>Index</PageTitle>
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist</title>
+    <link rel="stylesheet" href="Playlist.razor.css">
+</head>
+<h1>
+    <img class="logo" src="/images/pancakeLogo.png" alt="Logo">Your Playlists
+</h1>
+<div class="PlaylistSearchbar">
+    <input placeholder="Enter playlist name" />
+    <button class="SearchPlaylistButton">Search</button>
+    <button class="AddPlaylistButton">
+        <a class="btn btn-primary" href="/PlaylistCreation">Create Playlist</a>
+    </button>
+    <button class="DeletePlaylistButton">Delete Playlist</button>
+</div>
+<div class="playlistcards_container">
+    @if (playlists != null)
+    {
+        Console.WriteLine("The number of playlists is: " + playlists.Count());
+        @foreach (var playlist in playlists)
+        {
+            <div class="Playlist_card" key="@playlist.PlaylistId">
+                <div class="card-body">
+                    <h5 class="card-title">@playlist.PlaylistName</h5>
+                    <img src="@playlist.CoverImagePath" alt="@playlist.PlaylistName" class="R1image" />
+                    <button class="btn btn-danger" @onclick="() => PlayPlaylistById(playlist.PlaylistId)">Play</button>
+                </div>
             </div>
-            <div class="playlistcards_container">
-                @if (playlists != null)
-                {
-                    Console.WriteLine("The number of playlists is: " + playlists.Count());
-                    @foreach (var playlist in playlists)
-                    {
-                        <div class="Playlist_card" key="@playlist.PlaylistId">
-                            <div class="card-body">
-                                <h5 class="card-title">@playlist.PlaylistName</h5>
-                                <img src="@playlist.CoverImagePath" alt="@playlist.PlaylistName" class="R1image" />
-                                <button class="btn btn-danger" @onclick="() => PlayCurrentSong(_song)">Play</button>
-                            </div>
-                        </div>
-                    }
-                }
-                else {
-                    <p> No Playlist Found</p>
-                }
-            </div>
-            <!-- Link for JavaScript file -->
-            <script src="/Js/site.js"></script>
-    <QuickGrid Class="table" Items="context.Playlist">
-        <PropertyColumn Property="playlist => playlist.PlaylistId"/>
-        <PropertyColumn Property="playlist => playlist.UserId" />
-        <PropertyColumn Property="playlist => playlist.PlaylistName" />
-        <PropertyColumn Property="playlist => playlist.DateCreated" />
-        <PropertyColumn Property="playlist => playlist.DateUpdated" />
-        <PropertyColumn Property="playlist => playlist.CreatedBy" />
-        <PropertyColumn Property="playlist => playlist.UpdateBy" />
-        <TemplateColumn Context="playlist">
+        }
+    }
+    else
+    {
+        <p> No Playlist Found</p>
+    }
+</div>
+<!-- Link for JavaScript file -->
+<script src="/Js/site.js"></script>
+<QuickGrid Class="table" Items="context.Playlist">
+    <PropertyColumn Property="playlist => playlist.PlaylistId" />
+    <PropertyColumn Property="playlist => playlist.UserId" />
+    <PropertyColumn Property="playlist => playlist.PlaylistName" />
+    <PropertyColumn Property="playlist => playlist.DateCreated" />
+    <PropertyColumn Property="playlist => playlist.DateUpdated" />
+    <PropertyColumn Property="playlist => playlist.CreatedBy" />
+    <PropertyColumn Property="playlist => playlist.UpdateBy" />
+    <TemplateColumn Context="playlist">
         <a href="@($"playlists/edit?id={playlist.Id}")">Edit</a> |
         <a href="@($"playlists/details?id={playlist.Id}")">Details</a> |
         <a href="@($"playlists/delete?id={playlist.Id}")">Delete</a>
-        </TemplateColumn>
-    </QuickGrid>
+    </TemplateColumn>
+</QuickGrid>
 
-    @code { 
-        
-        private Playlist? currentPlaylist; // 🔹 Stores the selected playlist
-        private int currentSongIndex = 0;
-        private bool isPlaying = false;
-        public string searchQuery = string.Empty;
-        private List<Playlist>? playlists;
-        private Song? _song;
+@code {
+    private Playlist? currentPlaylist; // 🔹 Stores the selected playlist
+    private int currentSongIndex = 0; // 🔹 Index of the currently playing song
+    private bool isPlaying = false;   // 🔹 Indicates if a song is currently playing
+    public string searchQuery = string.Empty; // 🔹 Search query for playlists
+    private List<Playlist>? playlists; // 🔹 List of all playlists
+    private Song? _song; // 🔹 Currently playing song
 
-        private async Task LoadPlaylistsAsync()
+    private async Task LoadPlaylistsAsync()
+    {
+        using var localContext = await DbFactory.CreateDbContextAsync();
+
+        // Fetch playlists and include related songs
+        playlists = await localContext.Playlist
+            .Include(p => p.Songs) // Include related songs
+            .ToListAsync();
+
+        if (playlists == null || playlists.Count == 0)
         {
-            using var localContext = await DbFactory.CreateDbContextAsync();
-            playlists = await localContext.Playlist.Where(p => string.IsNullOrEmpty(searchQuery) || p.PlaylistName.Contains(searchQuery)).ToListAsync();
-            if (playlists == null)
+            Console.WriteLine("⚠️ No playlists found in the database.");
+        }
+        else
+        {
+            Console.WriteLine($"✅ Loaded {playlists.Count} playlists.");
+            foreach (var playlist in playlists)
             {
-                Console.WriteLine("PLAYLIST VARIABLE IS NULL");
-            }
-
-            StateHasChanged();
-        }
-        
-        protected override async Task OnInitializedAsync()
-        {
-            await LoadPlaylistsAsync(); // To load the playlists when the Playlist Page opens.
-        }
-
-        private void SearchPlaylists()
-        {   
-            LoadPlaylistsAsync().Wait(); // Re-fetch playlists based on the search query
-        }
-        
-
-        private async Task PlayPlaylist(Playlist playlist)
-        {
-        
-            var SelectedPlaylist = context.Playlist.FirstOrDefault(d => d.PlaylistId == playlist.PlaylistId);
-            var songsInLists = await context.Song.Where(d => d.PlaylistId == SelectedPlaylist.PlaylistId).ToListAsync();
-        
-            Console.WriteLine($"▶️ Playing playlist: {SelectedPlaylist.PlaylistName}");
-            Console.WriteLine($"The number of Songs in playlists: {songsInLists.Count}");
-        
-            // Store the current playlist and start playing
-            currentPlaylist = playlist;
-            currentSongIndex = 0;
-            isPlaying = true;
-        
-             if (currentPlaylist == null || currentSongIndex >= currentPlaylist.Songs.Count)
-              {
-                  Console.WriteLine("🎵 Playlist finished.");
-                  isPlaying = false;
-                  return;
-              }
-        
-            // Call JavaScript function to play the song
-            await JS.InvokeVoidAsync("playAudio", _song.FilePath);
-        
-            // Move to the next song when current song finishes
-            currentSongIndex++;
-            
-        }
-
-        private async Task PlayCurrentSong(Song song)
-        {
-            
-            var SelectedPlaylist = context.Playlist.FirstOrDefault(d => d.PlaylistId == d.PlaylistId);
-            var songsInLists = await context.Song.Where(d => d.SongId == SelectedPlaylist.PlaylistId).ToListAsync();
-            
-            Console.WriteLine($"The number of songs in the list is: {songsInLists}");
-            foreach (var i in songsInLists)
-            {
-
-                await PlayCurrentSong(i);
-            }
-        }
-        
-        private async Task PlayPlaylist(Song song)
-        {
-            
-            var selectedPlaylist = context.Playlist.FirstOrDefault(d => d.PlaylistId == song.PlaylistId);
-            var songsInLists = await context.Song.Where(d => d.PlaylistId == selectedPlaylist.PlaylistId).ToListAsync();
-            
-            Console.WriteLine($"▶️ Playing playlist: {selectedPlaylist.PlaylistName}");
-            Console.WriteLine($"The number of Songs in playlists: {songsInLists.Count}");
-            
-            // Store the current playlist and start playing
-            currentSongIndex = 0;
-            isPlaying = true;
-            foreach (var i in songsInLists)
-            {
-                if (i == null)
-                { 
-                    Console.WriteLine("⚠️ Skipping null song."); 
-                    continue; // Skip null songs
+                Console.WriteLine($"✅ Playlist: {playlist.PlaylistName}, Songs Count: {playlist.Songs?.Count ?? 0}");
+                foreach (var song in playlist.Songs)
+                {
+                    Console.WriteLine($" - Song: {song.Name}");
                 }
-                    await PlayPlaylist(i);
             }
-        
-              
-            // Call JavaScript function to play the song
-            await JS.InvokeVoidAsync("playAudio", song.FilePath);
-        
-            // Move to the next song when current song finishes
-            currentSongIndex++;
-        }
-        
-        [JSInvokable]
-        public async Task PlayNextSong()
-        {
-            if (currentPlaylist == null || currentSongIndex >= currentPlaylist.Songs.Count)
-            {
-                Console.WriteLine("🎵 Playlist finished.");
-                isPlaying = false;
-                return;
-            }
-
-            await PlayCurrentSong(_song);
-        }   
-        
-        
-        private void NavigateToCreatePlaylist()
-        {
-            NavigationManager.NavigateTo("/PlaylistCreation");
         }
 
-        private Pancake_FinalContext context = default!;
-
-        protected override void OnInitialized()
-        {
-            context = DbFactory.CreateDbContext();
-        }
-
-        public async ValueTask DisposeAsync() => await context.DisposeAsync();
+        StateHasChanged(); // Re-render the UI
     }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadPlaylistsAsync(); // To load the playlists when the Playlist Page opens.
+    }
+
+    private async Task PlayPlaylistById(int playlistId)
+    {
+        using var localContext = await DbFactory.CreateDbContextAsync();
+
+        // Fetch the playlist with its songs
+        var selectedPlaylist = await localContext.Playlist
+            .Include(p => p.Songs) // Include related songs
+            .FirstOrDefaultAsync(p => p.PlaylistId == playlistId);
+
+        if (selectedPlaylist == null || selectedPlaylist.Songs == null || selectedPlaylist.Songs.Count == 0)
+        {
+            Console.WriteLine($"⚠️ Playlist with ID {playlistId} is invalid or empty.");
+            return;
+        }
+
+        Console.WriteLine($"✅ Playlist: {selectedPlaylist.PlaylistName}, Songs Count: {selectedPlaylist.Songs.Count}");
+
+        currentPlaylist = selectedPlaylist;
+        currentSongIndex = 0;
+        isPlaying = true;
+
+        // Start playing the first song
+        await PlayCurrentSong(currentPlaylist.Songs[currentSongIndex]);
+    }
+
+    private async Task PlayCurrentSong(Song song)
+    {
+        if (song == null)
+        {
+            Console.WriteLine("⚠️ No song to play. Either songs list is empty or not loaded.");
+            return;
+        }
+
+        Console.WriteLine($"🎵 Now playing: {song.Name}");
+
+        _song = song; // Store the current song
+
+        // Call JavaScript to play the song
+        await JS.InvokeVoidAsync("playAudio", song.FilePath);
+    }
+
+    [JSInvokable]
+    public async Task PlayNextSong()
+    {
+        if (currentPlaylist == null || currentPlaylist.Songs == null)
+        {
+            Console.WriteLine("⚠️ No playlist loaded.");
+            return;
+        }
+
+        if (currentSongIndex >= currentPlaylist.Songs.Count - 1)
+        {
+            Console.WriteLine("✅ Playlist finished.");
+            isPlaying = false;
+            return;
+        }
+
+        // Move to the next song in the playlist
+        currentSongIndex++;
+        var nextSong = currentPlaylist.Songs[currentSongIndex];
+
+        Console.WriteLine($"🎶 Now playing next song: {nextSong.Name}");
+        await PlayCurrentSong(nextSong);
+    }
+
+    private void NavigateToCreatePlaylist()
+    {
+        NavigationManager.NavigateTo("/PlaylistCreation");
+    }
+
+    private Pancake_FinalContext context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+    
+    // private void DebugPlaylist(Playlist playlist) //for debugging
+        // {
+        //     Console.WriteLine($"🔄 Debugging Playlist: {playlist.PlaylistName}, Songs Count: {playlist.Songs?.Count ?? 0}");
+        //     if (playlist.Songs != null)
+        //     {
+        //         foreach (var song in playlist.Songs)
+        //         {
+        //             Console.WriteLine($" - Song: {song.Name}");
+        //         }
+        //     }
+        //     else
+        //     {
+        //         Console.WriteLine("⚠️ Songs list is null or not loaded.");
+        //     }
+        //
+        //     PlayPlaylist(playlist).Wait(); // Call PlayPlaylist after debugging
+        // }
+        
+       
+
+        // private async Task PlayPlaylist(Playlist playlist)
+        // {
+        //     if (playlist == null)
+        //     {
+        //         Console.WriteLine("❌ No playlist selected.");
+        //         return;
+        //     }
+        //
+        //     using var localContext = await DbFactory.CreateDbContextAsync();
+        //
+        //     // Re-fetch the playlist from the database with its Songs included
+        //     var selectedPlaylist = await localContext.Playlist
+        //         .Include(p => p.Songs) // Include related songs
+        //         .FirstOrDefaultAsync(p => p.PlaylistId == playlist.PlaylistId);
+        //
+        //     if (selectedPlaylist == null)
+        //     {
+        //         Console.WriteLine("⚠️ Playlist not found in the database.");
+        //         return;
+        //     }
+        //
+        //     if (selectedPlaylist.Songs == null || selectedPlaylist.Songs.Count == 0)
+        //     {
+        //         Console.WriteLine("⚠️ No songs found in the playlist.");
+        //         return;
+        //     }
+        //
+        //     Console.WriteLine($"✅ Playlist: {selectedPlaylist.PlaylistName}, Songs Count: {selectedPlaylist.Songs.Count}");
+        //     foreach (var song in selectedPlaylist.Songs)
+        //     {
+        //         Console.WriteLine($" - Song: {song.Name}");
+        //     }
+        //
+        //     // Assign fetched playlist and songs
+        //     currentPlaylist = selectedPlaylist;
+        //     currentSongIndex = 0;
+        //     isPlaying = true;
+        //
+        //     // Start playing the first song
+        //     await PlayCurrentSong(currentPlaylist.Songs[currentSongIndex]);
+        // }
+}
+
+
+

@@ -1,30 +1,55 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Pancake_Final.Configurations.Entities;
-using Pancake_Final.Data;
 using Pancake_Final.Domain;
 
 namespace Pancake_Final.Data
 {
-    public class Pancake_FinalContext(DbContextOptions<Pancake_FinalContext> options) : IdentityDbContext<Pancake_FinalUser>(options)
+    public class Pancake_FinalContext : IdentityDbContext<Pancake_FinalUser>
     {
+        public Pancake_FinalContext(DbContextOptions<Pancake_FinalContext> options)
+            : base(options)
+        {
+        }
 
-        public DbSet<Pancake_Final.Domain.Song> Song { get; set; } = default!;
+        public DbSet<Song> Song { get; set; }
+        public DbSet<Artists> Artists { get; set; }
+        public DbSet<Album> Album { get; set; }
+        public DbSet<Genre> Genre { get; set; }
+        public DbSet<Playlist> Playlist { get; set; }
+        public DbSet<PaymentMethod> PaymentMethod { get; set; }
+        public DbSet<ListeningHistory> ListeningHistory { get; set; }
+        public DbSet<Subscription> Subscription { get; set; }
+        public DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "music");
-            modelBuilder.ApplyConfiguration(new Song_Seed(folderPath));
+
+            // Configure Playlist-Song relationship
+            modelBuilder.Entity<Playlist>()
+                .HasMany(p => p.Songs)        // A playlist can have many songs
+                .WithOne(s => s.Playlist)    // Each song belongs to one playlist
+                .HasForeignKey(s => s.PlaylistId) // Foreign key in Song
+                .OnDelete(DeleteBehavior.Cascade); // Optional: Cascade delete
+
+            // Apply additional configurations
+            modelBuilder.ApplyConfiguration(new Song_Seed(GetFolderPath()));
             modelBuilder.ApplyConfiguration(new UserSeed());
         }
-        public DbSet<Pancake_Final.Domain.Artists> Artists { get; set; } = default!;
-        public DbSet<Pancake_Final.Domain.Album> Album { get; set; } = default!;
-        public DbSet<Pancake_Final.Domain.Genre> Genre { get; set; } = default!;
-        public DbSet<Pancake_Final.Domain.Playlist> Playlist { get; set; } = default!;
-        public DbSet<Pancake_Final.Domain.PaymentMethod> PaymentMethod { get; set; } = default!;
-        public DbSet<Pancake_Final.Domain.ListeningHistory> ListeningHistory { get; set; } = default!;
-        public DbSet<Pancake_Final.Domain.Subscription> Subscription { get; set; } = default!;
-        public DbSet<Pancake_Final.Domain.User> User { get; set; } = default!;
+
+        // Helper method to get folder path for seed data
+        private string GetFolderPath()
+        {
+            var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "music");
+
+            // Ensure the folder exists
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            return folderPath;
+        }
     }
 }
