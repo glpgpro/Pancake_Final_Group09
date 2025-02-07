@@ -8,6 +8,7 @@
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager navigationManager
+@inject NavigationManager NavigationManager
 
 
 <div class="container">
@@ -177,109 +178,83 @@
         UpdatePagination();
     }
 
-    private void AddSong(int songId)
+    private void AddSong(int songIndex)
     {
-        if (SelectedSongs.Any(s => s.SongId == filteredSongs[songId].SongId))
-        {
-            Console.WriteLine("Song is already in the selected list.");
-            return;
-        }
-        // Add to SelectedSongs
-        SelectedSongs.Add(filteredSongs[songId]);
-        
-        // Remove from filteredSongs
-        filteredSongs.Remove(filteredSongs[songId]);
-        
-        // Debugging Methods for Songs
-        Console.WriteLine($"Added song: {filteredSongs[songId].Name}");
-        Console.WriteLine($"Filtered Songs Count:   {filteredSongs.Count}");
-        UpdatePagination(); // Recalculate pagination state
-    }
+        var selectedSong = filteredSongs[songIndex];
 
-    private void RemoveSong(int songId)
-    {
-        if (SelectedSongs.Any(s => s.SongId == filteredSongs[songId].SongId))
+        // Prevent duplicates
+        if (SelectedSongs.Any(s => s.SongId == selectedSong.SongId))
         {
-            Console.WriteLine("Song is already in the filtered list.");
+            Console.WriteLine($"⚠️ Song '{selectedSong.Name}' is already in the selected list.");
             return;
         }
 
-        // Add Song to filteredSongs
-        filteredSongs.Add(SelectedSongs[songId]);
+        // Add to selected songs
+        SelectedSongs.Add(selectedSong);
 
-        // Remove Song from selectedSongs
-        SelectedSongs.Remove(SelectedSongs[songId]);
+        // Remove from filtered songs
+        filteredSongs.RemoveAt(songIndex);
 
-        // Debugging Methods for Songs
-        UpdatePagination(); // Recalculate pagination state
+        Console.WriteLine($"✅ Added song: {selectedSong.Name}");
+        UpdatePagination();
     }
+
+
+    private void RemoveSong(int songIndex)
+    {
+        var removedSong = SelectedSongs[songIndex];
+
+        // Prevent duplicates in filtered songs
+        if (filteredSongs.Any(s => s.SongId == removedSong.SongId))
+        {
+            Console.WriteLine($"⚠️ Song '{removedSong.Name}' is already in the filtered list.");
+            return;
+        }
+
+        // Add back to filtered songs
+        filteredSongs.Add(removedSong);
+
+        // Remove from selected songs
+        SelectedSongs.RemoveAt(songIndex);
+
+        Console.WriteLine($"✅ Removed song: {removedSong.Name}");
+        UpdatePagination();
+    }
+
 
 
     private async Task SavePlaylist()
     {
-        //   Get the authentication state 
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync(); 
-        var user = authState.User; 
- 
-        // Check if the user is authenticated 
-        if (!user.Identity.IsAuthenticated) 
-        { 
-            Console.WriteLine("User is not authenticated. Cannot save playlist."); 
-            return; 
-        } 
- 
-        // Retrieve the User ID from claims 
-        var UserId = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value; 
- 
-        if (string.IsNullOrEmpty(UserId)) 
-        { 
-            Console.WriteLine("User ID not found in claims."); 
-            return; 
-        } 
-        
-        using var localContext = await DbFactory.CreateDbContextAsync(); 
-        User gorilla = await localContext.User.FirstOrDefaultAsync((m => m.ASPNetUserID == UserId)); 
-        
-        
-        var playlist = new Playlist(); 
- 
-        //BaseDomainModel Methods 
-         
-        playlist.DateUpdated = DateTime.Now; 
-        playlist.DateCreated = DateTime.Now; 
-        playlist.CreatedBy = UserId; 
-        playlist.UpdateBy = UserId; 
-         
-        //playlist Methods 
-         
-        playlist.PlaylistName = PlaylistName;
-        playlist.CoverImagePath = CoverImagePath;
-        playlist.Songs = new List<Song>(); // Initialize the Songs collection if not done already. 
-        
-        // Assuming SelectedSongs is a list of Song objects that already exist in your localContext or are newly created 
-        foreach (var song in SelectedSongs) 
-        { 
-            // Make sure each song is either added to the context or attached 
-            if (localContext.Entry(song).State == EntityState.Detached) 
-            { 
-                // If the song is not tracked, add it to the context 
-                localContext.Song.Attach(song); 
-                
-                playlist.Songs.Add(song); 
-            } 
-            
-            Console.WriteLine($"Number of Songs saved into playlist: {Songs.Count}");
-            navigationManager.NavigateTo("/Playlist");
-        } 
-         
-        playlists = await localContext.Playlist.ToListAsync();
-        localContext.Playlist.Add(playlist);
-        await localContext.SaveChangesAsync(); 
-        
-        //Check if Playlist has been made
-        Console.WriteLine($"Playlist '{playlist.PlaylistName}' has {playlist.Songs?.Count ?? -1} songs.");
-        Console.WriteLine($"Number of playlists added: {playlists?.Count}");
+        using var localContext = await DbFactory.CreateDbContextAsync();
 
+        var playlist = new Playlist
+        {
+            PlaylistName = PlaylistName,
+            CoverImagePath = CoverImagePath,
+            DateCreated = DateTime.Now,
+            DateUpdated = DateTime.Now,
+            CreatedBy = "SomeUser", // Replace with actual user
+            UpdateBy = "SomeUser",
+            Songs = new List<Song>() // Initialize the Songs collection
+        };
+
+        foreach (var song in SelectedSongs)
+        {
+            // Ensure the song is tracked or attach it
+            if (localContext.Entry(song).State == EntityState.Detached)
+            {
+                localContext.Song.Attach(song);
+            }
+
+            playlist.Songs.Add(song);
+        }
+
+        // Save playlist and associated songs
+        localContext.Playlist.Add(playlist);
+        await localContext.SaveChangesAsync();
+
+        Console.WriteLine($"✅ Playlist '{playlist.PlaylistName}' created with {playlist.Songs.Count} songs.");
+        NavigationManager.NavigateTo("/Playlist");
     }
 
     private void ClearForm()
@@ -293,27 +268,36 @@
 
     //Method to handle cover image uploading
     
-     private async Task HandleCoverImageUpload(InputFileChangeEventArgs e)
-     {
-         var file = e.File;
-         // Ensure that a file is selected
-         if (file == null)
-         {
-             return;
-         }
-    
-         // Generate the upload path
-         var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", file.Name);
-         
-         // Save the file to the server
-         using (var stream = new FileStream(uploadPath, FileMode.Create))
-         {
-             await file.OpenReadStream().CopyToAsync(stream);
-         }
-    
-         // Store the relative path for the image
-         CoverImagePath = "/images/" + file.Name;
-     }
+    private async Task HandleCoverImageUpload(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+
+        if (file == null)
+        {
+            Console.WriteLine("⚠️ No file selected for upload.");
+            return;
+        }
+
+        // Generate the upload path
+        var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", file.Name);
+
+        try
+        {
+            // Save the file to the server
+            using var stream = new FileStream(uploadPath, FileMode.Create);
+            await file.OpenReadStream().CopyToAsync(stream);
+
+            // Store the relative path for the image
+            CoverImagePath = "/images/" + file.Name;
+
+            Console.WriteLine($"✅ Cover image uploaded successfully: {CoverImagePath}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ Error uploading cover image: {ex.Message}");
+        }
+    }
+
 
     public async ValueTask DisposeAsync()
     {

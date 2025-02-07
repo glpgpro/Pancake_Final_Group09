@@ -16,7 +16,7 @@ namespace Pancake_Final.Domain
         public int? PlaylistId { get; set; }
 
         // Navigation property
-
+        public Playlist Playlist { get; set; }
         //[JsonIgnore]
         //public Artists Artists { get; set; } = null!;
 
