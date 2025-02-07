@@ -22,6 +22,21 @@ namespace Pancake_Final.Configurations.Entities
                 NormalizedUserName = "ADMIN@LOCALHOST.COM",
                 PasswordHash = hasher.HashPassword(null, "P@ssword1"),
                 EmailConfirmed = true // Set to true, otherwise you won't be able to login
+            },
+            
+            new Pancake_FinalUser()
+            {
+                
+                Id = "30f01c03-6b69-4bf0-95ba-72ac6e7e4773",
+                Email = "ghostreaper740@gmail.com",
+                NormalizedEmail = "GHOSTREAPER740@GMAIL.COM",
+                FirstName = "Test",
+                LastName = "user",
+                UserName = "Amsul Shamry",
+                NormalizedUserName = "GHOSTREAPER740@GMAIL.COM",
+                PasswordHash = hasher.HashPassword(null, "testpassword123"),
+                EmailConfirmed = true 
+                
             }
             );
         }
