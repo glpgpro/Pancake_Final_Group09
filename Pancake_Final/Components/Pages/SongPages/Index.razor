@@ -6,6 +6,9 @@
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
 @inject IJSRuntime JSRuntime
 @rendermode InteractiveServer
+@using System.Net.Http.Headers;
+@using System.Text.Json;
+
 
 <PageTitle>Home</PageTitle>
 
@@ -73,10 +76,32 @@
 <div class="AudioPlayback">
     <audio id="audioPlayer" controls style="width: 100%;"></audio>
 </div>
+<div class="SongLyrics">
+    @if (!string.IsNullOrEmpty(CurrentLyrics))
+    {
+        <div class="lyrics">@CurrentLyrics</div>
+    }
+    else
+    {
+        <p>No lyrics available. Click "Generate Lyrics" to transcribe.</p>
+    }
+</div>
+
+
+<!-- Button to generate lyrics for the currently playing song -->
+<button class="btn btn-primary" @onclick="GenerateLyricsForCurrentSong" disabled="@string.IsNullOrEmpty(CurrentSongFilePath)">
+    Generate Lyrics for Current Song
+</button>
+
+
 <!-- Link for JavaScript file -->
 <script src="/Js/AudioPlayer.js"></script>
 
 @code {
+    private bool IsFileSelected = false;
+    private IBrowserFile? SelectedFile;
+    private string CurrentLyrics = ""; // Holds the lyrics of the currently playing song
+    private string CurrentSongFilePath = ""; // Holds the file path of the currently playing song
     private Pancake_FinalContext context = default!;
     private List<Song> Songs = new(); // List of all songs
     private List<Song> FilteredSongs = new(); // Filtered songs for search
@@ -99,6 +124,9 @@
             Songs = await context.Song.ToListAsync();
             FilteredSongs = Songs;  // Initially no filtering
             UpdatePagination();
+
+            // Validate file paths
+            ValidateFilePaths();
         }
         finally
         {
@@ -194,43 +222,185 @@
         return $"{minutes:D2}:{seconds:D2}";
     }
 
+    // private async Task PlaySong(string filePath)
+    // {
+    //     if (string.IsNullOrEmpty(filePath))
+    //     {
+    //         Console.WriteLine("Error: FilePath is empty!");
+    //         return;
+    //     }
+    //
+    //     Console.WriteLine($"Attempting to play: {filePath}");
+    //     await JSRuntime.InvokeVoidAsync("playAudio", filePath);
+    //
+    //     try
+    //     {
+    //         // Fetch the song using the file path
+    //         var song = await context.Song.FirstOrDefaultAsync(s => s.FilePath == filePath);
+    //
+    //         if (song == null)
+    //         {
+    //             Console.WriteLine("Error: Song not found in the database.");
+    //             return;
+    //         }
+    //
+    //         // Save the song in the listening history
+    //         var history = new ListeningHistory
+    //         {
+    //             UserId = 1, // Replace with actual logged-in user ID
+    //             // SongId = song.Id, // Use the SongId from the database
+    //             Name = song.Name,
+    //             DatePlayed = DateTime.UtcNow
+    //         };
+    //
+    //         await context.ListeningHistory.AddAsync(history);
+    //         await context.SaveChangesAsync();
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         Console.WriteLine($"Error saving listening history: {ex.Message}");
+    //     }
+    // }
+    // function to clean the special characters of file names
+    private void ValidateFilePaths()  
+    {
+        string basePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+        foreach (var song in Songs)
+        {
+            string fullFilePath = Path.Combine(basePath, song.FilePath);
+            if (!File.Exists(fullFilePath))
+            {
+                Console.WriteLine($"Missing File: {fullFilePath}");
+            }
+            else
+            {
+                Console.WriteLine($"Found File: {fullFilePath}");
+            }
+        }
+    }
+    //The lyrics function through Flask
+    //Updated PlaySong function to get the Lyrics
+
     private async Task PlaySong(string filePath)
     {
-        if (string.IsNullOrEmpty(filePath))
-        {
-            Console.WriteLine("Error: FilePath is empty!");
-            return;
-        }
-
-        Console.WriteLine($"Attempting to play: {filePath}");
-        await JSRuntime.InvokeVoidAsync("playAudio", filePath);
-
         try
         {
-            // Fetch the song using the file path
-            var song = await context.Song.FirstOrDefaultAsync(s => s.FilePath == filePath);
+            // Combine base path and relative file path to check if the file exists
+            string basePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+            string fullFilePath = Path.Combine(basePath, filePath.TrimStart('/'));
 
-            if (song == null)
+            Console.WriteLine($"Base Path: {basePath}");
+            Console.WriteLine($"FilePath from Database: {filePath}");
+            Console.WriteLine($"Full File Path Constructed: {fullFilePath}");
+
+            // Check if the file exists
+            if (!File.Exists(fullFilePath))
             {
-                Console.WriteLine("Error: Song not found in the database.");
+                Console.WriteLine($"Error: File not found at {fullFilePath}");
                 return;
             }
 
-            // Save the song in the listening history
-            var history = new ListeningHistory
-            {
-                UserId = 1, // Replace with actual logged-in user ID
-                // SongId = song.Id, // Use the SongId from the database
-                Name = song.Name,
-                DatePlayed = DateTime.UtcNow
-            };
+            // Save the currently playing song's file path for generating lyrics
+            CurrentSongFilePath = fullFilePath;
 
-            await context.ListeningHistory.AddAsync(history);
-            await context.SaveChangesAsync();
+            // Log the path being passed to JavaScript
+            Console.WriteLine($"Attempting to play via JS: {filePath}");
+            await JSRuntime.InvokeVoidAsync("playAudio", filePath); // Pass the relative file path directly
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error saving listening history: {ex.Message}");
+            Console.WriteLine($"Error in PlaySong: {ex.Message}");
         }
     }
+
+   private async Task GenerateLyricsForCurrentSong()
+{
+    if (string.IsNullOrEmpty(CurrentSongFilePath))
+    {
+        CurrentLyrics = "No song is currently playing.";
+        StateHasChanged(); // Notify UI to re-render
+        return;
+    }
+
+    try
+    {
+        // Check if the file exists
+        if (!File.Exists(CurrentSongFilePath))
+        {
+            CurrentLyrics = $"Error: File not found at {CurrentSongFilePath}";
+            Console.WriteLine(CurrentLyrics);
+            StateHasChanged(); // Notify UI to re-render
+            return;
+        }
+
+        Console.WriteLine($"Sending file to Flask: {CurrentSongFilePath}");
+
+        // Prepare the HTTP client and content
+        using var content = new MultipartFormDataContent();
+        using var fileStream = new FileStream(CurrentSongFilePath, FileMode.Open, FileAccess.Read);
+        using var memoryStream = new MemoryStream();
+        await fileStream.CopyToAsync(memoryStream);
+        memoryStream.Seek(0, SeekOrigin.Begin); // Reset the stream position
+
+        var streamContent = new StreamContent(memoryStream);
+        streamContent.Headers.ContentType = new MediaTypeHeaderValue("audio/mpeg");
+        content.Add(streamContent, "file", Path.GetFileName(CurrentSongFilePath));
+
+        using var client = new HttpClient();
+        client.BaseAddress = new Uri("http://172.29.71.221:5000/"); // Flask server address
+        var response = await client.PostAsync("transcribe", content); // Send the MP3 file to Flask
+
+        if (response.IsSuccessStatusCode)
+        {
+            var json = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Raw JSON response: {json}");
+            
+           // Deserialization process for the raw json
+           
+try
+           {
+               JsonDocument doc = JsonDocument.Parse(json); // Parse the raw JSON
+               if (doc.RootElement.TryGetProperty("lyrics", out JsonElement lyricsElement))
+               {
+                   CurrentLyrics = lyricsElement.GetString() ?? "No lyrics found.";
+                   Console.WriteLine($"Lyrics extracted: {CurrentLyrics}");
+               }
+               else
+               {
+                   Console.WriteLine("Key 'lyrics' not found in JSON.");
+                   CurrentLyrics = "Failed to extract lyrics.";
+               }
+           }
+           catch (Exception ex)
+           {
+               Console.WriteLine($"Error during JSON parsing: {ex.Message}");
+               CurrentLyrics = $"Error: {ex.Message}";
+           }
+
+        }
+        else
+        {
+            CurrentLyrics = $"Failed to generate lyrics. Flask returned status code: {response.StatusCode}";
+            Console.WriteLine(CurrentLyrics);
+        }
+    }
+    catch (Exception ex)
+    {
+        CurrentLyrics = $"Error: {ex.Message}";
+        Console.WriteLine(CurrentLyrics);
+    }
+
+    // Notify the UI to re-render
+    StateHasChanged();
 }
+
+
+
+
+    // Class to deserialize the response
+    private class TranscriptionResponse
+    {
+        public string Lyrics { get; set; }
+    }
+}
+

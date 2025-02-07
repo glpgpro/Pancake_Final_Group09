@@ -4,7 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Pancake_Final.Data;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Pancake_Final.Components.Account;
+using Pancake_Final.Configurations;
+using Pancake_Final.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContextFactory<Pancake_FinalContext>(options =>
@@ -33,13 +36,32 @@ builder.Services.AddAuthentication(options =>
     })
     .AddIdentityCookies();
 
-builder.Services.AddIdentityCore<Pancake_FinalUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddIdentityCore<Pancake_FinalUser>(options =>
+    {
+        // Sign-in options
+        options.SignIn.RequireConfirmedAccount = true;
+
+        // Password settings
+        options.Password.RequireDigit = true;                  // Require at least one digit (e.g., 0-9)
+        options.Password.RequiredLength = 6;                   // Minimum password length
+        options.Password.RequireNonAlphanumeric = false;       // No special characters required
+        options.Password.RequireUppercase = false;             // No uppercase letter required
+        options.Password.RequireLowercase = true;              // At least one lowercase letter
+        options.Password.RequiredUniqueChars = 1;              // Minimum unique characters in the password
+    })
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<Pancake_FinalContext>()
     .AddSignInManager()
     .AddDefaultTokenProviders();
 
-builder.Services.AddSingleton<IEmailSender<Pancake_FinalUser>, IdentityNoOpEmailSender>();
+
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("RequireAdmin", policy => policy.RequireRole("Admin"))
+    .AddPolicy("RequireSubscriber", policy => policy.RequireRole("Subscriber"));
+
 
 var app = builder.Build();
 
@@ -61,5 +83,6 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
 app.MapAdditionalIdentityEndpoints();;
+
 
 app.Run();

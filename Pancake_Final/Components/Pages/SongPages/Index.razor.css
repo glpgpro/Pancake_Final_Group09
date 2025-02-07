@@ -195,3 +195,21 @@ nav {
 .AudioPlayback {
     padding: 20px 100px;
 }
+.SongLyrics {
+    max-height: 300px; 
+    overflow-y: auto; /* Add a vertical scrollbar if text overflows */
+    white-space: pre-wrap; /* Preserve line breaks in the lyrics text */
+    word-wrap: break-word; /* Break long words to prevent horizontal scrolling */
+}
+.lyrics {
+    white-space: pre-wrap; /* Preserve line breaks and allow wrapping */
+    word-wrap: break-word; /* Prevent overflow by wrapping long words */
+    max-height: 300px; /* Optional: limit the height of the lyrics container */
+    overflow-y: auto; /* Add a scrollbar if the content exceeds max height */
+    padding: 10px; /* Optional: add padding for readability */
+    background-color: #B5651D; /* Optional: add a background color */
+    border: 1px solid #ccc; /* Optional: add a border */
+    border-radius: 5px; /* Optional: round the corners */
+    color: ghostwhite;
+}
+
