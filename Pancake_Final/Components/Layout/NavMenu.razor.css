@@ -109,15 +109,15 @@
     width: 250px; /* Adjust width */
     height: calc(100vh - 3.5rem);
     transform: translateX(-100%);
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #003153;
     overflow-y: auto;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    animation: slideOut 0.3s ease forwards;
+    animation: fadeOut 0.3s ease forwards;
 }
 
 .navbar-toggler:checked ~ .nav-scrollable {
     transform: translateX(0);
-    animation: slideIn 0.3s ease forwards;
+    animation: fadeIn 0.3s ease forwards;
 }
 
 @media (min-width: 641px) {
@@ -132,26 +132,26 @@
     }
 }
 
-@keyframes slideIn {
+@keyframes fadeIn {
     from {
-        transform: translateX(-100%);
-        background-color: rgba(0, 0, 0, 0); /* Transparent */
+        opacity: 0;
+        visibility: hidden;
     }
 
     to {
-        transform: translateX(0);
-        background-color: rgba(0, 0, 0, 0.8); /* Final color */
+        opacity: 1;
+        visibility: visible;
     }
 }
-/* Add slide-out animation */
-@keyframes slideOut {
+
+@keyframes fadeOut {
     from {
-        transform: translateX(0);
-        background-color: rgba(0, 0, 0, 0.8); /* Final color */
+        opacity: 1;
+        visibility: visible;
     }
 
     to {
-        transform: translateX(-100%);
-        background-color: rgba(0, 0, 0, 0); /* Transparent */
+        opacity: 0;
+        visibility: hidden;
     }
 }
