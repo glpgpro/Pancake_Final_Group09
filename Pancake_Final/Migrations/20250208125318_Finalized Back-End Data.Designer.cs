@@ -12,13 +12,8 @@ using Pancake_Final.Data;
 namespace Pancake_Final.Migrations
 {
     [DbContext(typeof(Pancake_FinalContext))]
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-    [Migration("20250208110628_Added Subscription Status for Users")]
-    partial class AddedSubscriptionStatusforUsers
-========
-    [Migration("20250208102539_GenreBeggingwork")]
-    partial class GenreBeggingwork
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+    [Migration("20250208125318_Finalized Back-End Data")]
+    partial class FinalizedBackEndData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -242,11 +237,7 @@ namespace Pancake_Final.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            ConcurrencyStamp = "9bf83e6e-f671-47d0-8fd2-c66984dc88e3",
-========
-                            ConcurrencyStamp = "c81cbf66-f481-4449-8ace-431d9a493d0e",
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            ConcurrencyStamp = "1962dfe7-5c28-4fc7-9cf8-92c1e03b90c7",
                             Email = "admin@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -254,16 +245,10 @@ namespace Pancake_Final.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            PasswordHash = "AQAAAAIAAYagAAAAECgR2SzHPwyFwqHxV8Or9sq2vTtRp8GaPhEVsvOI83RD403JF0yTncjj6kRyJUTu8g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHqxnRolw5RNiLd+wXteRVKdt3jPf8jPK9JcJNbMCSKyqnLBYsN82cAr/M97IHbbZg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "28f8f5bd-fa65-4bbe-8c19-4a6f678f34d8",
-                            SubStatus = "free",
-========
-                            PasswordHash = "AQAAAAIAAYagAAAAECWPz+KYofEfki80DvA+BP0HLfmN+jFwLKn6+aQj0LcLY4wRCdSC1U0CR0avkOfDLg==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "d1111eb7-b550-457b-b8cf-1334b8114789",
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            SecurityStamp = "192351f7-f129-4bac-9d66-5e666c684aa3",
+                            SubStatus = "Admin",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -271,11 +256,7 @@ namespace Pancake_Final.Migrations
                         {
                             Id = "30f01c03-6b69-4bf0-95ba-72ac6e7e4773",
                             AccessFailedCount = 0,
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            ConcurrencyStamp = "2d3b648e-b4fc-4c9b-aeb3-27478058dff3",
-========
-                            ConcurrencyStamp = "724dbd37-4fe0-4f81-a76b-0b23524be1b4",
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            ConcurrencyStamp = "32c31bf9-b61c-49eb-a298-762465fce586",
                             Email = "ghostreaper740@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Test",
@@ -283,16 +264,10 @@ namespace Pancake_Final.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "GHOSTREAPER740@GMAIL.COM",
                             NormalizedUserName = "GHOSTREAPER740@GMAIL.COM",
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            PasswordHash = "AQAAAAIAAYagAAAAELPDPBieaiU/tRfl5ne4E1AT6UayX7vKge0acam+gmdGzl1IVEjaILX21F6H6wcoTw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENHOU9YZx6MBqlz1tg3eG6C8Br+AsEfIoLynmzDfzk4wUWmYGJaH2RYBiMxdjP+bSg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2457c163-fdb8-4a98-a5a5-ffab46310d0f",
+                            SecurityStamp = "69a54603-9bba-4a43-b83c-5b78fd34efd9",
                             SubStatus = "free",
-========
-                            PasswordHash = "AQAAAAIAAYagAAAAEMJ8LQ9Kk6HPKi4uv03SL7Tx4VekIKx5pBd77T09V4vq6n5no5N5Vb1J1WTIIxxaow==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "8bf84209-7f11-45ef-8fd0-4f89ec5421eb",
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
                             TwoFactorEnabled = false,
                             UserName = "Amsul Shamry"
                         });
@@ -392,8 +367,8 @@ namespace Pancake_Final.Migrations
                         {
                             GenreID = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2025, 2, 8, 10, 25, 39, 117, DateTimeKind.Utc).AddTicks(5152),
-                            DateUpdated = new DateTime(2025, 2, 8, 10, 25, 39, 117, DateTimeKind.Utc).AddTicks(5157),
+                            DateCreated = new DateTime(2025, 2, 8, 12, 53, 17, 525, DateTimeKind.Utc).AddTicks(3263),
+                            DateUpdated = new DateTime(2025, 2, 8, 12, 53, 17, 525, DateTimeKind.Utc).AddTicks(3268),
                             GenreName = "Liked Songs",
                             Id = 1,
                             UpdateBy = "System"
@@ -591,13 +566,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 801, DateTimeKind.Local).AddTicks(4606),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 801, DateTimeKind.Local).AddTicks(4618),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 25, DateTimeKind.Local).AddTicks(5919),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 25, DateTimeKind.Local).AddTicks(5927),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 359, DateTimeKind.Local).AddTicks(3131),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 359, DateTimeKind.Local).AddTicks(3143),
                             Duration = new TimeSpan(1877739166),
                             FilePath = "/music/Don Toliver - No Pole.mp3",
                             GenID = 1,
@@ -612,13 +582,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 801, DateTimeKind.Local).AddTicks(6354),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 801, DateTimeKind.Local).AddTicks(6358),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 25, DateTimeKind.Local).AddTicks(6712),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 25, DateTimeKind.Local).AddTicks(6712),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 359, DateTimeKind.Local).AddTicks(4978),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 359, DateTimeKind.Local).AddTicks(4982),
                             Duration = new TimeSpan(1297645833),
                             FilePath = "/music/Genshin Impact丨Zhongli Theme musicListenerOST原神钟离听书人.mp3",
                             GenID = 1,
@@ -633,13 +598,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 801, DateTimeKind.Local).AddTicks(8688),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 801, DateTimeKind.Local).AddTicks(8693),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 25, DateTimeKind.Local).AddTicks(7810),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 25, DateTimeKind.Local).AddTicks(7811),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 359, DateTimeKind.Local).AddTicks(7899),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 359, DateTimeKind.Local).AddTicks(7903),
                             Duration = new TimeSpan(2111185000),
                             FilePath = "/music/Goblin Slayer - Rightfully _ Mili [Full].mp3",
                             GenID = 1,
@@ -654,13 +614,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 802, DateTimeKind.Local).AddTicks(333),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 802, DateTimeKind.Local).AddTicks(337),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 25, DateTimeKind.Local).AddTicks(8426),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 25, DateTimeKind.Local).AddTicks(8426),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 359, DateTimeKind.Local).AddTicks(9678),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 359, DateTimeKind.Local).AddTicks(9681),
                             Duration = new TimeSpan(1873305000),
                             FilePath = "/music/Goblins from Mars  - Put Your Love In Dreamz.mp3",
                             GenID = 1,
@@ -675,13 +630,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 802, DateTimeKind.Local).AddTicks(2925),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 802, DateTimeKind.Local).AddTicks(2929),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 25, DateTimeKind.Local).AddTicks(9502),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 25, DateTimeKind.Local).AddTicks(9503),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 360, DateTimeKind.Local).AddTicks(1975),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 360, DateTimeKind.Local).AddTicks(1980),
                             Duration = new TimeSpan(1812530833),
                             FilePath = "/music/Goblins from Mars - Cold Blooded Love (ft. Krista Marina).mp3",
                             GenID = 1,
@@ -696,13 +646,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 802, DateTimeKind.Local).AddTicks(4565),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 802, DateTimeKind.Local).AddTicks(4569),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(241),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(242),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 360, DateTimeKind.Local).AddTicks(3827),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 360, DateTimeKind.Local).AddTicks(3831),
                             Duration = new TimeSpan(2091100833),
                             FilePath = "/music/Goblins from Mars - Heart Afire When The Bassjumps.mp3",
                             GenID = 1,
@@ -717,13 +662,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 802, DateTimeKind.Local).AddTicks(6064),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 802, DateTimeKind.Local).AddTicks(6068),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(1031),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(1032),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 360, DateTimeKind.Local).AddTicks(5480),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 360, DateTimeKind.Local).AddTicks(5483),
                             Duration = new TimeSpan(2760920833),
                             FilePath = "/music/Gotoubun no Hanayome Ending Full SignCandy Flavor - Aya Uchida Lyrics [CC].mp3",
                             GenID = 1,
@@ -738,13 +678,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 802, DateTimeKind.Local).AddTicks(7674),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 802, DateTimeKind.Local).AddTicks(7678),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(1701),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(1702),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 360, DateTimeKind.Local).AddTicks(7201),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 360, DateTimeKind.Local).AddTicks(7205),
                             Duration = new TimeSpan(2822477500),
                             FilePath = "/music/Grancrest Senki Opening 2 Full _ Rin - ASCA Lyrics [CC].mp3",
                             GenID = 1,
@@ -759,13 +694,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 802, DateTimeKind.Local).AddTicks(9462),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 802, DateTimeKind.Local).AddTicks(9465),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(2901),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(2904),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 360, DateTimeKind.Local).AddTicks(9215),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 360, DateTimeKind.Local).AddTicks(9219),
                             Duration = new TimeSpan(2235863333),
                             FilePath = "/music/grandson - Despicable.mp3",
                             GenID = 1,
@@ -780,13 +710,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 803, DateTimeKind.Local).AddTicks(952),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 803, DateTimeKind.Local).AddTicks(955),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(3667),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(3668),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 361, DateTimeKind.Local).AddTicks(804),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 361, DateTimeKind.Local).AddTicks(808),
                             Duration = new TimeSpan(1464057500),
                             FilePath = "/music/Greatest Battle Music Of All Times Saijaku Muhai.mp3",
                             GenID = 1,
@@ -801,13 +726,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 803, DateTimeKind.Local).AddTicks(2637),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 803, DateTimeKind.Local).AddTicks(2641),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(4492),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(4493),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 361, DateTimeKind.Local).AddTicks(2696),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 361, DateTimeKind.Local).AddTicks(2700),
                             Duration = new TimeSpan(916307500),
                             FilePath = "/music/Gundam - OP1 HD.mp3",
                             GenID = 1,
@@ -822,13 +742,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 803, DateTimeKind.Local).AddTicks(4243),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 803, DateTimeKind.Local).AddTicks(4247),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(5143),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(5143),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 361, DateTimeKind.Local).AddTicks(4589),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 361, DateTimeKind.Local).AddTicks(4592),
                             Duration = new TimeSpan(0, 0, 3, 57, 567),
                             FilePath = "/music/Gundam - Seed.mp3",
                             GenID = 1,
@@ -843,13 +758,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 803, DateTimeKind.Local).AddTicks(5829),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 803, DateTimeKind.Local).AddTicks(5833),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(5868),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(5868),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 361, DateTimeKind.Local).AddTicks(6395),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 361, DateTimeKind.Local).AddTicks(6399),
                             Duration = new TimeSpan(2539995000),
                             FilePath = "/music/Hans Zimmer - Flight.mp3",
                             GenID = 1,
@@ -864,13 +774,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 803, DateTimeKind.Local).AddTicks(7295),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 803, DateTimeKind.Local).AddTicks(7299),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(6503),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(6503),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 361, DateTimeKind.Local).AddTicks(8006),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 361, DateTimeKind.Local).AddTicks(8010),
                             Duration = new TimeSpan(5451416666),
                             FilePath = "/music/Hiroyuki Sawano ashes Suite [vocal gemie] Epic Battle Music.mp3",
                             GenID = 1,
@@ -885,13 +790,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 803, DateTimeKind.Local).AddTicks(8765),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 803, DateTimeKind.Local).AddTicks(8768),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(7051),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(7052),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 361, DateTimeKind.Local).AddTicks(9602),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 361, DateTimeKind.Local).AddTicks(9606),
                             Duration = new TimeSpan(0, 0, 8, 25, 182),
                             FilePath = "/music/Hiroyuki Sawano Impure King Suite Epic Battle Music.mp3",
                             GenID = 1,
@@ -906,13 +806,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 804, DateTimeKind.Local).AddTicks(378),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 804, DateTimeKind.Local).AddTicks(382),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(7760),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(7761),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 362, DateTimeKind.Local).AddTicks(1347),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 362, DateTimeKind.Local).AddTicks(1351),
                             Duration = new TimeSpan(1010207500),
                             FilePath = "/music/HOPE.mp3",
                             GenID = 1,
@@ -927,13 +822,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 804, DateTimeKind.Local).AddTicks(2013),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 804, DateTimeKind.Local).AddTicks(2017),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(8557),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(8558),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 362, DateTimeKind.Local).AddTicks(3166),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 362, DateTimeKind.Local).AddTicks(3170),
                             Duration = new TimeSpan(2029805000),
                             FilePath = "/music/HOTD - Pentakill .mp3",
                             GenID = 1,
@@ -948,13 +838,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 804, DateTimeKind.Local).AddTicks(3534),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 804, DateTimeKind.Local).AddTicks(3537),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(9132),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(9132),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 362, DateTimeKind.Local).AddTicks(4791),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 362, DateTimeKind.Local).AddTicks(4795),
                             Duration = new TimeSpan(1892867500),
                             FilePath = "/music/i feel like i did too much Don Toliver - No Idea (Lyrics).mp3",
                             GenID = 1,
@@ -969,13 +854,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 804, DateTimeKind.Local).AddTicks(5262),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 804, DateTimeKind.Local).AddTicks(5266),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(9893),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 26, DateTimeKind.Local).AddTicks(9894),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 362, DateTimeKind.Local).AddTicks(6687),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 362, DateTimeKind.Local).AddTicks(6690),
                             Duration = new TimeSpan(2197520833),
                             FilePath = "/music/I NEED U (Official MV).mp3",
                             GenID = 1,
@@ -990,13 +870,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 804, DateTimeKind.Local).AddTicks(7072),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 804, DateTimeKind.Local).AddTicks(7076),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(605),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(605),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 362, DateTimeKind.Local).AddTicks(8846),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 362, DateTimeKind.Local).AddTicks(8850),
                             Duration = new TimeSpan(2315417500),
                             FilePath = "/music/IDOL Official MV.mp3",
                             GenID = 1,
@@ -1011,13 +886,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 804, DateTimeKind.Local).AddTicks(9136),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 804, DateTimeKind.Local).AddTicks(9140),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(1839),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(1841),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 363, DateTimeKind.Local).AddTicks(1082),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 363, DateTimeKind.Local).AddTicks(1086),
                             Duration = new TimeSpan(0, 0, 2, 43, 73),
                             FilePath = "/music/Imagine Dragons - Believer (Romy Wave Cover) [Not So Good Remix].mp3",
                             GenID = 1,
@@ -1032,13 +902,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 805, DateTimeKind.Local).AddTicks(781),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 805, DateTimeKind.Local).AddTicks(785),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(2738),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(2741),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 363, DateTimeKind.Local).AddTicks(2950),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 363, DateTimeKind.Local).AddTicks(2953),
                             Duration = new TimeSpan(2166742500),
                             FilePath = "/music/Imagine Dragons - Believer.mp3",
                             GenID = 1,
@@ -1053,13 +918,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 805, DateTimeKind.Local).AddTicks(2567),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 805, DateTimeKind.Local).AddTicks(2572),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(3467),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(3467),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 363, DateTimeKind.Local).AddTicks(4826),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 363, DateTimeKind.Local).AddTicks(4829),
                             Duration = new TimeSpan(0, 0, 5, 23, 329),
                             FilePath = "/music/ISLAND OST - Island Opening Full「Eien no Hitotsu」.mp3",
                             GenID = 1,
@@ -1074,13 +934,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 805, DateTimeKind.Local).AddTicks(4072),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 805, DateTimeKind.Local).AddTicks(4076),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(4214),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(4215),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 363, DateTimeKind.Local).AddTicks(6422),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 363, DateTimeKind.Local).AddTicks(6426),
                             Duration = new TimeSpan(3018363333),
                             FilePath = "/music/ISLAND OST - Lasting Memories FULL.mp3",
                             GenID = 1,
@@ -1095,13 +950,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 805, DateTimeKind.Local).AddTicks(5868),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 805, DateTimeKind.Local).AddTicks(5872),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(4980),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(4981),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 363, DateTimeKind.Local).AddTicks(8422),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 363, DateTimeKind.Local).AddTicks(8426),
                             Duration = new TimeSpan(1347204166),
                             FilePath = "/music/J.Fla  - Havana.mp3",
                             GenID = 1,
@@ -1116,13 +966,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 805, DateTimeKind.Local).AddTicks(7809),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 805, DateTimeKind.Local).AddTicks(7813),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(5975),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(5977),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 364, DateTimeKind.Local).AddTicks(459),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 364, DateTimeKind.Local).AddTicks(464),
                             Duration = new TimeSpan(0, 0, 4, 11, 652),
                             FilePath = "/music/Jacob Lee - Demons.mp3",
                             GenID = 1,
@@ -1137,13 +982,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 805, DateTimeKind.Local).AddTicks(9274),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 805, DateTimeKind.Local).AddTicks(9278),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(6599),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(6600),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 364, DateTimeKind.Local).AddTicks(1984),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 364, DateTimeKind.Local).AddTicks(1988),
                             Duration = new TimeSpan(0, 0, 3, 25, 641),
                             FilePath = "/music/Jaden - GOKU.mp3",
                             GenID = 1,
@@ -1158,13 +998,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 806, DateTimeKind.Local).AddTicks(838),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 806, DateTimeKind.Local).AddTicks(842),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(7188),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(7189),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 364, DateTimeKind.Local).AddTicks(3618),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 364, DateTimeKind.Local).AddTicks(3621),
                             Duration = new TimeSpan(0, 0, 2, 50, 898),
                             FilePath = "/music/Justin Stone - Lungs (Prod. Alex Collins).mp3",
                             GenID = 1,
@@ -1179,13 +1014,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 806, DateTimeKind.Local).AddTicks(2824),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 806, DateTimeKind.Local).AddTicks(2827),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(8102),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(8102),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 364, DateTimeKind.Local).AddTicks(5756),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 364, DateTimeKind.Local).AddTicks(5761),
                             Duration = new TimeSpan(2634677500),
                             FilePath = "/music/Kaguya-Sama - Love is war (feat. Masayuki Suzuki) .mp3",
                             GenID = 1,
@@ -1200,13 +1030,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 806, DateTimeKind.Local).AddTicks(4327),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 806, DateTimeKind.Local).AddTicks(4330),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(8751),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(8752),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 364, DateTimeKind.Local).AddTicks(7347),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 364, DateTimeKind.Local).AddTicks(7351),
                             Duration = new TimeSpan(2541299166),
                             FilePath = "/music/Kaguya-sama Love is War Season 2 - Opening FullDADDY! DADDY! DO!by Masayuki Suzuki.mp3",
                             GenID = 1,
@@ -1221,13 +1046,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 806, DateTimeKind.Local).AddTicks(5747),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 806, DateTimeKind.Local).AddTicks(5751),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(9428),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 27, DateTimeKind.Local).AddTicks(9429),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 364, DateTimeKind.Local).AddTicks(8842),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 364, DateTimeKind.Local).AddTicks(8845),
                             Duration = new TimeSpan(2771615000),
                             FilePath = "/music/Kakusei [Awakening].mp3",
                             GenID = 1,
@@ -1242,13 +1062,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 806, DateTimeKind.Local).AddTicks(7438),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 806, DateTimeKind.Local).AddTicks(7442),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(304),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(304),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 365, DateTimeKind.Local).AddTicks(607),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 365, DateTimeKind.Local).AddTicks(611),
                             Duration = new TimeSpan(1819312500),
                             FilePath = "/music/Kamikaze Feat. Lox Chatterbox.mp3",
                             GenID = 1,
@@ -1263,13 +1078,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 806, DateTimeKind.Local).AddTicks(8913),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 806, DateTimeKind.Local).AddTicks(8916),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(945),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(946),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 365, DateTimeKind.Local).AddTicks(2175),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 365, DateTimeKind.Local).AddTicks(2179),
                             Duration = new TimeSpan(2651631666),
                             FilePath = "/music/KANA-BOON - Silhouette.mp3",
                             GenID = 1,
@@ -1284,13 +1094,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 807, DateTimeKind.Local).AddTicks(393),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 807, DateTimeKind.Local).AddTicks(396),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(1554),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(1555),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 365, DateTimeKind.Local).AddTicks(3739),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 365, DateTimeKind.Local).AddTicks(3742),
                             Duration = new TimeSpan(2030065833),
                             FilePath = "/music/KDA - POPSTARS (ft. Madison Beer, (G)I-DLE, Jaira Burns) Music Video - League of Legends.mp3",
                             GenID = 1,
@@ -1305,13 +1110,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 807, DateTimeKind.Local).AddTicks(1856),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 807, DateTimeKind.Local).AddTicks(1859),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(2126),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(2126),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 365, DateTimeKind.Local).AddTicks(5279),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 365, DateTimeKind.Local).AddTicks(5283),
                             Duration = new TimeSpan(2423924166),
                             FilePath = "/music/Kenshi Yonezu (米津玄師) - Peace Sign (KanRomEng Lyrics)Boku no Hero Academia Season 2 OP.mp3",
                             GenID = 1,
@@ -1326,13 +1126,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 807, DateTimeKind.Local).AddTicks(3304),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 807, DateTimeKind.Local).AddTicks(3307),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(2914),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(2917),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 365, DateTimeKind.Local).AddTicks(6832),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 365, DateTimeKind.Local).AddTicks(6837),
                             Duration = new TimeSpan(1273127500),
                             FilePath = "/music/khai dreams - sunkissed.mp3",
                             GenID = 1,
@@ -1347,13 +1142,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 807, DateTimeKind.Local).AddTicks(4692),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 807, DateTimeKind.Local).AddTicks(4695),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(3516),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(3517),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 365, DateTimeKind.Local).AddTicks(8317),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 365, DateTimeKind.Local).AddTicks(8320),
                             Duration = new TimeSpan(2328198333),
                             FilePath = "/music/Kibou No Uta Lyrics.mp3",
                             GenID = 1,
@@ -1368,13 +1158,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 807, DateTimeKind.Local).AddTicks(6540),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 807, DateTimeKind.Local).AddTicks(6544),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(4343),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(4344),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 366, DateTimeKind.Local).AddTicks(311),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 366, DateTimeKind.Local).AddTicks(314),
                             Duration = new TimeSpan(2271597500),
                             FilePath = "/music/Krewella - Calm Down (SKAN Remix).mp3",
                             GenID = 1,
@@ -1389,13 +1174,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 807, DateTimeKind.Local).AddTicks(7969),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 807, DateTimeKind.Local).AddTicks(7973),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(4889),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(4890),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 366, DateTimeKind.Local).AddTicks(1855),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 366, DateTimeKind.Local).AddTicks(1859),
                             Duration = new TimeSpan(2126574166),
                             FilePath = "/music/KSI & Randolph - Champagne (Official Audio).mp3",
                             GenID = 1,
@@ -1410,13 +1190,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 808, DateTimeKind.Local).AddTicks(3),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 808, DateTimeKind.Local).AddTicks(7),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(5692),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(5693),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 366, DateTimeKind.Local).AddTicks(3976),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 366, DateTimeKind.Local).AddTicks(3979),
                             Duration = new TimeSpan(2101273333),
                             FilePath = "/music/KUURO - Afraid of the Dark (feat. Sophiya) .mp3",
                             GenID = 1,
@@ -1431,13 +1206,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 808, DateTimeKind.Local).AddTicks(1711),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 808, DateTimeKind.Local).AddTicks(1715),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(6450),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(6452),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 366, DateTimeKind.Local).AddTicks(5896),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 366, DateTimeKind.Local).AddTicks(5899),
                             Duration = new TimeSpan(1921298333),
                             FilePath = "/music/KUURO - What U Wanna Do.mp3",
                             GenID = 1,
@@ -1452,13 +1222,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 808, DateTimeKind.Local).AddTicks(3616),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 808, DateTimeKind.Local).AddTicks(3620),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(7409),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(7412),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 366, DateTimeKind.Local).AddTicks(7883),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 366, DateTimeKind.Local).AddTicks(7886),
                             Duration = new TimeSpan(0, 0, 3, 19, 381),
                             FilePath = "/music/LAYTO - Little Poor Me.mp3",
                             GenID = 1,
@@ -1473,13 +1238,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 808, DateTimeKind.Local).AddTicks(5190),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 808, DateTimeKind.Local).AddTicks(5194),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(8201),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(8202),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 366, DateTimeKind.Local).AddTicks(9570),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 366, DateTimeKind.Local).AddTicks(9574),
                             Duration = new TimeSpan(2351934166),
                             FilePath = "/music/Legends Never Die (ft. Against The Current) [OFFICIAL AUDIO] Worlds 2017 - League of Legends.mp3",
                             GenID = 1,
@@ -1494,13 +1254,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 808, DateTimeKind.Local).AddTicks(7161),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 808, DateTimeKind.Local).AddTicks(7165),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(9131),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 28, DateTimeKind.Local).AddTicks(9132),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 367, DateTimeKind.Local).AddTicks(1628),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 367, DateTimeKind.Local).AddTicks(1631),
                             Duration = new TimeSpan(1406674166),
                             FilePath = "/music/Leonhart - Grancrest Senki OST - Hope.mp3",
                             GenID = 1,
@@ -1515,13 +1270,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 808, DateTimeKind.Local).AddTicks(9242),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 808, DateTimeKind.Local).AddTicks(9246),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(128),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(128),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 367, DateTimeKind.Local).AddTicks(3795),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 367, DateTimeKind.Local).AddTicks(3798),
                             Duration = new TimeSpan(3110176666),
                             FilePath = "/music/Leonhart - Grancrest Senki OST.mp3",
                             GenID = 1,
@@ -1536,13 +1286,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 809, DateTimeKind.Local).AddTicks(710),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 809, DateTimeKind.Local).AddTicks(714),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(685),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(686),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 367, DateTimeKind.Local).AddTicks(5316),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 367, DateTimeKind.Local).AddTicks(5319),
                             Duration = new TimeSpan(1668811666),
                             FilePath = "/music/Liam Ferrari - I Like The Way.mp3",
                             GenID = 1,
@@ -1557,13 +1302,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 809, DateTimeKind.Local).AddTicks(2644),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 809, DateTimeKind.Local).AddTicks(2647),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(1442),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(1442),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 367, DateTimeKind.Local).AddTicks(7175),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 367, DateTimeKind.Local).AddTicks(7179),
                             Duration = new TimeSpan(1570999166),
                             FilePath = "/music/Lil Nas X Billy Ray Cyrus - Old Town Road (Remix).mp3",
                             GenID = 1,
@@ -1578,13 +1318,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 809, DateTimeKind.Local).AddTicks(4284),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 809, DateTimeKind.Local).AddTicks(4287),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(2024),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(2024),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 367, DateTimeKind.Local).AddTicks(8859),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 367, DateTimeKind.Local).AddTicks(8862),
                             Duration = new TimeSpan(0, 0, 2, 44, 638),
                             FilePath = "/music/LIL SKIES - Boss Up.mp3",
                             GenID = 1,
@@ -1599,13 +1334,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 809, DateTimeKind.Local).AddTicks(5700),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 809, DateTimeKind.Local).AddTicks(5704),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(2689),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(2691),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 368, DateTimeKind.Local).AddTicks(371),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 368, DateTimeKind.Local).AddTicks(375),
                             Duration = new TimeSpan(1561087499),
                             FilePath = "/music/LIL SKIES - Lust.mp3",
                             GenID = 1,
@@ -1620,13 +1350,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 809, DateTimeKind.Local).AddTicks(7505),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 809, DateTimeKind.Local).AddTicks(7508),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(3568),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(3569),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 368, DateTimeKind.Local).AddTicks(2211),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 368, DateTimeKind.Local).AddTicks(2214),
                             Duration = new TimeSpan(1803140833),
                             FilePath = "/music/Lil Uzi Vert - XO Tour Llif3 .mp3",
                             GenID = 1,
@@ -1641,13 +1366,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 809, DateTimeKind.Local).AddTicks(9195),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 809, DateTimeKind.Local).AddTicks(9198),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(4288),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(4288),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 368, DateTimeKind.Local).AddTicks(3939),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 368, DateTimeKind.Local).AddTicks(3943),
                             Duration = new TimeSpan(2002939166),
                             FilePath = "/music/Lilianna Wilde - Grind Me Down (Jawster Remix).mp3",
                             GenID = 1,
@@ -1662,13 +1382,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(670),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(674),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(4911),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(4911),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 368, DateTimeKind.Local).AddTicks(5451),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 368, DateTimeKind.Local).AddTicks(5454),
                             Duration = new TimeSpan(0, 0, 4, 44, 204),
                             FilePath = "/music/LiSA - Catch the Moment.mp3",
                             GenID = 1,
@@ -1683,13 +1398,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(2116),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(2119),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(5588),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(5589),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 368, DateTimeKind.Local).AddTicks(6940),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 368, DateTimeKind.Local).AddTicks(6945),
                             Duration = new TimeSpan(2477916666),
                             FilePath = "/music/LiSA - Crossing Field.mp3",
                             GenID = 1,
@@ -1704,13 +1414,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(3711),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(3715),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(6358),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(6359),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 368, DateTimeKind.Local).AddTicks(8759),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 368, DateTimeKind.Local).AddTicks(8762),
                             Duration = new TimeSpan(1852177500),
                             FilePath = "/music/Look Alive [BASS BOOSTED].mp3",
                             GenID = 1,
@@ -1725,13 +1430,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(5186),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(5189),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(6989),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(6989),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 369, DateTimeKind.Local).AddTicks(299),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 369, DateTimeKind.Local).AddTicks(304),
                             Duration = new TimeSpan(2581989166),
                             FilePath = "/music/Lyrics Owari no Seraph OST - 108.mp3",
                             GenID = 1,
@@ -1746,13 +1446,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(6664),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(6667),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(7568),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(7568),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 369, DateTimeKind.Local).AddTicks(1842),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 369, DateTimeKind.Local).AddTicks(1846),
                             Duration = new TimeSpan(2420794166),
                             FilePath = "/music/MADKID - RISE Tate no Yuusha no Nariagari Full [OpeningApertura] HQ.mp3",
                             GenID = 1,
@@ -1767,13 +1462,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(8381),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(8385),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(8237),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(8238),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 369, DateTimeKind.Local).AddTicks(3745),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 369, DateTimeKind.Local).AddTicks(3748),
                             Duration = new TimeSpan(2044411666),
                             FilePath = "/music/Magnolia.mp3",
                             GenID = 1,
@@ -1788,13 +1478,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(9856),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 810, DateTimeKind.Local).AddTicks(9860),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(8885),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(8885),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 369, DateTimeKind.Local).AddTicks(5330),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 369, DateTimeKind.Local).AddTicks(5334),
                             Duration = new TimeSpan(2660760833),
                             FilePath = "/music/Maroon 5 - Sugar.mp3",
                             GenID = 1,
@@ -1809,13 +1494,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 811, DateTimeKind.Local).AddTicks(1354),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 811, DateTimeKind.Local).AddTicks(1358),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(9383),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(9383),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 369, DateTimeKind.Local).AddTicks(6914),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 369, DateTimeKind.Local).AddTicks(6919),
                             Duration = new TimeSpan(2326633333),
                             FilePath = "/music/Maroon 5 Ft. Wiz Khalifa.mp3",
                             GenID = 1,
@@ -1830,13 +1510,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 811, DateTimeKind.Local).AddTicks(2828),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 811, DateTimeKind.Local).AddTicks(2832),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(9925),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 29, DateTimeKind.Local).AddTicks(9926),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 369, DateTimeKind.Local).AddTicks(8481),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 369, DateTimeKind.Local).AddTicks(8485),
                             Duration = new TimeSpan(3914847500),
                             FilePath = "/music/MHW ICEBORNE Safi Jiiva Battle Theme OST.mp3",
                             GenID = 1,
@@ -1851,13 +1526,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 811, DateTimeKind.Local).AddTicks(4624),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 811, DateTimeKind.Local).AddTicks(4628),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(706),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(707),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 370, DateTimeKind.Local).AddTicks(430),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 370, DateTimeKind.Local).AddTicks(434),
                             Duration = new TimeSpan(2741097500),
                             FilePath = "/music/MIC Drop (Steve Aoki Remix) Official MV.mp3",
                             GenID = 1,
@@ -1872,13 +1542,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 811, DateTimeKind.Local).AddTicks(6131),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 811, DateTimeKind.Local).AddTicks(6135),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(1230),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(1231),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 370, DateTimeKind.Local).AddTicks(1996),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 370, DateTimeKind.Local).AddTicks(2000),
                             Duration = new TimeSpan(2436444166),
                             FilePath = "/music/Migos - Get Right Witcha (G-REX X TOP $HELF Remix).mp3",
                             GenID = 1,
@@ -1893,13 +1558,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 811, DateTimeKind.Local).AddTicks(7648),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 811, DateTimeKind.Local).AddTicks(7652),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(1747),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(1748),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 370, DateTimeKind.Local).AddTicks(3630),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 370, DateTimeKind.Local).AddTicks(3633),
                             Duration = new TimeSpan(2220995833),
                             FilePath = "/music/MODEL DLMMD Ai no Uta 愛の詩YYB Miku Futura.mp3",
                             GenID = 1,
@@ -1914,13 +1574,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 811, DateTimeKind.Local).AddTicks(9279),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 811, DateTimeKind.Local).AddTicks(9283),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(2503),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(2505),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 370, DateTimeKind.Local).AddTicks(5272),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 370, DateTimeKind.Local).AddTicks(5276),
                             Duration = new TimeSpan(1660986666),
                             FilePath = "/music/Moonlight.mp3",
                             GenID = 1,
@@ -1935,13 +1590,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 812, DateTimeKind.Local).AddTicks(824),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 812, DateTimeKind.Local).AddTicks(828),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(3259),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(3260),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 370, DateTimeKind.Local).AddTicks(6844),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 370, DateTimeKind.Local).AddTicks(6848),
                             Duration = new TimeSpan(2153700833),
                             FilePath = "/music/Most Outstanding OST of All Time Rokudenashi Majutsu Koushi to Akashic Records.mp3",
                             GenID = 1,
@@ -1956,13 +1606,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 812, DateTimeKind.Local).AddTicks(2353),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 812, DateTimeKind.Local).AddTicks(2357),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(4035),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(4037),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 370, DateTimeKind.Local).AddTicks(8462),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 370, DateTimeKind.Local).AddTicks(8466),
                             Duration = new TimeSpan(2213692500),
                             FilePath = "/music/Mrs. GREEN APPLE - インフェルノInferno.mp3",
                             GenID = 1,
@@ -1977,13 +1622,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 812, DateTimeKind.Local).AddTicks(4102),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 812, DateTimeKind.Local).AddTicks(4106),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(4664),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(4665),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 371, DateTimeKind.Local).AddTicks(156),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 371, DateTimeKind.Local).AddTicks(160),
                             Duration = new TimeSpan(4549455000),
                             FilePath = "/music/My Hero Academia OST - You Say Run + Jet Set Run (You Say Run v2).mp3",
                             GenID = 1,
@@ -1998,13 +1638,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 812, DateTimeKind.Local).AddTicks(5585),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 812, DateTimeKind.Local).AddTicks(5589),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(5248),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(5248),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 371, DateTimeKind.Local).AddTicks(1685),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 371, DateTimeKind.Local).AddTicks(1688),
                             Duration = new TimeSpan(1672463333),
                             FilePath = "/music/My Hero Academia Season 4 OST - Deku vs. Overhaul (Edited Version).mp3",
                             GenID = 1,
@@ -2019,13 +1654,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 812, DateTimeKind.Local).AddTicks(7262),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 812, DateTimeKind.Local).AddTicks(7266),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(6123),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(6124),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 371, DateTimeKind.Local).AddTicks(3381),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 371, DateTimeKind.Local).AddTicks(3384),
                             Duration = new TimeSpan(2548863333),
                             FilePath = "/music/Namirin  - Renai Circulation「恋愛サーキュレーショ.mp3",
                             GenID = 1,
@@ -2040,13 +1670,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 812, DateTimeKind.Local).AddTicks(8716),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 812, DateTimeKind.Local).AddTicks(8720),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(6709),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(6709),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 371, DateTimeKind.Local).AddTicks(4918),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 371, DateTimeKind.Local).AddTicks(4922),
                             Duration = new TimeSpan(2596074166),
                             FilePath = "/music/Nanatsu no Taizai S2 - Escanor Theme (Rearrangement).mp3",
                             GenID = 1,
@@ -2061,13 +1686,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 813, DateTimeKind.Local).AddTicks(796),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 813, DateTimeKind.Local).AddTicks(800),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(7551),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(7552),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 371, DateTimeKind.Local).AddTicks(7037),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 371, DateTimeKind.Local).AddTicks(7041),
                             Duration = new TimeSpan(2005025833),
                             FilePath = "/music/NEFFEX - Fight Back.mp3",
                             GenID = 1,
@@ -2082,13 +1702,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 813, DateTimeKind.Local).AddTicks(2407),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 813, DateTimeKind.Local).AddTicks(2411),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(8241),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(8242),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 371, DateTimeKind.Local).AddTicks(8742),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 371, DateTimeKind.Local).AddTicks(8746),
                             Duration = new TimeSpan(1951815833),
                             FilePath = "/music/NEFFEX - Myself.mp3",
                             GenID = 1,
@@ -2103,13 +1718,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 813, DateTimeKind.Local).AddTicks(3996),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 813, DateTimeKind.Local).AddTicks(4001),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(8931),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(8932),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 372, DateTimeKind.Local).AddTicks(370),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 372, DateTimeKind.Local).AddTicks(374),
                             Duration = new TimeSpan(2091622500),
                             FilePath = "/music/Neon Dreams - High (feat. Waka Flocka Flame & Dylan Guthro).mp3",
                             GenID = 1,
@@ -2124,13 +1734,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 813, DateTimeKind.Local).AddTicks(6018),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 813, DateTimeKind.Local).AddTicks(6021),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(9913),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 30, DateTimeKind.Local).AddTicks(9914),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 372, DateTimeKind.Local).AddTicks(2608),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 372, DateTimeKind.Local).AddTicks(2613),
                             Duration = new TimeSpan(1901735833),
                             FilePath = "/music/Nightcore - Control.mp3",
                             GenID = 1,
@@ -2145,13 +1750,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 813, DateTimeKind.Local).AddTicks(7669),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 813, DateTimeKind.Local).AddTicks(7672),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(517),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(517),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 372, DateTimeKind.Local).AddTicks(4362),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 372, DateTimeKind.Local).AddTicks(4366),
                             Duration = new TimeSpan(1472925833),
                             FilePath = "/music/Nightcore - Rockefeller Street.mp3",
                             GenID = 1,
@@ -2166,13 +1766,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 813, DateTimeKind.Local).AddTicks(9096),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 813, DateTimeKind.Local).AddTicks(9100),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(1094),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(1095),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 372, DateTimeKind.Local).AddTicks(5892),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 372, DateTimeKind.Local).AddTicks(5896),
                             Duration = new TimeSpan(2801871666),
                             FilePath = "/music/No Game No Life Opening Full.mp3",
                             GenID = 1,
@@ -2187,13 +1782,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 814, DateTimeKind.Local).AddTicks(1578),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 814, DateTimeKind.Local).AddTicks(1582),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(2788),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(2792),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 372, DateTimeKind.Local).AddTicks(8497),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 372, DateTimeKind.Local).AddTicks(8501),
                             Duration = new TimeSpan(2905161666),
                             FilePath = "/music/Not Today Official MV.mp3",
                             GenID = 1,
@@ -2208,13 +1798,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 814, DateTimeKind.Local).AddTicks(3383),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 814, DateTimeKind.Local).AddTicks(3387),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(3702),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(3703),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 373, DateTimeKind.Local).AddTicks(274),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 373, DateTimeKind.Local).AddTicks(277),
                             Duration = new TimeSpan(6001253333),
                             FilePath = "/music/Nto - Trauma (Worakls Remix).mp3",
                             GenID = 1,
@@ -2229,13 +1814,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 814, DateTimeKind.Local).AddTicks(4853),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 814, DateTimeKind.Local).AddTicks(4856),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(4340),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(4340),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 373, DateTimeKind.Local).AddTicks(1797),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 373, DateTimeKind.Local).AddTicks(1801),
                             Duration = new TimeSpan(1710023333),
                             FilePath = "/music/Owari no Seraph OST - 1hundredknight M [終わりのセラフ].mp3",
                             GenID = 1,
@@ -2250,13 +1830,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 814, DateTimeKind.Local).AddTicks(6131),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 814, DateTimeKind.Local).AddTicks(6134),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(4830),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(4830),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 373, DateTimeKind.Local).AddTicks(3199),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 373, DateTimeKind.Local).AddTicks(3202),
                             Duration = new TimeSpan(0, 0, 2, 52, 584),
                             FilePath = "/music/Portals Theme Doom Eternal Ancient Gods Part 2 Soundtrack.mp3",
                             GenID = 1,
@@ -2271,13 +1846,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 814, DateTimeKind.Local).AddTicks(7622),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 814, DateTimeKind.Local).AddTicks(7626),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(5456),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(5456),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 373, DateTimeKind.Local).AddTicks(4787),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 373, DateTimeKind.Local).AddTicks(4790),
                             Duration = new TimeSpan(2321677500),
                             FilePath = "/music/Post Malone - Better Now.mp3",
                             GenID = 1,
@@ -2292,13 +1862,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 814, DateTimeKind.Local).AddTicks(9357),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 814, DateTimeKind.Local).AddTicks(9361),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(6217),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(6218),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 373, DateTimeKind.Local).AddTicks(6638),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 373, DateTimeKind.Local).AddTicks(6642),
                             Duration = new TimeSpan(2181349166),
                             FilePath = "/music/Post Malone_ 21 Savage - Rockstar.mp3",
                             GenID = 1,
@@ -2313,13 +1878,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 815, DateTimeKind.Local).AddTicks(681),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 815, DateTimeKind.Local).AddTicks(685),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(6719),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(6719),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 373, DateTimeKind.Local).AddTicks(8103),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 373, DateTimeKind.Local).AddTicks(8105),
                             Duration = new TimeSpan(2120575000),
                             FilePath = "/music/Reverse feat. G-Eazy.mp3",
                             GenID = 1,
@@ -2334,13 +1894,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 815, DateTimeKind.Local).AddTicks(2707),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 815, DateTimeKind.Local).AddTicks(2711),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(7539),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(7539),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(81),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(85),
                             Duration = new TimeSpan(1755408333),
                             FilePath = "/music/Rich The Kid - Plug Walk (Audio).mp3",
                             GenID = 1,
@@ -2355,13 +1910,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 815, DateTimeKind.Local).AddTicks(4310),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 815, DateTimeKind.Local).AddTicks(4314),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(8188),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(8189),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(1721),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(1725),
                             Duration = new TimeSpan(1948425000),
                             FilePath = "/music/Right Now.mp3",
                             GenID = 1,
@@ -2376,13 +1926,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 815, DateTimeKind.Local).AddTicks(5832),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 815, DateTimeKind.Local).AddTicks(5836),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(8903),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(8904),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(3245),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(3248),
                             Duration = new TimeSpan(2102838333),
                             FilePath = "/music/RISE (ft. The Glitch Mob, Mako, and The Word Alive) Worlds 2018 - League of Legends.mp3",
                             GenID = 1,
@@ -2397,13 +1942,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 815, DateTimeKind.Local).AddTicks(7337),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 815, DateTimeKind.Local).AddTicks(7341),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(9471),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 31, DateTimeKind.Local).AddTicks(9472),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(4819),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(4823),
                             Duration = new TimeSpan(3396832500),
                             FilePath = "/music/Saber Alter vs Berserker Theme - Fatestay Night Movie Heaven's Feel II. Lost Butterfly OST.mp3",
                             GenID = 1,
@@ -2418,13 +1958,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 815, DateTimeKind.Local).AddTicks(8903),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 815, DateTimeKind.Local).AddTicks(8907),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(107),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(107),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(6436),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(6440),
                             Duration = new TimeSpan(1666725000),
                             FilePath = "/music/SAD!.mp3",
                             GenID = 1,
@@ -2439,13 +1974,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 816, DateTimeKind.Local).AddTicks(717),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 816, DateTimeKind.Local).AddTicks(721),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(1239),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(1241),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(8348),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(8351),
                             Duration = new TimeSpan(1602038333),
                             FilePath = "/music/Saijaku Muhai no Bahamut  - Saijaku Muhai OST.mp3",
                             GenID = 1,
@@ -2460,13 +1990,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 816, DateTimeKind.Local).AddTicks(2179),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 816, DateTimeKind.Local).AddTicks(2183),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(1993),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(1994),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(9990),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 374, DateTimeKind.Local).AddTicks(9994),
                             Duration = new TimeSpan(0, 0, 4, 13, 217),
                             FilePath = "/music/Saijaku Muhai no Bahamut Opening Hiryuu no Kishi - Extended(Sound only).mp3",
                             GenID = 1,
@@ -2481,13 +2006,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 816, DateTimeKind.Local).AddTicks(3908),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 816, DateTimeKind.Local).AddTicks(3913),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(4422),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(4428),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 375, DateTimeKind.Local).AddTicks(1620),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 375, DateTimeKind.Local).AddTicks(1623),
                             Duration = new TimeSpan(0, 0, 36, 46, 337),
                             FilePath = "/music/Sakura - 落ち着いて冷やす.mp3",
                             GenID = 1,
@@ -2502,13 +2022,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 816, DateTimeKind.Local).AddTicks(5850),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 816, DateTimeKind.Local).AddTicks(5854),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(5655),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(5658),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 375, DateTimeKind.Local).AddTicks(3446),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 375, DateTimeKind.Local).AddTicks(3450),
                             Duration = new TimeSpan(2224647500),
                             FilePath = "/music/SAMAHTA - graffiti (feat. Melody Federer).mp3",
                             GenID = 1,
@@ -2523,13 +2038,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 816, DateTimeKind.Local).AddTicks(7338),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 816, DateTimeKind.Local).AddTicks(7342),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(6520),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(6522),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 375, DateTimeKind.Local).AddTicks(4968),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 375, DateTimeKind.Local).AddTicks(4972),
                             Duration = new TimeSpan(0, 0, 3, 59, 445),
                             FilePath = "/music/Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai ED [Part Section]Fukashigi no Carte.mp3",
                             GenID = 1,
@@ -2544,13 +2054,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 816, DateTimeKind.Local).AddTicks(9138),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 816, DateTimeKind.Local).AddTicks(9142),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(7521),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(7523),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 375, DateTimeKind.Local).AddTicks(6622),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 375, DateTimeKind.Local).AddTicks(6624),
                             Duration = new TimeSpan(2497479166),
                             FilePath = "/music/Shawn Mendes - Mercy.mp3",
                             GenID = 1,
@@ -2565,13 +2070,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 817, DateTimeKind.Local).AddTicks(636),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 817, DateTimeKind.Local).AddTicks(639),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(8220),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(8220),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 375, DateTimeKind.Local).AddTicks(8655),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 375, DateTimeKind.Local).AddTicks(8659),
                             Duration = new TimeSpan(2398884166),
                             FilePath = "/music/Shawn Mendes - Stitches.mp3",
                             GenID = 1,
@@ -2586,13 +2086,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 817, DateTimeKind.Local).AddTicks(2467),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 817, DateTimeKind.Local).AddTicks(2471),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(8902),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(8902),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 376, DateTimeKind.Local).AddTicks(304),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 376, DateTimeKind.Local).AddTicks(308),
                             Duration = new TimeSpan(2375148333),
                             FilePath = "/music/Shawn Mendes - Theres Nothing Holdin Me Back.mp3",
                             GenID = 1,
@@ -2607,13 +2102,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 817, DateTimeKind.Local).AddTicks(4062),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 817, DateTimeKind.Local).AddTicks(4066),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(9535),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 32, DateTimeKind.Local).AddTicks(9535),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 376, DateTimeKind.Local).AddTicks(1983),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 376, DateTimeKind.Local).AddTicks(1987),
                             Duration = new TimeSpan(2564513333),
                             FilePath = "/music/Shawn Mendes - Treat You Better.mp3",
                             GenID = 1,
@@ -2628,13 +2118,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 817, DateTimeKind.Local).AddTicks(5644),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 817, DateTimeKind.Local).AddTicks(5648),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(133),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(134),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 376, DateTimeKind.Local).AddTicks(3603),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 376, DateTimeKind.Local).AddTicks(3606),
                             Duration = new TimeSpan(1860263333),
                             FilePath = "/music/Sheck Wes - Mo Bamba.mp3",
                             GenID = 1,
@@ -2649,13 +2134,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 817, DateTimeKind.Local).AddTicks(7081),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 817, DateTimeKind.Local).AddTicks(7085),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(837),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(838),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 376, DateTimeKind.Local).AddTicks(5100),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 376, DateTimeKind.Local).AddTicks(5103),
                             Duration = new TimeSpan(2367323333),
                             FilePath = "/music/Shoko Makinohara ED Solo FULL 牧之原 翔子 ソロ - 不可思議のカルテ Fukashigi no Carte.mp3",
                             GenID = 1,
@@ -2670,13 +2150,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 817, DateTimeKind.Local).AddTicks(8864),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 817, DateTimeKind.Local).AddTicks(8867),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(1635),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(1636),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 376, DateTimeKind.Local).AddTicks(6849),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 376, DateTimeKind.Local).AddTicks(6853),
                             Duration = new TimeSpan(2032152500),
                             FilePath = "/music/Sickick - Infected.mp3",
                             GenID = 1,
@@ -2691,13 +2166,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 818, DateTimeKind.Local).AddTicks(566),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 818, DateTimeKind.Local).AddTicks(570),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(2497),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(2498),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 376, DateTimeKind.Local).AddTicks(8602),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 376, DateTimeKind.Local).AddTicks(8605),
                             Duration = new TimeSpan(2551732500),
                             FilePath = "/music/Sickick - Mind Games.mp3",
                             GenID = 1,
@@ -2712,13 +2182,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 818, DateTimeKind.Local).AddTicks(2561),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 818, DateTimeKind.Local).AddTicks(2565),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(3758),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(3759),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 377, DateTimeKind.Local).AddTicks(626),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 377, DateTimeKind.Local).AddTicks(630),
                             Duration = new TimeSpan(2362106666),
                             FilePath = "/music/SickickMusic - Lost My Way.mp3",
                             GenID = 1,
@@ -2733,13 +2198,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 818, DateTimeKind.Local).AddTicks(4366),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 818, DateTimeKind.Local).AddTicks(4371),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(4689),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(4690),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 377, DateTimeKind.Local).AddTicks(2469),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 377, DateTimeKind.Local).AddTicks(2472),
                             Duration = new TimeSpan(2763268333),
                             FilePath = "/music/Skan & Krale - No Glory (feat. M.I.M.E & Drama B).mp3",
                             GenID = 1,
@@ -2754,13 +2214,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 818, DateTimeKind.Local).AddTicks(5828),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 818, DateTimeKind.Local).AddTicks(5832),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(5347),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(5348),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 377, DateTimeKind.Local).AddTicks(4292),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 377, DateTimeKind.Local).AddTicks(4296),
                             Duration = new TimeSpan(861010833),
                             FilePath = "/music/SKI MASK THE SLUMP GOD x LIL PUMP - WHERE'S THE BLOW.mp3",
                             GenID = 1,
@@ -2775,13 +2230,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 818, DateTimeKind.Local).AddTicks(7568),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 818, DateTimeKind.Local).AddTicks(7573),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(6100),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(6101),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 377, DateTimeKind.Local).AddTicks(6069),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 377, DateTimeKind.Local).AddTicks(6072),
                             Duration = new TimeSpan(2190739166),
                             FilePath = "/music/SKRILLEX - Bangarang feat. Sirah.mp3",
                             GenID = 1,
@@ -2796,13 +2246,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 818, DateTimeKind.Local).AddTicks(9218),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 818, DateTimeKind.Local).AddTicks(9222),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(6879),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(6881),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 377, DateTimeKind.Local).AddTicks(7788),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 377, DateTimeKind.Local).AddTicks(7791),
                             Duration = new TimeSpan(1666725000),
                             FilePath = "/music/Slim Jesus - Drill Time (T-Mass & Wildfellaz Remix).mp3",
                             GenID = 1,
@@ -2817,13 +2262,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 819, DateTimeKind.Local).AddTicks(968),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 819, DateTimeKind.Local).AddTicks(972),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(7798),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(7799),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 377, DateTimeKind.Local).AddTicks(9695),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 377, DateTimeKind.Local).AddTicks(9699),
                             Duration = new TimeSpan(3572112500),
                             FilePath = "/music/Soredemo sekai wa utsukushii - Beautiful rain full ver..mp3",
                             GenID = 1,
@@ -2838,13 +2278,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 819, DateTimeKind.Local).AddTicks(3079),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 819, DateTimeKind.Local).AddTicks(3083),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(8686),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(8686),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 378, DateTimeKind.Local).AddTicks(1808),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 378, DateTimeKind.Local).AddTicks(1811),
                             Duration = new TimeSpan(2411404166),
                             FilePath = "/music/Soredemo sekai wa Utsukushii - [Beautiful World - Koike Joanna].mp3",
                             GenID = 1,
@@ -2859,13 +2294,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 819, DateTimeKind.Local).AddTicks(4795),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 819, DateTimeKind.Local).AddTicks(4799),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(9363),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 33, DateTimeKind.Local).AddTicks(9364),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 378, DateTimeKind.Local).AddTicks(3491),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 378, DateTimeKind.Local).AddTicks(3493),
                             Duration = new TimeSpan(2046237500),
                             FilePath = "/music/STéLOUSE - Sociopath (feat. Bryce Fox).mp3",
                             GenID = 1,
@@ -2880,13 +2310,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 819, DateTimeKind.Local).AddTicks(6529),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 819, DateTimeKind.Local).AddTicks(6533),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(183),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(185),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 378, DateTimeKind.Local).AddTicks(5243),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 378, DateTimeKind.Local).AddTicks(5247),
                             Duration = new TimeSpan(2646415000),
                             FilePath = "/music/Sufian Suhaimi - Di Matamu.mp3",
                             GenID = 1,
@@ -2901,13 +2326,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 819, DateTimeKind.Local).AddTicks(8014),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 819, DateTimeKind.Local).AddTicks(8018),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(1014),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(1014),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 378, DateTimeKind.Local).AddTicks(6731),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 378, DateTimeKind.Local).AddTicks(6735),
                             Duration = new TimeSpan(2951329166),
                             FilePath = "/music/Sword Art Online Alicization - War of Underworld Ending FullLiSA - unlasting.mp3",
                             GenID = 1,
@@ -2922,13 +2342,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 819, DateTimeKind.Local).AddTicks(9609),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 819, DateTimeKind.Local).AddTicks(9612),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(1698),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(1699),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 378, DateTimeKind.Local).AddTicks(8233),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 378, DateTimeKind.Local).AddTicks(8237),
                             Duration = new TimeSpan(2231429166),
                             FilePath = "/music/Sword Art Online Alicization Opening FullLiSA - ADAMASENG Sub.mp3",
                             GenID = 1,
@@ -2943,13 +2358,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 820, DateTimeKind.Local).AddTicks(1099),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 820, DateTimeKind.Local).AddTicks(1104),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(2302),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(2302),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 378, DateTimeKind.Local).AddTicks(9712),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 378, DateTimeKind.Local).AddTicks(9716),
                             Duration = new TimeSpan(3378313333),
                             FilePath = "/music/Tengen Toppa Gurren Lagann OST Sorairo Days FULL VERSION.mp3",
                             GenID = 1,
@@ -2964,13 +2374,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 820, DateTimeKind.Local).AddTicks(2547),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 820, DateTimeKind.Local).AddTicks(2551),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(2911),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(2912),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 379, DateTimeKind.Local).AddTicks(1180),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 379, DateTimeKind.Local).AddTicks(1184),
                             Duration = new TimeSpan(2818565000),
                             FilePath = "/music/TETRA-FANG - Supernova.mp3",
                             GenID = 1,
@@ -2985,13 +2390,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 820, DateTimeKind.Local).AddTicks(4646),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 820, DateTimeKind.Local).AddTicks(4651),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(3984),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(3986),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 379, DateTimeKind.Local).AddTicks(3304),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 379, DateTimeKind.Local).AddTicks(3308),
                             Duration = new TimeSpan(2359498333),
                             FilePath = "/music/The Mirza - Lelah Mengalah.mp3",
                             GenID = 1,
@@ -3006,13 +2406,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 820, DateTimeKind.Local).AddTicks(6363),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 820, DateTimeKind.Local).AddTicks(6367),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(4748),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(4749),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 379, DateTimeKind.Local).AddTicks(4958),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 379, DateTimeKind.Local).AddTicks(4962),
                             Duration = new TimeSpan(37452797500),
                             FilePath = "/music/The Soul of Wind -  🗻 The Mountains 🗻.mp3",
                             GenID = 1,
@@ -3027,13 +2422,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 820, DateTimeKind.Local).AddTicks(7921),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 820, DateTimeKind.Local).AddTicks(7925),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(5581),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(5583),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 379, DateTimeKind.Local).AddTicks(6514),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 379, DateTimeKind.Local).AddTicks(6517),
                             Duration = new TimeSpan(1943990833),
                             FilePath = "/music/TheFatRat - Fly Away feat. Anjulie.mp3",
                             GenID = 1,
@@ -3048,13 +2438,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 820, DateTimeKind.Local).AddTicks(9467),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 820, DateTimeKind.Local).AddTicks(9471),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(6391),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(6392),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 379, DateTimeKind.Local).AddTicks(8099),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 379, DateTimeKind.Local).AddTicks(8102),
                             Duration = new TimeSpan(2910639166),
                             FilePath = "/music/TheFatRat - Monody (feat. Laura Brehm).mp3",
                             GenID = 1,
@@ -3069,13 +2454,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 821, DateTimeKind.Local).AddTicks(1629),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 821, DateTimeKind.Local).AddTicks(1633),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(7418),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(7419),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 380, DateTimeKind.Local).AddTicks(443),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 380, DateTimeKind.Local).AddTicks(447),
                             Duration = new TimeSpan(0, 0, 3, 1, 227),
                             FilePath = "/music/TheFatRat - Time Lapse.mp3",
                             GenID = 1,
@@ -3090,13 +2470,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 821, DateTimeKind.Local).AddTicks(3250),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 821, DateTimeKind.Local).AddTicks(3254),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(8056),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(8057),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 380, DateTimeKind.Local).AddTicks(2076),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 380, DateTimeKind.Local).AddTicks(2080),
                             Duration = new TimeSpan(2491740833),
                             FilePath = "/music/TheFatRat - Unity.mp3",
                             GenID = 1,
@@ -3111,13 +2486,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 821, DateTimeKind.Local).AddTicks(4760),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 821, DateTimeKind.Local).AddTicks(4764),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(8717),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(8718),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 380, DateTimeKind.Local).AddTicks(3653),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 380, DateTimeKind.Local).AddTicks(3656),
                             Duration = new TimeSpan(2474786666),
                             FilePath = "/music/TIIMO - Bangin In the Club.mp3",
                             GenID = 1,
@@ -3132,13 +2502,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 821, DateTimeKind.Local).AddTicks(6230),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 821, DateTimeKind.Local).AddTicks(6235),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(9413),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 34, DateTimeKind.Local).AddTicks(9414),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 380, DateTimeKind.Local).AddTicks(5215),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 380, DateTimeKind.Local).AddTicks(5219),
                             Duration = new TimeSpan(2949764166),
                             FilePath = "/music/Tokyo Ghoul - Glassy Sky [東京喰種 -トーキョーグール-].mp3",
                             GenID = 1,
@@ -3153,13 +2518,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 821, DateTimeKind.Local).AddTicks(7994),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 821, DateTimeKind.Local).AddTicks(7998),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(268),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(268),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 380, DateTimeKind.Local).AddTicks(7072),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 380, DateTimeKind.Local).AddTicks(7075),
                             Duration = new TimeSpan(1978420833),
                             FilePath = "/music/Tokyo Ghoul - Unravel (Marco B. Remix).mp3",
                             GenID = 1,
@@ -3174,13 +2534,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 821, DateTimeKind.Local).AddTicks(9631),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 821, DateTimeKind.Local).AddTicks(9635),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(1124),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(1126),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 380, DateTimeKind.Local).AddTicks(8773),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 380, DateTimeKind.Local).AddTicks(8777),
                             Duration = new TimeSpan(2481307500),
                             FilePath = "/music/Tokyo Ghoul - Unravel (OP Piano) .mp3",
                             GenID = 1,
@@ -3195,13 +2550,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 822, DateTimeKind.Local).AddTicks(1464),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 822, DateTimeKind.Local).AddTicks(1468),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(2020),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(2021),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 381, DateTimeKind.Local).AddTicks(652),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 381, DateTimeKind.Local).AddTicks(657),
                             Duration = new TimeSpan(2621635833),
                             FilePath = "/music/Tokyo Ghoul - Unravel 2.mp3",
                             GenID = 1,
@@ -3216,13 +2566,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 822, DateTimeKind.Local).AddTicks(3237),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 822, DateTimeKind.Local).AddTicks(3241),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(2933),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(2934),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 381, DateTimeKind.Local).AddTicks(2433),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 381, DateTimeKind.Local).AddTicks(2437),
                             Duration = new TimeSpan(0, 0, 4, 1, 323),
                             FilePath = "/music/Tokyo Ghoul - Unravel.mp3",
                             GenID = 1,
@@ -3237,13 +2582,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 822, DateTimeKind.Local).AddTicks(5144),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 822, DateTimeKind.Local).AddTicks(5147),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(3780),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(3781),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 381, DateTimeKind.Local).AddTicks(4414),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 381, DateTimeKind.Local).AddTicks(4418),
                             Duration = new TimeSpan(1975551666),
                             FilePath = "/music/Tokyo Machine - FLY [Monstercat Release].mp3",
                             GenID = 1,
@@ -3258,13 +2598,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 822, DateTimeKind.Local).AddTicks(6765),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 822, DateTimeKind.Local).AddTicks(6770),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(4728),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(4730),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 381, DateTimeKind.Local).AddTicks(6090),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 381, DateTimeKind.Local).AddTicks(6094),
                             Duration = new TimeSpan(2304201666),
                             FilePath = "/music/Trapcity - Dead To Me (feat. Lox Chatterbox).mp3",
                             GenID = 1,
@@ -3279,13 +2614,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 822, DateTimeKind.Local).AddTicks(8504),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 822, DateTimeKind.Local).AddTicks(8509),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(5601),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(5602),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 381, DateTimeKind.Local).AddTicks(7929),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 381, DateTimeKind.Local).AddTicks(7933),
                             Duration = new TimeSpan(37651552500),
                             FilePath = "/music/Trapcity - Samurai☯ Lofi.mp3",
                             GenID = 1,
@@ -3300,13 +2630,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(231),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(236),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(6327),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(6328),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 381, DateTimeKind.Local).AddTicks(9671),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 381, DateTimeKind.Local).AddTicks(9675),
                             Duration = new TimeSpan(2689713333),
                             FilePath = "/music/Trapcity - Trap Queen (Crankdat Remix).mp3",
                             GenID = 1,
@@ -3321,13 +2646,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(2252),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(2256),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(7316),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(7317),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 382, DateTimeKind.Local).AddTicks(1725),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 382, DateTimeKind.Local).AddTicks(1728),
                             Duration = new TimeSpan(3144867499),
                             FilePath = "/music/Travis Scott - SICKO MODE.mp3",
                             GenID = 1,
@@ -3342,13 +2662,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(3843),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(3846),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(8122),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(8123),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 382, DateTimeKind.Local).AddTicks(3587),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 382, DateTimeKind.Local).AddTicks(3591),
                             Duration = new TimeSpan(1863132500),
                             FilePath = "/music/Two Feet - I Feel Like Im Drowning.mp3",
                             GenID = 1,
@@ -3363,13 +2678,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(5500),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(5504),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(9088),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(9089),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 382, DateTimeKind.Local).AddTicks(5454),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 382, DateTimeKind.Local).AddTicks(5458),
                             Duration = new TimeSpan(2292203333),
                             FilePath = "/music/Unlike Pluto ft. Mike Taylor - Everything Black.mp3",
                             GenID = 1,
@@ -3384,13 +2694,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(6893),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(6896),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(9804),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 35, DateTimeKind.Local).AddTicks(9805),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 382, DateTimeKind.Local).AddTicks(7010),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 382, DateTimeKind.Local).AddTicks(7014),
                             Duration = new TimeSpan(3559853333),
                             FilePath = "/music/Wishing Lyrics Rem(minase inori) ReZero.mp3",
                             GenID = 1,
@@ -3405,13 +2710,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(8384),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(8387),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(631),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(634),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 382, DateTimeKind.Local).AddTicks(8614),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 382, DateTimeKind.Local).AddTicks(8618),
                             Duration = new TimeSpan(949433333),
                             FilePath = "/music/XXXTENTACION - BAD!.mp3",
                             GenID = 1,
@@ -3426,13 +2726,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(9784),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 823, DateTimeKind.Local).AddTicks(9787),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(1391),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(1391),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 383, DateTimeKind.Local).AddTicks(313),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 383, DateTimeKind.Local).AddTicks(317),
                             Duration = new TimeSpan(1945555833),
                             FilePath = "/music/Yama-春を告げる(Haru wo tsugeru) [KanjiRomajiEnglish Lyrics].mp3",
                             GenID = 1,
@@ -3447,13 +2742,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 824, DateTimeKind.Local).AddTicks(1168),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 824, DateTimeKind.Local).AddTicks(1171),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(1970),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(1971),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 383, DateTimeKind.Local).AddTicks(1768),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 383, DateTimeKind.Local).AddTicks(1771),
                             Duration = new TimeSpan(2141441666),
                             FilePath = "/music/Yasuha - Flyday Chinatown.mp3",
                             GenID = 1,
@@ -3468,13 +2758,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 824, DateTimeKind.Local).AddTicks(2543),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 824, DateTimeKind.Local).AddTicks(2545),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(2574),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(2575),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 383, DateTimeKind.Local).AddTicks(3226),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 383, DateTimeKind.Local).AddTicks(3229),
                             Duration = new TimeSpan(2595291666),
                             FilePath = "/music/YOASOBI 夜に駆ける English & Romanji Lyrics.mp3",
                             GenID = 1,
@@ -3489,13 +2774,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 824, DateTimeKind.Local).AddTicks(3925),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 824, DateTimeKind.Local).AddTicks(3929),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(3134),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(3134),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 383, DateTimeKind.Local).AddTicks(4694),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 383, DateTimeKind.Local).AddTicks(4697),
                             Duration = new TimeSpan(2042846666),
                             FilePath = "/music/YOASOBIハルジオンOfficial Music Video.mp3",
                             GenID = 1,
@@ -3510,13 +2790,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 824, DateTimeKind.Local).AddTicks(5554),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 824, DateTimeKind.Local).AddTicks(5558),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(4083),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(4085),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 383, DateTimeKind.Local).AddTicks(6428),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 383, DateTimeKind.Local).AddTicks(6432),
                             Duration = new TimeSpan(2276553333),
                             FilePath = "/music/Yuna - Longing.mp3",
                             GenID = 1,
@@ -3531,13 +2806,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 824, DateTimeKind.Local).AddTicks(8150),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 824, DateTimeKind.Local).AddTicks(8153),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(5722),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(5723),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 383, DateTimeKind.Local).AddTicks(9172),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 383, DateTimeKind.Local).AddTicks(9175),
                             Duration = new TimeSpan(1973986666),
                             FilePath = "/music/Yuna - Smile for you .mp3",
                             GenID = 1,
@@ -3552,13 +2822,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 824, DateTimeKind.Local).AddTicks(9531),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 824, DateTimeKind.Local).AddTicks(9534),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(6429),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(6430),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 384, DateTimeKind.Local).AddTicks(670),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 384, DateTimeKind.Local).AddTicks(674),
                             Duration = new TimeSpan(3511077500),
                             FilePath = "/music/タイニーリトルアシアンタム.mp3",
                             GenID = 1,
@@ -3573,13 +2838,8 @@ namespace Pancake_Final.Migrations
                             ArtistId = 1,
                             CreatedBy = "Seeder",
                             DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<<< HEAD:Pancake_Final/Migrations/20250208110628_Added Subscription Status for Users.Designer.cs
-                            DateCreated = new DateTime(2025, 2, 8, 19, 6, 27, 825, DateTimeKind.Local).AddTicks(920),
-                            DateUpdated = new DateTime(2025, 2, 8, 19, 6, 27, 825, DateTimeKind.Local).AddTicks(923),
-========
-                            DateCreated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(7005),
-                            DateUpdated = new DateTime(2025, 2, 8, 18, 25, 39, 36, DateTimeKind.Local).AddTicks(7006),
->>>>>>>> 5a6723138eccd734b243b4945c1ffe3c26dc73f2:Pancake_Final/Migrations/20250208102539_GenreBeggingwork.Designer.cs
+                            DateCreated = new DateTime(2025, 2, 8, 20, 53, 17, 384, DateTimeKind.Local).AddTicks(2128),
+                            DateUpdated = new DateTime(2025, 2, 8, 20, 53, 17, 384, DateTimeKind.Local).AddTicks(2132),
                             Duration = new TimeSpan(0, 0, 3, 6, 548),
                             FilePath = "/music/レペゼン地球66thシングルO2MEN.mp3",
                             GenID = 1,
@@ -3736,7 +2996,7 @@ namespace Pancake_Final.Migrations
                     b.HasOne("Pancake_Final.Domain.Genre", "Genre")
                         .WithMany()
                         .HasForeignKey("GenreID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Genre");
@@ -3751,7 +3011,7 @@ namespace Pancake_Final.Migrations
                     b.HasOne("Pancake_Final.Domain.Playlist", "Playlist")
                         .WithMany("Songs")
                         .HasForeignKey("PlaylistId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Playlist");
                 });
