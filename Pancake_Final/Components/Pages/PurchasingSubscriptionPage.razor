@@ -1,7 +1,97 @@
-@page "/purchaseSubscription"
+﻿@page "/purchaseSubscription"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.Authorization
+@using Pancake_Final.Domain
+@using Pancake_Final.Data
+@inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject AuthenticationStateProvider AuthStateProvider
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS
+@rendermode InteractiveServer
 
-<h3>purchasingSubscriptionPage</h3>
+<PageTitle>Premium Subscription</PageTitle>
+
+<header class="page-header">
+    <h1>Upgrade to Premium</h1>
+</header>
+
+<main>
+    <div class="subscription-container">
+        <div class="subscription-card">
+            <h3 class="plan-title">Premium Account</h3>
+            <p class="plan-price">SGD 5.98/month</p>
+            <ul class="plan-features">
+                <li>1 verified Premium account</li>
+                <li>Unlimited Features</li>
+                <li>No refund</li>
+                <li>Subscribe or one-time payment</li>
+            </ul>
+            <button class="btn-primary" @onclick="UpgradeToPremium">Subscribe to Premium</button>
+        </div>
+    </div>
+
+    @if (isUpdating)
+    {
+        <p>Processing your payment...</p>
+    }
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <p class="error">@errorMessage</p>
+    }
+</main>
 
 @code {
-    
+    private bool isUpdating = false;
+    private string? errorMessage;
+
+
+    private async Task UpgradeToPremium()
+    {
+        isUpdating = true;
+        errorMessage = null;
+
+        try
+        {
+            var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+            var user = authState.User;
+            var userEmail = user.Identity?.Name;
+
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                errorMessage = "⚠️ User is not authenticated!";
+                isUpdating = false;
+                return;
+            }
+
+            using var dbContext = await DbFactory.CreateDbContextAsync();
+
+            var dbUser = await dbContext.Users.FirstOrDefaultAsync(u => u.Email == userEmail);
+            if (dbUser == null)
+            {
+                errorMessage = "⚠️ User not found in the database.";
+                isUpdating = false;
+                return;
+            }
+
+            // Update subscription status to "Premium"
+            dbUser.SubStatus = "Premium";
+            await dbContext.SaveChangesAsync();
+
+            // Show payment success message
+            await JS.InvokeVoidAsync("alert", "Payment is successful!");
+
+            // Redirect user to profile page
+            NavigationManager.NavigateTo("/Home");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("❌ Error updating subscription: " + ex.Message);
+            errorMessage = "❌ An error occurred while processing your subscription.";
+        }
+        finally
+        {
+            isUpdating = false;
+        }
+    }
 }

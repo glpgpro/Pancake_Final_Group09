@@ -1,4 +1,4 @@
-﻿@page "/sub"
+﻿@* @page "/SubscriptionPage" *@
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.QuickGrid
 @using Pancake_Final.Domain
@@ -8,17 +8,15 @@
 
 <PageTitle>Index</PageTitle>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscription</title>
-    <link rel="stylesheet" href="Subscription.razor.css">
-</head>
-<body>
-    <header class="page-header">
-        <h1>Subscription Plans</h1>
-    </header>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscription</title>
+<link rel="stylesheet" href="Subscription.razor.css">
+
+ <header class="page-header">
+ <h1>Subscription Plans</h1>
+</header>
     <main>
         <div class="subscription-container">
             <div class="subscription-card">
@@ -26,7 +24,7 @@
                 <p class="plan-details">SGD 0 for however long you want</p>
                 <ul class="plan-features">
                     <li>No Premium usage</li>
-                    <li>Listen to your favourite Songs</li>
+                    <li>Limited Features</li>
                     <li>No Payment required</li>
                 </ul>
                 <button class="btn-primary">Continue as Free User</button>
@@ -37,16 +35,14 @@
                 <p class="plan-details">SGD 5.98/month after</p>
                 <ul class="plan-features">
                     <li>1 verified Premium account</li>
-                    <li>Discount for eligible students</li>
+                    <li>Ulimited Features</li>
                     <li>no refund</li>
                     <li>Subscribe or one-time payment</li>
                 </ul>
                 <button class="btn-primary">Try 1 month for SGD 0</button>
             </div>
         </div>
-    </main>
-</body>
-</html>
+</main>
 @* <QuickGrid Class="table" Items="context.Subscription"> *@
 @*     <PropertyColumn Property="subscription => subscription.SubId" /> *@
 @*     <PropertyColumn Property="subscription => subscription.UserId" /> *@

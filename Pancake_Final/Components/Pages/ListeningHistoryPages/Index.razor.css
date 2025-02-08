@@ -1,0 +1,78 @@
+﻿/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Light neutral background */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Default text color */
+}
+
+/* Header Styling */
+h1 {
+    background-color: #D19A66; /* Header background color */
+    color: #4B2E2D; /* Header text color */
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    border-bottom: 3px solid #4B2E2D; /* Optional border for the header */
+}
+
+/* QuickGrid Table Styling */
+.table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+    /* Table Headers */
+    .table th {
+        background-color: #D19A66; /* Matches header color */
+        color: #FFFFFF; /* White text for contrast */
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    /* Table Rows */
+    .table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    /* Alternate Row Coloring */
+    .table tr:nth-child(even) {
+        background-color: #F9F9F9; /* Light gray for alternate rows */
+    }
+
+    .table tr:nth-child(odd) {
+        background-color: #FFFFFF; /* White for default rows */
+    }
+
+    /* Hover Effect for Rows */
+    .table tr:hover {
+        background-color: #f2d9c4; /* Light shade of orange for hover */
+        transition: background-color 0.3s ease;
+    }
+
+    /* Links in the Table */
+    .table a {
+        text-decoration: none;
+        color: #4B2E2D; /* Dark brown links */
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+        .table a:hover {
+            color: #D19A66; /* Hover color for links */
+        }
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    .table {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+}

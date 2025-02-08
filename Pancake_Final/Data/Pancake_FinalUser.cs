@@ -7,5 +7,6 @@ namespace Pancake_Final.Data
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
+        public string SubStatus { get; set; } = "free";
     }
 }

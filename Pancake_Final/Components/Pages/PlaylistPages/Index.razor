@@ -39,7 +39,11 @@
                 <div class="card-body">
                     <h5 class="card-title">@playlist.PlaylistName</h5>
                     <img src="@playlist.CoverImagePath" alt="@playlist.PlaylistName" class="R1image" />
-                    <button class="btn btn-danger" @onclick="() => PlayPlaylistById(playlist.PlaylistId)">Play</button>
+                    <button class="btn btn-danger" @onclick="() => PlaySongById(playlist.PlaylistId)">Play</button>
+                    <button class="btn btn-danger" @onclick="() => PauseCurrentSong(playlist.PlaylistId)">Pause</button>
+                    <button class="btn btn-danger" @onclick="() => PlayNextSong(playlist.PlaylistId)">Next Song</button>
+                    <button class="btn btn-danger" @onclick="() => PlayPreviousSong(playlist.PlaylistId)">Previous Song</button>
+                    <button class="btn btn-danger" @onclick="() => ResumeCurrentSong(playlist.PlaylistId)">Resume</button>
                 </div>
             </div>
         }
@@ -59,6 +63,8 @@
     <PropertyColumn Property="playlist => playlist.DateUpdated" />
     <PropertyColumn Property="playlist => playlist.CreatedBy" />
     <PropertyColumn Property="playlist => playlist.UpdateBy" />
+    <PropertyColumn Property="Playlist => Playlist.NewGenreName" Title="Genre" />
+    
     <TemplateColumn Context="playlist">
         <a href="@($"playlists/edit?id={playlist.Id}")">Edit</a> |
         <a href="@($"playlists/details?id={playlist.Id}")">Details</a> |
@@ -77,9 +83,12 @@
     private async Task LoadPlaylistsAsync()
     {
         using var localContext = await DbFactory.CreateDbContextAsync();
+        //debugging steps
+       
 
         // Fetch playlists and include related songs
         playlists = await localContext.Playlist
+            .Include(p => p.Genre) // Include related genre
             .Include(p => p.Songs) // Include related songs
             .ToListAsync();
 
@@ -108,7 +117,7 @@
         await LoadPlaylistsAsync(); // To load the playlists when the Playlist Page opens.
     }
 
-    private async Task PlayPlaylistById(int playlistId)
+    private async Task PlaySongById(int playlistId)
     {
         using var localContext = await DbFactory.CreateDbContextAsync();
 
@@ -133,6 +142,8 @@
         await PlayCurrentSong(currentPlaylist.Songs[currentSongIndex]);
     }
 
+
+    [JSInvokable]
     private async Task PlayCurrentSong(Song song)
     {
         if (song == null)
@@ -146,7 +157,7 @@
         _song = song; // Store the current song
 
         // Call JavaScript to play the song
-        await JS.InvokeVoidAsync("playAudio", song.FilePath);
+        await JS.InvokeVoidAsync("playCurrentAudio", song.FilePath);
     }
 
     [JSInvokable]
@@ -173,6 +184,77 @@
         await PlayCurrentSong(nextSong);
     }
 
+    [JSInvokable]
+    public async Task PlayPreviousSong(int playlistId){
+        if (currentPlaylist == null || currentPlaylist.Songs == null)
+        {
+            Console.WriteLine("⚠️ No playlist loaded.");
+            return;
+        }
+        if (currentSongIndex <= 0)
+        {
+            Console.WriteLine("✅ Playlist finished.");
+            isPlaying = false;
+            return;
+        }
+        // Move to the previous song in the playlist
+        currentSongIndex--;
+        var previousSong = currentPlaylist.Songs[currentSongIndex];
+        Console.WriteLine($"🎶 Now playing previous song: {previousSong.Name}");
+        await PlayCurrentSong(previousSong);
+    }
+
+
+    [JSInvokable]
+    public async Task PauseCurrentSong(int playlistId)
+    {
+        if (_song == null)
+        {
+            Console.WriteLine("⚠️ No song is currently playing.");
+            return;
+        }
+
+        Console.WriteLine($"⏸ Paused: {_song.Name}");
+        await JS.InvokeVoidAsync("pauseAudio"); // Ensure pauseAudio exists in JS
+    }
+
+    [JSInvokable]
+    public async Task PlayNextSong(int playlistId)
+    {
+        if (currentPlaylist == null || currentPlaylist.Songs == null)
+        {
+            Console.WriteLine("⚠️ No playlist loaded.");
+            return;
+        }
+
+        if (currentSongIndex >= currentPlaylist.Songs.Count - 1)
+        {
+            Console.WriteLine("✅ Playlist finished.");
+            isPlaying = false;
+            return;
+        }
+
+        // Move to the next song in the playlist
+        currentSongIndex++;
+        var nextSong = currentPlaylist.Songs[currentSongIndex];
+        Console.WriteLine($"🎶 Now playing next song: {nextSong.Name}");
+
+        await PlayCurrentSong(nextSong);
+    }
+    [JSInvokable]
+    public async Task ResumeCurrentSong(int playlistId)
+    {
+        if (_song == null)
+        {
+            Console.WriteLine("⚠️ No song is currently playing.");
+            return;
+        }
+
+        Console.WriteLine($"▶️ Resume: {_song.Name}");
+        await JS.InvokeVoidAsync("resumeAudio"); // Ensure resumeAudio exists in JS
+    }
+
+
     private void NavigateToCreatePlaylist()
     {
         NavigationManager.NavigateTo("/PlaylistCreation");
@@ -186,69 +268,4 @@
     }
 
     public async ValueTask DisposeAsync() => await context.DisposeAsync();
-    
-    // private void DebugPlaylist(Playlist playlist) //for debugging
-        // {
-        //     Console.WriteLine($"🔄 Debugging Playlist: {playlist.PlaylistName}, Songs Count: {playlist.Songs?.Count ?? 0}");
-        //     if (playlist.Songs != null)
-        //     {
-        //         foreach (var song in playlist.Songs)
-        //         {
-        //             Console.WriteLine($" - Song: {song.Name}");
-        //         }
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("⚠️ Songs list is null or not loaded.");
-        //     }
-        //
-        //     PlayPlaylist(playlist).Wait(); // Call PlayPlaylist after debugging
-        // }
-        
-       
-
-        // private async Task PlayPlaylist(Playlist playlist)
-        // {
-        //     if (playlist == null)
-        //     {
-        //         Console.WriteLine("❌ No playlist selected.");
-        //         return;
-        //     }
-        //
-        //     using var localContext = await DbFactory.CreateDbContextAsync();
-        //
-        //     // Re-fetch the playlist from the database with its Songs included
-        //     var selectedPlaylist = await localContext.Playlist
-        //         .Include(p => p.Songs) // Include related songs
-        //         .FirstOrDefaultAsync(p => p.PlaylistId == playlist.PlaylistId);
-        //
-        //     if (selectedPlaylist == null)
-        //     {
-        //         Console.WriteLine("⚠️ Playlist not found in the database.");
-        //         return;
-        //     }
-        //
-        //     if (selectedPlaylist.Songs == null || selectedPlaylist.Songs.Count == 0)
-        //     {
-        //         Console.WriteLine("⚠️ No songs found in the playlist.");
-        //         return;
-        //     }
-        //
-        //     Console.WriteLine($"✅ Playlist: {selectedPlaylist.PlaylistName}, Songs Count: {selectedPlaylist.Songs.Count}");
-        //     foreach (var song in selectedPlaylist.Songs)
-        //     {
-        //         Console.WriteLine($" - Song: {song.Name}");
-        //     }
-        //
-        //     // Assign fetched playlist and songs
-        //     currentPlaylist = selectedPlaylist;
-        //     currentSongIndex = 0;
-        //     isPlaying = true;
-        //
-        //     // Start playing the first song
-        //     await PlayCurrentSong(currentPlaylist.Songs[currentSongIndex]);
-        // }
 }
-
-
-

@@ -7,11 +7,11 @@ namespace Pancake_Final.Domain
 
         //Primary Key
         [Key]
-        public string? GenreID { get; set; }
+        public int GenreID { get; set; }
 
         //Methods
 
         public string? GenreName { get; set; }
-
+      
     }
 }

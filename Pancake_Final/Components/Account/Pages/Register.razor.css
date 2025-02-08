@@ -53,12 +53,14 @@
 
 /* General Styles */
 body {
+   
     background-image: url("images/pancakeBlurBG.png");
     background-size: cover;
     font-family: Arial, sans-serif;
-    color: #ffffff;
     margin: 0;
-    display: flex-start;
+    /*background-color: burlywood;*/ /* Outside container background color */
+    color: white;
+    /*display: flex-start;*/
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -112,6 +114,7 @@ h1 {
     text-align: left;
     margin-bottom: 0.5rem;
     font-weight: bold;
+    color: black;
 }
 
 .signup-form input {
