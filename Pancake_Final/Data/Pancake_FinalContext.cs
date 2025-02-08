@@ -31,11 +31,18 @@ namespace Pancake_Final.Data
                 .HasMany(p => p.Songs)        // A playlist can have many songs
                 .WithOne(s => s.Playlist)    // Each song belongs to one playlist
                 .HasForeignKey(s => s.PlaylistId) // Foreign key in Song
-                .OnDelete(DeleteBehavior.Cascade); // Optional: Cascade delete
+                .OnDelete(DeleteBehavior.Restrict); // Optional: Cascade delete
+            modelBuilder.Entity<Playlist>()
+                .HasOne(p => p.Genre)
+                .WithMany()
+                .HasForeignKey(p => p.GenreID)
+                .OnDelete(DeleteBehavior.Restrict); // Prevent deletion of Genres.
+          
 
             // Apply additional configurations
             modelBuilder.ApplyConfiguration(new Song_Seed(GetFolderPath()));
             modelBuilder.ApplyConfiguration(new UserSeed());
+            modelBuilder.ApplyConfiguration(new Genre_Seed());
         }
 
         // Helper method to get folder path for seed data

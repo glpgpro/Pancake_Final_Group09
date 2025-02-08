@@ -43,6 +43,7 @@
                     <button class="btn btn-danger" @onclick="() => PauseCurrentSong(playlist.PlaylistId)">Pause</button>
                     <button class="btn btn-danger" @onclick="() => PlayNextSong(playlist.PlaylistId)">Next Song</button>
                     <button class="btn btn-danger" @onclick="() => PlayPreviousSong(playlist.PlaylistId)">Previous Song</button>
+                    <button class="btn btn-danger" @onclick="() => ResumeCurrentSong(playlist.PlaylistId)">Resume</button>
                 </div>
             </div>
         }
@@ -62,6 +63,8 @@
     <PropertyColumn Property="playlist => playlist.DateUpdated" />
     <PropertyColumn Property="playlist => playlist.CreatedBy" />
     <PropertyColumn Property="playlist => playlist.UpdateBy" />
+    <PropertyColumn Property="Playlist => Playlist.NewGenreName" Title="Genre" />
+    
     <TemplateColumn Context="playlist">
         <a href="@($"playlists/edit?id={playlist.Id}")">Edit</a> |
         <a href="@($"playlists/details?id={playlist.Id}")">Details</a> |
@@ -80,9 +83,12 @@
     private async Task LoadPlaylistsAsync()
     {
         using var localContext = await DbFactory.CreateDbContextAsync();
+        //debugging steps
+       
 
         // Fetch playlists and include related songs
         playlists = await localContext.Playlist
+            .Include(p => p.Genre) // Include related genre
             .Include(p => p.Songs) // Include related songs
             .ToListAsync();
 
@@ -205,10 +211,9 @@
             Console.WriteLine("⚠️ No song is currently playing.");
             return;
         }
-        Console.WriteLine($"⏸ Paused: {_song.Name}");
 
-        // Call JavaScript to pause the song
-        await JS.InvokeVoidAsync("pauseAudio");
+        Console.WriteLine($"⏸ Paused: {_song.Name}");
+        await JS.InvokeVoidAsync("pauseAudio"); // Ensure pauseAudio exists in JS
     }
 
     [JSInvokable]
@@ -234,6 +239,19 @@
 
         await PlayCurrentSong(nextSong);
     }
+    [JSInvokable]
+    public async Task ResumeCurrentSong(int playlistId)
+    {
+        if (_song == null)
+        {
+            Console.WriteLine("⚠️ No song is currently playing.");
+            return;
+        }
+
+        Console.WriteLine($"▶️ Resume: {_song.Name}");
+        await JS.InvokeVoidAsync("resumeAudio"); // Ensure resumeAudio exists in JS
+    }
+
 
     private void NavigateToCreatePlaylist()
     {

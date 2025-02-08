@@ -311,6 +311,23 @@
         {
             Console.WriteLine($"Error in PlaySong: {ex.Message}");
         }
+        var song = await context.Song.FirstOrDefaultAsync(s => s.FilePath == filePath);
+
+        if (song == null)
+        {
+            Console.WriteLine("Error: Song not found in the database.");
+            return;
+        }
+        var history = new ListeningHistory
+        {
+            UserId = 1, // Replace with actual logged-in user ID
+            // SongId = song.Id, // Use the SongId from the database
+            Name = song.Name,
+            DatePlayed = DateTime.UtcNow
+        };
+
+        await context.ListeningHistory.AddAsync(history);
+        await context.SaveChangesAsync();
     }
 
    private async Task GenerateLyricsForCurrentSong()
@@ -402,5 +419,6 @@ try
     {
         public string Lyrics { get; set; }
     }
+    
 }
 

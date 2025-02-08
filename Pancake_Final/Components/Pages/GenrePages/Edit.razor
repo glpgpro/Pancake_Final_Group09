@@ -64,7 +64,7 @@ else
 
 @code {
     [SupplyParameterFromQuery]
-    private string GenreID { get; set; }
+    private int GenreID { get; set; }
 
     [SupplyParameterFromForm]
     private Genre? Genre { get; set; }
@@ -106,7 +106,7 @@ else
         NavigationManager.NavigateTo("/genres");
     }
 
-    private bool GenreExists(string genreid)
+    private bool GenreExists(int? genreid)
     {
         using var context = DbFactory.CreateDbContext();
         return context.Genre.Any(e => e.GenreID == genreid);
