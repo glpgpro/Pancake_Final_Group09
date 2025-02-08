@@ -8,6 +8,7 @@
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
 @inject AuthenticationStateProvider AuthStateProvider
 @inject NavigationManager NavigationManager
+@rendermode InteractiveServer
 
 <PageTitle>Subscription</PageTitle>
 <!DOCTYPE html>
@@ -31,7 +32,7 @@
                 <li>Limited Features</li>
                 <li>No Payment required</li>
             </ul>
-            <button class="btn-primary" @onclick="() => SelectSubscription(1)">Continue as Free User</button>
+            <button class="btn-primary" @onclick="() => FreeSubscription()">Continue as Free User</button>
         </div>
 
         <div class="subscription-card">
@@ -44,7 +45,7 @@
                 <li>No refund</li>
                 <li>Subscribe or one-time payment</li>
             </ul>
-            <button class="btn-primary" @onclick="() => SelectSubscription(2)">Try 1 month for SGD 0</button>
+            <button class="btn-primary" @onclick="() => PremiumSubscription(1)">Try 1 month for SGD 0</button>
         </div>
     </div>
 
@@ -69,7 +70,12 @@
         context = DbFactory.CreateDbContext();
     }
 
-    private async Task SelectSubscription(int subscriptionId)
+    private async Task FreeSubscription()
+    {
+        NavigationManager.NavigateTo("/Home");
+    }
+
+    private async Task PremiumSubscription(int subscriptionId)
     {
         isUpdating = true;
         errorMessage = null;
@@ -98,14 +104,15 @@
                 return;
             }
 
-            // Update user's subscription
-            // dbUser.SubStatus = subscriptionId; <-- Uncomment this line to update the subscription status
+            // Set GenreStatus based on subscriptionId
+            // User.SubStatus = subscriptionId == 1 ? "free" : "premium";
+
             await dbContext.SaveChangesAsync();
 
-            Console.WriteLine($"✅ Subscription updated to {subscriptionId} for user {userEmail}");
+            // Console.WriteLine($"✅ Subscription updated to {dbUser.GenreStatus} for user {userEmail}");
 
             // Redirect after selection
-            NavigationManager.NavigateTo("/Profile");
+            NavigationManager.NavigateTo("/purchaseSubscription");
         }
         catch (Exception ex)
         {
@@ -119,4 +126,5 @@
     }
 
     public async ValueTask DisposeAsync() => await context.DisposeAsync();
+
 }

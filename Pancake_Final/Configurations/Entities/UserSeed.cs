@@ -21,7 +21,8 @@ namespace Pancake_Final.Configurations.Entities
                 UserName = "admin@localhost.com",
                 NormalizedUserName = "ADMIN@LOCALHOST.COM",
                 PasswordHash = hasher.HashPassword(null, "P@ssword1"),
-                EmailConfirmed = true // Set to true, otherwise you won't be able to login
+                EmailConfirmed = true, // Set to true, otherwise you won't be able to login
+                SubStatus = "Admin"
             },
             
             new Pancake_FinalUser()
@@ -35,7 +36,8 @@ namespace Pancake_Final.Configurations.Entities
                 UserName = "Amsul Shamry",
                 NormalizedUserName = "GHOSTREAPER740@GMAIL.COM",
                 PasswordHash = hasher.HashPassword(null, "testpassword123"),
-                EmailConfirmed = true 
+                EmailConfirmed = true,
+                SubStatus = "free"
                 
             }
             );

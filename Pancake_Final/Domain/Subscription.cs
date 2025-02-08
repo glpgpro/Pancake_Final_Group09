@@ -10,7 +10,7 @@
 
         //methods
         public string? Name { get; set; }
-        public int SubStatus { get; set; } //either a 1 or 0 indicating whether the subscription is still on or not
+        public int SubStatus { get; set; } //indicates whether the subscription is free or preimum
         public string? SubPlans { get; set; }
 
 

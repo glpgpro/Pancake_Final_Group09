@@ -18,9 +18,9 @@ namespace Pancake_Final.Domain
         
         public int PlayListID { get; set; }
 
-        public int SubId { get; set; }  
+        public int SubId { get; set; }
 
-        public int SubStatus { get; set; } = 0; //Default classifies as a free user
+        public string SubStatus { get; set; } = "free";//Default classifies as a free user
 
         //methods
         public string? Name     { get; set; }
