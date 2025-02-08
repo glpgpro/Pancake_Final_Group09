@@ -23,7 +23,7 @@
 // };
 
 
-window.playAudio = {
+window.playAudio() = {
     playlist: [], // Array to store song URLs
     currentSongIndex: 0, // Index of the currently playing song
     audio: null, // Audio object to manage playback
