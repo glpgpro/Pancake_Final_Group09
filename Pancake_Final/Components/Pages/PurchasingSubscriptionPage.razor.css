@@ -1,0 +1,96 @@
+/* General Styles */
+body {
+    background-color: #D19A66; /* Pancake background */
+    color: #4B2E2D; /* Pancake text */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+.page-header {
+    background-color: #D19A66;
+    color: #4B2E2D;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    border-bottom: 2px solid #4B2E2D;
+}
+
+    .page-header h1 {
+        font-size: 2.5rem;
+        margin: 0;
+    }
+
+/* Main Content Styles */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* Subscription Container */
+.subscription-container {
+    background-color: #D19A66;
+    border: 2px solid #4B2E2D;
+    border-radius: 8px;
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Plan Title and Price */
+.plan-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #4B2E2D;
+}
+
+.plan-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4B2E2D;
+    margin-bottom: 20px;
+}
+
+/* Plan Features */
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #4B2E2D;
+}
+
+    .plan-features li {
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
+/* Button Styles */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+/* Error Message */
+.error {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 20px;
+}

@@ -1,0 +1,125 @@
+﻿/* General Page Styles */
+body {
+    background-color: #D19A66; /* Pancake background color */
+    color: #4B2E2D; /* Text color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Header Styles */
+h1, h2 {
+    color: #4B2E2D;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+hr {
+    border: 1px solid #4B2E2D;
+    margin: 20px 0;
+}
+
+/* Form Styles */
+form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Container */
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.col-md-4 {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Form Field Styles */
+.mb-3 {
+    margin-bottom: 1.5rem; /* Add spacing between form fields */
+}
+
+label.form-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #4B2E2D;
+}
+
+input.form-control,
+InputText.form-control,
+InputNumber.form-control,
+InputDate.form-control {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+    input.form-control:disabled {
+        background-color: #f8f9fa; /* Light gray background for disabled inputs */
+        color: #6c757d;
+    }
+
+/* Validation Messages */
+.text-danger {
+    color: #dc3545; /* Red color for validation errors */
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+/* Button Styles */
+button.btn-primary {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button.btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    button.btn-primary:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+    }
+
+/* Back to List Link */
+a {
+    color: #4B2E2D;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-top: 20px;
+    display: inline-block;
+    text-align: center;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .col-md-4 {
+        max-width: 100%; /* Ensure form takes up full width on smaller screens */
+    }
+
+    button.btn-primary {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}

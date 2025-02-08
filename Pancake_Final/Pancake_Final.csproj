@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20250208102539_GenreBeggingwork.cs" />
+    <Compile Remove="Migrations\20250208102539_GenreBeggingwork.Designer.cs" />
+    <Compile Remove="Migrations\20250208125318_Finalized Back-End Data.cs" />
+    <Compile Remove="Migrations\20250208125318_Finalized Back-End Data.Designer.cs" />
     <Compile Remove="Migrations\Pancake_FinalContextModelSnapshot.cs" />
   </ItemGroup>
 
