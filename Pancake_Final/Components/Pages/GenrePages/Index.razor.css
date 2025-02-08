@@ -1,0 +1,105 @@
+﻿/* General body styling */
+body {
+    background-color: burlywood;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+header {
+    background-color: #D19A66; /* Light brown background for header */
+    color: #4B2E2D; /* Dark brown text color */
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 30px; /* Adds spacing below the header */
+    border-bottom: 5px solid #4B2E2D; /* Separating border */
+    border-radius: 5px; /* Optional rounded corners */
+}
+h1 {
+    background-color: #D19A66; /* Light brown background for header */
+    color: #4B2E2D; /* Dark brown text color */
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 30px; /* Adds spacing below the header */
+    border-bottom: 5px solid #4B2E2D; /* Separating border */
+    border-radius: 5px; /* Optional rounded corners */
+}
+
+/* "Create New" link container */
+p {
+    text-align: center;
+    margin-bottom: 20px; /* Adds spacing below the link */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Anchor link styling for the "Create New" link */
+a {
+    color: #4B2E2D; /* Dark brown link color */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+    a:hover {
+        color: #2E1C1A; /* Slightly darker on hover */
+        text-decoration: underline;
+    }
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for table */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.9rem;
+}
+
+th {
+    background-color: #D19A66; /* Same as header color for table header */
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+td {
+    text-align: center;
+}
+
+tr:hover {
+    background-color: #f5f5f5; /* Light hover effect for rows */
+}
+
+/* Pagination Controls */
+button {
+    background-color: #D19A66; /* Button background matching header */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+    button:hover {
+        background-color: #BA7F4B; /* Slightly darker shade on hover */
+    }

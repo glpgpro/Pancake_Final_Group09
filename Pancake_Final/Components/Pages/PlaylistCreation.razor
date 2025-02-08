@@ -31,6 +31,21 @@
                 @* <input type="file" id="coverImage" accept="image/*" @onchange="HandleCoverImageUpload"> *@
                 <InputFile OnChange="HandleCoverImageUpload" />
             </div>
+            <div class="form-group">
+                <label for="genreSelect">Select a Genre:</label>
+                <select id="genreSelect" @onchange="HandleGenreSelection" disabled="@(!string.IsNullOrWhiteSpace(NewGenreName))">
+                    <option value="">-- Select Genre --</option>
+                    @foreach (var genre in Genres)
+                    {
+                        <option value="@genre.GenreID" selected="@(genre.GenreID.ToString() == SelectedGenreId)">@genre.GenreName</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="newGenre">Or Enter a New Genre:</label>
+                <input type="text" id="newGenre" @oninput="HandleGenreInput" disabled="@(!string.IsNullOrWhiteSpace(SelectedGenreId))" />
+            </div>
         </form>
     </section>  
 
@@ -101,13 +116,19 @@
     private string? CoverImagePath;
     private List<Song> Songs = new();
     private List<Song> addedSongs = new();
+    private List<Genre> Genres = new();
+    private string? SelectedGenreId;
+    private string? NewGenreName;
     private List<Song> filteredSongs = new();
     private List<Song> SelectedSongs = new();
     private List<Playlist> playlists = new();
     private int currentPage = 1;
     private const int pageSize = 5;
     private int TotalPages => (int)Math.Ceiling((double)filteredSongs.Count / pageSize);
-
+    
+    //Genre logic
+    private bool IsGenreDropdownActive = true;
+    private bool IsNewGenreInputActive = false;
     // Methods to handle pagination logic
     private bool IsFirstPage => currentPage == 1;
     private bool IsLastPage => currentPage == TotalPages;
@@ -147,8 +168,14 @@
     protected override async Task OnInitializedAsync()
     {
         await LoadSongsAsync();
+        await LoadGenresAsync();
         SelectedSongs = new List<Song>(); // Ensure SelectedSongs is initialized
         filteredSongs = new List<Song>(Songs); // Initialize filteredSongs from Songs
+    }
+    private async Task LoadGenresAsync()
+    {
+        using var localContext = await DbFactory.CreateDbContextAsync();
+        Genres = await localContext.Genre.ToListAsync();
     }
 
     private async Task LoadSongsAsync()
@@ -157,6 +184,27 @@
         Songs = await localContext.Song.ToListAsync();
         filteredSongs = new List<Song>(Songs);
         UpdatePagination(); // Initialize pagination state after loading songs
+    }
+    
+    private void HandleGenreSelection(ChangeEventArgs e)
+    {
+        SelectedGenreId = e.Value?.ToString(); // Update the selected genre
+
+        if (!string.IsNullOrWhiteSpace(SelectedGenreId))
+        {
+            NewGenreName = null; // Clear the input field if a genre is selected
+        }
+    }
+
+
+    private void HandleGenreInput(ChangeEventArgs e)
+    {
+        NewGenreName = e.Value?.ToString(); // Update the new genre input
+
+        if (!string.IsNullOrWhiteSpace(NewGenreName))
+        {
+            SelectedGenreId = null; // Clear the dropdown if text is being entered
+        }
     }
 
     private void FilterSongs(ChangeEventArgs e)
@@ -226,6 +274,35 @@
     private async Task SavePlaylist()
     {
         using var localContext = await DbFactory.CreateDbContextAsync();
+        
+        Genre? selectedGenre = null;
+
+        // If user selected an existing genre, find it in DB
+        if (!string.IsNullOrWhiteSpace(SelectedGenreId))
+        {
+            selectedGenre = await localContext.Genre.FindAsync(int.Parse(SelectedGenreId));
+        }
+        // If user entered a new genre, save it
+        else if (!string.IsNullOrWhiteSpace(NewGenreName))
+        {
+            selectedGenre = new Genre
+            {
+                GenreName = NewGenreName,
+                DateCreated = DateTime.Now,
+                DateUpdated = DateTime.Now,
+                CreatedBy = "SomeUser",
+                UpdateBy = "SomeUser"
+            };
+
+            localContext.Genre.Add(selectedGenre);
+            await localContext.SaveChangesAsync();
+        }
+
+        if (selectedGenre == null)
+        {
+            Console.WriteLine("⚠️ No genre selected. Playlist not saved.");
+            return;
+        }
 
         var playlist = new Playlist
         {
@@ -235,6 +312,8 @@
             DateUpdated = DateTime.Now,
             CreatedBy = "SomeUser", // Replace with actual user
             UpdateBy = "SomeUser",
+            GenreID = selectedGenre.GenreID,
+            NewGenreName = selectedGenre.GenreName,
             Songs = new List<Song>() // Initialize the Songs collection
         };
 
