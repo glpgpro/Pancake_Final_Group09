@@ -1,74 +1,65 @@
-﻿@implements IDisposable 
-@inject NavigationManager NavigationManager 
+﻿@implements IDisposable
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@using Microsoft.EntityFrameworkCore
+@using Pancake_Final.Data
+@inject NavigationManager NavigationManager
+@inject IDbContextFactory<Pancake_FinalContext> DbFactory
 @rendermode InteractiveServer
 
-<div class="top-row ps-3 navbar navbar-dark"> 
-    <div class="container-fluid"> 
-        <a class="navbar-brand" href="">Pancake</a> 
-    </div> 
-</div> 
- 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" /> 
- 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()"> 
-    <nav class="flex-column"> 
-        @* <div class="nav-item px-3"> 
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All"> 
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home 
-            </NavLink> 
-        </div> *@ 
-        @* <div class="nav-item px-3"> 
-            <NavLink class="nav-link" href="#"> 
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Playlist 
-            </NavLink> 
-        </div> *@ 
-        <AuthorizeView> 
-            <Authorized> 
-                @* <div class="top-row ps-3 navbar navbar-dark">  *@
-                @*     <div class="container-fluid">  *@
-                @*         <a class="navbar-brand" href="">Pancake</a>  *@
-                @*         <input type="checkbox" title="Navigation menu" class="navbar-toggler" />  *@
-                @*     </div>  *@
-                @* </div>  *@
-                <div class="nav-item px-3"> 
-                    <NavLink class="nav-link" href="Home"> 
-                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home 
-                    </NavLink> 
-                </div> 
-                <div class="nav-item px-3"> 
-                    <NavLink class="nav-link" href="Playlist"> 
-                        <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span> Playlist 
-                    </NavLink> 
-                </div> 
-                <div class="nav-item px-3"> 
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Pancake</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <AuthorizeView>
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Home">
+                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                    </NavLink>
+                </div>
+
+                @if (userSubStatus == "Premium" || userSubStatus == "Admin") // Show Playlist for Premium or Admin
+                {
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="Playlist">
+                            <span class="bi bi-music-note-nav-menu" aria-hidden="true"></span> Playlist
+                        </NavLink>
+                    </div>
+                }
+
+                <div class="nav-item px-3">
                     <NavLink class="nav-link" href="ProfileSettings">
-                        <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span> Account Settings 
-                    </NavLink> 
-                </div> 
-                @* <div class="nav-item px-3"> 
-                    <NavLink class="nav-link" href="Artists"> 
-                        <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span> Artists 
-                    </NavLink> 
-                </div> *@ 
+                        <span class="bi bi-gear-nav-menu" aria-hidden="true"></span> Account Settings
+                    </NavLink>
+                </div>
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="SubscriptionPage">
-                        <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span>Subscriptions
+                        <span class="bi bi-cash-coin-nav-menu" aria-hidden="true"></span> Subscriptions
                     </NavLink>
                 </div>
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="listeninghistories">
-                        <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span>Listening History
+                        <span class="bi bi-clock-history-nav-menu" aria-hidden="true"></span> Listening History
                     </NavLink>
                 </div>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="Uploadsong">
-                        <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span>Upload Songs
-                    </NavLink> 
-                </div>
+                @if (userSubStatus == "Admin") // Only Admins can see Upload Songs
+                {
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="UploadSong">
+                            <span class="bi bi-file-earmark-arrow-up-fill-nav-menu" aria-hidden="true"></span> Upload Songs
+                        </NavLink>
+                    </div>
+                }
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="genres">
-                        <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span>Genres
-                    </NavLink> 
+                        <span class="bi bi-tags-nav-menu" aria-hidden="true"></span> Genres
+                    </NavLink>
                 </div>
                 <div class="nav-item px-3">
                     <form action="Account/Logout" method="post">
@@ -80,41 +71,73 @@
                         </button>
                     </form>
                 </div>
-               
-            </Authorized> 
-            <NotAuthorized> 
-                <div class="nav-item px-3"> 
-                    <NavLink class="nav-link" href="landing" Match="NavLinkMatch.All"> 
-                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home 
-                    </NavLink> 
-                </div> 
-                <div class="nav-item px-3"> 
-                    <NavLink class="nav-link" href="Account/Register"> 
-                        <span class="bi bi-person-nav-menu" aria-hidden="true"></span> Register 
-                    </NavLink> 
-                </div> 
-                <div class="nav-item px-3"> 
-                    <NavLink class="nav-link" href="Account/Login"> 
-                        <span class="bi bi-person-badge-nav-menu" aria-hidden="true"></span> Login 
-                    </NavLink> 
-                </div>
-@*                 <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="sub">
-                        <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span>Subscriptions
+            </Authorized>
+            <NotAuthorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="landing" Match="NavLinkMatch.All">
+                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
                     </NavLink>
-                </div> *@
-            </NotAuthorized> 
-        </AuthorizeView> 
-    </nav> 
-</div> 
- 
-@code { 
-    private string? currentUrl; 
-    protected override void OnInitialized() 
-    { 
-        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri); 
-        NavigationManager.LocationChanged += OnLocationChanged; 
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Account/Register">
+                        <span class="bi bi-person-nav-menu" aria-hidden="true"></span> Register
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Account/Login">
+                        <span class="bi bi-person-badge-nav-menu" aria-hidden="true"></span> Login
+                    </NavLink>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+    </nav>
+</div>
+
+@code {
+    private string? currentUrl;
+    private string? userSubStatus; // User's SubStatus from the database
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Fetch the SubStatus directly from the database
+        var userId = await GetCurrentUserIdAsync();
+        if (!string.IsNullOrEmpty(userId))
+        {
+            await LoadUserSubStatusAsync(userId); // Load SubStatus for the user
+        }
+
+        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        NavigationManager.LocationChanged += OnLocationChanged;
     }
+
+    private async Task<string?> GetCurrentUserIdAsync()
+    {
+        // Replace with logic to fetch the current user's ID
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        return user.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
+    }
+
+    private async Task LoadUserSubStatusAsync(string userId)
+    {
+        try
+        {
+            using var dbContext = await DbFactory.CreateDbContextAsync();
+            // Query the SubStatus of the current user
+            userSubStatus = await dbContext.Users
+                .Where(u => u.Id == userId)
+                .Select(u => u.SubStatus)
+                .FirstOrDefaultAsync();
+
+            Console.WriteLine($"User SubStatus: {userSubStatus}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading user SubStatus: {ex.Message}");
+        }
+    }
+
     private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
     {
         currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
@@ -125,5 +148,4 @@
     {
         NavigationManager.LocationChanged -= OnLocationChanged;
     }
-
 }

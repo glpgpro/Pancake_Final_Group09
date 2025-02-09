@@ -25,6 +25,8 @@ namespace Pancake_Final.Domain
  
         // Navigation Properties
         public Genre? Genre { get; set; }
+
+
        
     }
 }

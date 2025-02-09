@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Pancake_Final.Configurations.Entities;
 using Pancake_Final.Domain;
+using System.Reflection.Emit;
 
 namespace Pancake_Final.Data
 {
@@ -32,7 +33,7 @@ namespace Pancake_Final.Data
                 .WithOne(s => s.Playlist)    // Each song belongs to one playlist
                 .HasForeignKey(s => s.PlaylistId) // Foreign key in Song
                 .OnDelete(DeleteBehavior.Restrict); // Optional: Cascade delete
-            modelBuilder.Entity<Playlist>()
+             modelBuilder.Entity<Playlist>()
                 .HasOne(p => p.Genre)
                 .WithMany()
                 .HasForeignKey(p => p.GenreID)
@@ -41,8 +42,11 @@ namespace Pancake_Final.Data
 
             // Apply additional configurations
             modelBuilder.ApplyConfiguration(new Song_Seed(GetFolderPath()));
-            modelBuilder.ApplyConfiguration(new UserSeed());
             modelBuilder.ApplyConfiguration(new Genre_Seed());
+            modelBuilder.ApplyConfiguration(new UserSeed());
+            modelBuilder.ApplyConfiguration(new RoleSeed());
+            modelBuilder.ApplyConfiguration(new UserRoleSeed());
+
         }
 
         // Helper method to get folder path for seed data

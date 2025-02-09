@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
-
+using Pancake_Final.Domain;
 
 namespace Pancake_Final.Configurations.Entities
 {
@@ -20,14 +20,12 @@ namespace Pancake_Final.Configurations.Entities
 
                  new IdentityRole
                  {
-                     Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
+                     Id = "190871DC-1FE6-4346-980D-EB4D895E8E48",
                      Name = "User",
                      NormalizedName = "USER"
                  }
-
-                  
- 
              );
         }
     }
 }
+

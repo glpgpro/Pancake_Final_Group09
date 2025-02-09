@@ -23,11 +23,9 @@ namespace Pancake_Final.Domain
         public string SubStatus { get; set; } = "free";//Default classifies as a free user
 
         //methods
-        public string? Name     { get; set; }
+        public string? Name { get; set; }
 
         public string? Email { get; set; }
-       
-
-
+        public string? AspNetUser { get; set; }
     }
 }

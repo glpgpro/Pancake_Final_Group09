@@ -19,10 +19,6 @@ namespace Pancake_Final.Configurations.Entities
         {
             _folderPath = folderPath;
         }
-
-
-
-
         public void Configure(EntityTypeBuilder<Song> builder)
         {
             string rootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
