@@ -142,6 +142,8 @@
         await PlayCurrentSong(currentPlaylist.Songs[currentSongIndex]);
     }
 
+
+    [JSInvokable]
     private async Task PlayCurrentSong(Song song)
     {
         if (song == null)
