@@ -197,8 +197,16 @@ nav {
     }
 
 .AudioPlayback {
-    padding: 20px 100px;
+    padding: 10px 0; /* Adjust padding for alignment */
+    margin-top: 20px; /* Space between the table and the audio player */
+    text-align: left; /* Align it with the table content */
+    width: 100%; /* Ensure it spans the width of the table */
+    display: flex; /* Flexbox for proper alignment */
+    justify-content: start; /* Align to the left */
 }
+
+    
+
 .SongLyrics {
     max-height: 300px; 
     overflow-y: auto; /* Add a vertical scrollbar if text overflows */

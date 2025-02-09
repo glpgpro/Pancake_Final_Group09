@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace Pancake_Final.Domain
+namespace Pancake_Final.Domain // dynamic loading
 {
     public class Song : BaseDomainModel
 
