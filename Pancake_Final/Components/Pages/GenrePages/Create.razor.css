@@ -1,0 +1,101 @@
+﻿/* General Body Style */
+body {
+    background-color: #D19A66;
+    color: #4B2E2D;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Header Styles */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #4B2E2D;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #4B2E2D;
+}
+
+hr {
+    margin-bottom: 20px;
+}
+
+/* Form Container */
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.col-md-4 {
+    width: 100%;
+    max-width: 600px; /* Adjusted for better form layout */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Elements */
+label.form-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4B2E2D;
+}
+
+input.form-control,
+select.form-control,
+InputText.form-control,
+InputNumber.form-control,
+InputDate.form-control {
+    font-size: 1.1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px; /* Add spacing between inputs */
+}
+
+    input.form-control:focus {
+        border-color: #4B2E2D;
+        outline: none;
+    }
+
+/* Buttons */
+button.btn-primary {
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #4B2E2D;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button.btn-primary:hover {
+        background-color: #D19A66;
+    }
+
+/* Links */
+a {
+    color: #4B2E2D;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+/* Validation Messages */
+.text-danger {
+    color: #dc3545;
+    font-size: 0.9rem;
+}

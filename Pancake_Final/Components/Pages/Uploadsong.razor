@@ -129,25 +129,16 @@ else
             await using var fileStream = new FileStream(filePath, FileMode.Create);
             await uploadedFile.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024).CopyToAsync(fileStream);
 
-            // Debug
-            if (!File.Exists(filePath))
-            {
-                uploadError = "File was not saved correctly.";
-                Console.WriteLine("File was not saved correctly.");
-                return;
-            }
-
             Console.WriteLine("File saved successfully.");
 
             // Set default values and manually entered duration
-            newSong.FilePath = $"/uploads/{fileName}"; 
+            newSong.FilePath = $"/uploads/{fileName}";
             newSong.DateAdded = DateTime.UtcNow;
-            newSong.GenID = 1; 
-            newSong.ArtistId = 1; 
-            newSong.LikedS = "NotLiked"; 
-            newSong.Duration = parsedDuration; // Save the manually entered duration
+            newSong.GenID = 1;
+            newSong.ArtistId = 1;
+            newSong.LikedS = "NotLiked";
+            newSong.Duration = parsedDuration;
 
-            // Log the song details
             Console.WriteLine($"Song details: Name={newSong.Name}, Duration={newSong.Duration}, FilePath={newSong.FilePath}");
 
             // Save song details to the database
@@ -155,10 +146,16 @@ else
             await context.Song.AddAsync(newSong);
             await context.SaveChangesAsync();
 
-            // Add the song to the recentSongs list for display
-            recentSongs.Add(newSong);
+            // Add the song to the recentSongs list
+            recentSongs.Insert(0, newSong); // Add the new song to the beginning of the list
 
-            // Reset form and show success
+            // Keep only the last 5 songs in the list
+            if (recentSongs.Count > 5)
+            {
+                recentSongs.RemoveAt(recentSongs.Count - 1); // Remove the oldest song
+            }
+
+            // Reset form
             newSong = new Song();
             uploadedFile = null;
             manualDuration = string.Empty;
@@ -176,5 +173,6 @@ else
             isUploading = false;
         }
     }
+
 }
 

@@ -7,52 +7,60 @@
 <PageTitle>Create</PageTitle>
 
 <h1>Create</h1>
-
 <h2>Genre</h2>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <EditForm method="post" Model="Genre" OnValidSubmit="AddGenre" FormName="create" Enhance>
             <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert"/>
+            <ValidationSummary class="text-danger" role="alert" />
+
             <div class="mb-3">
-                <label for="genrename" class="form-label">GenreName:</label> 
-                <InputText id="genrename" @bind-Value="Genre.GenreName" class="form-control" /> 
-                <ValidationMessage For="() => Genre.GenreName" class="text-danger" /> 
-            </div>        
+                <label for="genrename" class="form-label">Genre Name:</label>
+                <InputText id="genrename" @bind-Value="Genre.GenreName" class="form-control" />
+                <ValidationMessage For="() => Genre.GenreName" class="text-danger" />
+            </div>
+
             <div class="mb-3">
-                <label for="id" class="form-label">Id:</label> 
-                <InputNumber id="id" @bind-Value="Genre.Id" class="form-control" /> 
-                <ValidationMessage For="() => Genre.Id" class="text-danger" /> 
-            </div>        
+                <label for="id" class="form-label">ID:</label>
+                <InputNumber id="id" @bind-Value="Genre.Id" class="form-control" />
+                <ValidationMessage For="() => Genre.Id" class="text-danger" />
+            </div>
+
             <div class="mb-3">
-                <label for="datecreated" class="form-label">DateCreated:</label> 
-                <InputDate id="datecreated" @bind-Value="Genre.DateCreated" class="form-control" /> 
-                <ValidationMessage For="() => Genre.DateCreated" class="text-danger" /> 
-            </div>        
+                <label for="datecreated" class="form-label">Date Created:</label>
+                <InputDate id="datecreated" @bind-Value="Genre.DateCreated" class="form-control" />
+                <ValidationMessage For="() => Genre.DateCreated" class="text-danger" />
+            </div>
+
             <div class="mb-3">
-                <label for="dateupdated" class="form-label">DateUpdated:</label> 
-                <InputDate id="dateupdated" @bind-Value="Genre.DateUpdated" class="form-control" /> 
-                <ValidationMessage For="() => Genre.DateUpdated" class="text-danger" /> 
-            </div>        
+                <label for="dateupdated" class="form-label">Date Updated:</label>
+                <InputDate id="dateupdated" @bind-Value="Genre.DateUpdated" class="form-control" />
+                <ValidationMessage For="() => Genre.DateUpdated" class="text-danger" />
+            </div>
+
             <div class="mb-3">
-                <label for="createdby" class="form-label">CreatedBy:</label> 
-                <InputText id="createdby" @bind-Value="Genre.CreatedBy" class="form-control" /> 
-                <ValidationMessage For="() => Genre.CreatedBy" class="text-danger" /> 
-            </div>        
+                <label for="createdby" class="form-label">Created By:</label>
+                <InputText id="createdby" @bind-Value="Genre.CreatedBy" class="form-control" />
+                <ValidationMessage For="() => Genre.CreatedBy" class="text-danger" />
+            </div>
+
             <div class="mb-3">
-                <label for="updateby" class="form-label">UpdateBy:</label> 
-                <InputText id="updateby" @bind-Value="Genre.UpdateBy" class="form-control" /> 
-                <ValidationMessage For="() => Genre.UpdateBy" class="text-danger" /> 
-            </div>        
+                <label for="updateby" class="form-label">Updated By:</label>
+                <InputText id="updateby" @bind-Value="Genre.UpdateBy" class="form-control" />
+                <ValidationMessage For="() => Genre.UpdateBy" class="text-danger" />
+            </div>
+
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>
     </div>
 </div>
 
-<div>
+<div style="text-align: center; margin-top: 20px;">
     <a href="/genres">Back to List</a>
 </div>
+
 
 @code {
     [SupplyParameterFromForm]

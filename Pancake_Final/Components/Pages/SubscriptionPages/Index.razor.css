@@ -15,12 +15,18 @@ body {
 
 .page-header {
     background-color: #D19A66;
-    width: 100%;
+    color: #4B2E2D;
     text-align: center;
-    padding: 19px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /*font-family: "Amatic SC", sans-serif;*/
+    font-weight: 700;
+    font-style: normal;
+    font-size: 50px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1670px;
+    padding: 10px 0px;
+    border-bottom: 3px solid #4B2E2D;
 }
 
     .page-header h1 {
