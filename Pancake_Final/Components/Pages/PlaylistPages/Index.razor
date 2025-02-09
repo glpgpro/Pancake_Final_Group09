@@ -1,11 +1,13 @@
 ﻿@page "/Playlist"
 @rendermode InteractiveServer
+@using System.Security.Claims;
 @using System.Reflection.Metadata
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.QuickGrid
 @using Pancake_Final.Domain
 @using Pancake_Final.Data
 @implements IAsyncDisposable
+@inject AuthenticationStateProvider AuthenticationStateProvider
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JS
@@ -55,23 +57,30 @@
 </div>
 <!-- Link for JavaScript file -->
 <script src="/Js/site.js"></script>
-<QuickGrid Class="table" Items="context.Playlist">
-    <PropertyColumn Property="playlist => playlist.PlaylistId" />
-    <PropertyColumn Property="playlist => playlist.UserId" />
-    <PropertyColumn Property="playlist => playlist.PlaylistName" />
-    <PropertyColumn Property="playlist => playlist.DateCreated" />
-    <PropertyColumn Property="playlist => playlist.DateUpdated" />
-    <PropertyColumn Property="playlist => playlist.CreatedBy" />
-    <PropertyColumn Property="playlist => playlist.UpdateBy" />
-    <PropertyColumn Property="Playlist => Playlist.NewGenreName" Title="Genre" />
-    
-    <TemplateColumn Context="playlist">
-        <a href="@($"playlists/edit?id={playlist.Id}")">Edit</a> |
-        <a href="@($"playlists/details?id={playlist.Id}")">Details</a> |
-        <a href="@($"playlists/delete?id={playlist.Id}")">Delete</a>
-    </TemplateColumn>
-</QuickGrid>
 
+@if (userSubStatus == "Admin")
+{
+    <QuickGrid Class="table" Items="context.Playlist">
+        <PropertyColumn Property="playlist => playlist.PlaylistId" />
+        <PropertyColumn Property="playlist => playlist.UserId" />
+        <PropertyColumn Property="playlist => playlist.PlaylistName" />
+        <PropertyColumn Property="playlist => playlist.DateCreated" />
+        <PropertyColumn Property="playlist => playlist.DateUpdated" />
+        <PropertyColumn Property="playlist => playlist.CreatedBy" />
+        <PropertyColumn Property="playlist => playlist.UpdateBy" />
+        <PropertyColumn Property="Playlist => Playlist.NewGenreName" Title="Genre" />
+
+        {
+            <TemplateColumn Context="playlist">
+                <a href="@($"playlists/edit?id={playlist.Id}")">Edit</a> |
+                <a href="@($"playlists/details?id={playlist.Id}")">Details</a> |
+                <a href="@($"playlists/delete?id={playlist.Id}")">Delete</a>
+            </TemplateColumn>
+        }
+
+
+    </QuickGrid>
+}
 @code {
     private Playlist? currentPlaylist; // 🔹 Stores the selected playlist
     private int currentSongIndex = 0; // 🔹 Index of the currently playing song
@@ -79,6 +88,7 @@
     public string searchQuery = string.Empty; // 🔹 Search query for playlists
     private List<Playlist>? playlists; // 🔹 List of all playlists
     private Song? _song; // 🔹 Currently playing song
+    private string? userSubStatus; //Initializing the user subscription status
 
     private async Task LoadPlaylistsAsync()
     {
@@ -109,12 +119,42 @@
             }
         }
 
-        StateHasChanged(); // Re-render the UI
+        StateHasChanged(); // Rendering the UI
     }
+
+    private async Task LoadUserSubStatusAsync() //Loading in the Subscription Status for each User or Admin
+    {
+        using var localContext = await DbFactory.CreateDbContextAsync();
+
+        // Get the authentication state
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        // Retrieve the User ID from the claims
+        var userId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        if (userId != null)
+        {
+            // Query the database to get the SubStatus
+            var subStatus = await localContext.Users
+                .Where(u => u.Id == userId)
+                .Select(u => u.SubStatus)
+                .FirstOrDefaultAsync();
+
+            userSubStatus = subStatus; // Assign SubStatus
+            Console.WriteLine($"✅ User SubStatus: {userSubStatus}");
+        }
+        else
+        {
+            Console.WriteLine("⚠️ User ID could not be retrieved.");
+        }
+    }
+
 
     protected override async Task OnInitializedAsync()
     {
         await LoadPlaylistsAsync(); // To load the playlists when the Playlist Page opens.
+        await LoadUserSubStatusAsync(); // To load the user subscription status when the Playlist Page opens.
     }
 
     private async Task PlaySongById(int playlistId)
