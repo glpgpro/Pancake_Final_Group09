@@ -1,5 +1,4 @@
 ﻿/* General styles */
-
 * {
     margin: 0;
     padding: 0;
@@ -25,35 +24,38 @@ body {
     justify-content: center;
     align-items: center;
     width: 1670px;
-    padding: 10px 0px;
-    border-bottom: 3px solid #4B2E2D;
+    padding: 0px 0px;
 }
 
-    .page-header h1 {
-        margin: 0;
-        font-size: 2em;
-        color: #4B2E2D;
-        padding: 0;
-    }
+.logo {
+    height: 50px;
+    width: 50px;
+    margin-right: 20px;
+}
 
 .subscription-container {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
     padding: 0 20px;
     width: 100%;
     box-sizing: border-box;
-    width: calc(100% - 40px);
+/*    width: calc(100% - 40px);*/
+    margin-top: 200px;
 }
 
 .subscription-card {
     background-color: #D19A66;
+    align-items: flex-end;
     border-radius: 10px;
+    width: 400px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px;
     text-align: center;
     flex: 1 1 300px;
+    height: 300px; /* Ensures all cards are the same height */
 }
 
     .subscription-card:hover {
@@ -92,9 +94,15 @@ body {
         margin: 5px 0;
     }
 
-.btn-primary,.btn-secondary {
+
+.button-container {
+    margin-top: auto; /* Push buttons to the bottom */
+    justify-items: center;
+}
+
+.btn-primary {
     display: block;
-    width: 100%;
+    width: 200px;
     background-color: #ddd;
     color: #000;
     border: none;
@@ -103,6 +111,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
+/*    margin-left: 280px;*/
     transition: background-color 0.3s ease;
 }
 

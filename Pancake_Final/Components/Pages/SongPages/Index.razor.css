@@ -21,9 +21,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1250px;
-    padding: 10px 0px;
-    border-bottom: 3px solid #4B2E2D;
+    width: 1670px;
+    padding: 0px 0px;
 }
 
 .HeaderLogo {

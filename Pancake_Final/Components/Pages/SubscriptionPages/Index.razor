@@ -1,12 +1,16 @@
-﻿@* @page "/SubscriptionPage" *@
+﻿@page "/SubscriptionPage"
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.QuickGrid
 @using Pancake_Final.Domain
 @using Pancake_Final.Data
+@using Microsoft.AspNetCore.Components.Authorization
 @implements IAsyncDisposable
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
+@inject AuthenticationStateProvider AuthStateProvider
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Subscription</PageTitle>
 <!DOCTYPE html>
 
 <meta charset="UTF-8">
@@ -14,60 +18,117 @@
 <title>Subscription</title>
 <link rel="stylesheet" href="Subscription.razor.css">
 
- <header class="page-header">
- <h1>Subscription Plans</h1>
+<header class= "page-header">
+    <img class = "logo" src="/images/pancakeLogo.png" /> Subscription Options
 </header>
-    <main>
-        <div class="subscription-container">
-            <div class="subscription-card">
-                <h3 class="plan-title">Free</h3>
-                <p class="plan-details">SGD 0 for however long you want</p>
-                <ul class="plan-features">
-                    <li>No Premium usage</li>
-                    <li>Limited Features</li>
-                    <li>No Payment required</li>
-                </ul>
-                <button class="btn-primary">Continue as Free User</button>
-            </div>
-            <div class="subscription-card">
-                <h3 class="plan-title">Student</h3>
-                <p class="plan-price">SGD 0 for 1 month</p>
-                <p class="plan-details">SGD 5.98/month after</p>
-                <ul class="plan-features">
-                    <li>1 verified Premium account</li>
-                    <li>Ulimited Features</li>
-                    <li>no refund</li>
-                    <li>Subscribe or one-time payment</li>
-                </ul>
-                <button class="btn-primary">Try 1 month for SGD 0</button>
+
+<main>
+    <div class="subscription-container">
+        <div class="subscription-card">
+            <h3 class="plan-title">Free</h3>
+            <p class="plan-details">SGD 0 for however long you want</p>
+            <ul class="plan-features">
+                <li>No Premium usage</li>
+                <li>Limited Features</li>
+                <li>No Payment required</li>
+            </ul>
+            <div class="button-container">
+                <button class="btn-primary" @onclick="() => FreeSubscription()">Continue as Free User</button>
             </div>
         </div>
-</main>
-@* <QuickGrid Class="table" Items="context.Subscription"> *@
-@*     <PropertyColumn Property="subscription => subscription.SubId" /> *@
-@*     <PropertyColumn Property="subscription => subscription.UserId" /> *@
-@*     <PropertyColumn Property="subscription => subscription.Name" /> *@
-@*     <PropertyColumn Property="subscription => subscription.SubStatus" /> *@
-@*     <PropertyColumn Property="subscription => subscription.SubPlans" /> *@
-@*     <PropertyColumn Property="subscription => subscription.DateCreated" /> *@
-@*     <PropertyColumn Property="subscription => subscription.DateUpdated" /> *@
-@*     <PropertyColumn Property="subscription => subscription.CreatedBy" /> *@
-@*     <PropertyColumn Property="subscription => subscription.UpdateBy" /> *@
 
-@*     <TemplateColumn Context="subscription"> *@
-@*         <a href="@($"subscriptions/edit?id={subscription.Id}")">Edit</a> | *@
-@*         <a href="@($"subscriptions/details?id={subscription.Id}")">Details</a> | *@
-@*         <a href="@($"subscriptions/delete?id={subscription.Id}")">Delete</a> *@
-@*     </TemplateColumn> *@
-@* </QuickGrid> *@
+        <div class="subscription-card">
+            <h3 class="plan-title">Premium</h3>
+            <p class="plan-price">SGD 0 for 1 month</p>
+            <p class="plan-details">SGD 5.98/month after</p>
+            <ul class="plan-features">
+                <li>1 verified Premium account</li>
+                <li>Unlimited Features</li>
+                <li>No refund</li>
+                <li>Subscribe or one-time payment</li>
+            </ul>
+            <div class="button-container">
+                <button class="btn-primary" @onclick="() => PremiumSubscription(1)">Try 1 month for SGD 0</button>
+            </div>
+        </div>
+    </div>
+
+    @if (isUpdating)
+    {
+        <p>Updating your subscription...</p>
+    }
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <p class="error">@errorMessage</p>
+    }
+</main>
 
 @code {
     private Pancake_FinalContext context = default!;
+    private bool isUpdating = false;
+    private string? errorMessage;
 
     protected override void OnInitialized()
     {
         context = DbFactory.CreateDbContext();
     }
 
+    private async Task FreeSubscription()
+    {
+        NavigationManager.NavigateTo("/Home");
+    }
+
+    private async Task PremiumSubscription(int subscriptionId)
+    {
+        isUpdating = true;
+        errorMessage = null;
+
+        try
+        {
+            var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+            var user = authState.User;
+            var userEmail = user.Identity?.Name; // Assumes authentication is based on email
+
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                errorMessage = "⚠️ User is not authenticated!";
+                isUpdating = false;
+                return;
+            }
+
+            using var dbContext = await DbFactory.CreateDbContextAsync();
+
+            // Fetch the user from the database
+            var dbUser = await dbContext.Users.FirstOrDefaultAsync(u => u.Email == userEmail);
+            if (dbUser == null)
+            {
+                errorMessage = "⚠️ User not found in the database.";
+                isUpdating = false;
+                return;
+            }
+
+            // Set GenreStatus based on subscriptionId
+            // User.SubStatus = subscriptionId == 1 ? "free" : "premium";
+
+            await dbContext.SaveChangesAsync();
+
+            // Console.WriteLine($"✅ Subscription updated to {dbUser.GenreStatus} for user {userEmail}");
+
+            // Redirect after selection
+            NavigationManager.NavigateTo("/purchaseSubscription");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("❌ Error updating subscription: " + ex.Message);
+            errorMessage = "❌ An error occurred while updating your subscription.";
+        }
+        finally
+        {
+            isUpdating = false;
+        }
+    }
+
     public async ValueTask DisposeAsync() => await context.DisposeAsync();
+
 }
