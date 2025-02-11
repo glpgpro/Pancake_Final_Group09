@@ -62,7 +62,7 @@
 <!-- Link for JavaScript file -->
 <script src="/Js/site.js"></script>
 
-<AuthorizedView Roles="Administrator">
+
     <QuickGrid Class="table" Items="context.Playlist">
     <PropertyColumn Property="playlist => playlist.PlaylistId" />
     <PropertyColumn Property="playlist => playlist.UserId" />
@@ -74,13 +74,14 @@
     <PropertyColumn Property="Playlist => Playlist.NewGenreName" Title="Genre" />
     {
         <TemplateColumn Context="playlist">
+        <AuthorizeView Roles="Administrator">
             <a href="@($"playlists/edit?id={playlist.Id}")">Edit</a> |
             <a href="@($"playlists/details?id={playlist.Id}")">Details</a> |
+        </AuthorizeView>
             <a href="@($"playlists/delete?id={playlist.Id}")">Delete</a>
         </TemplateColumn>
     }
     </QuickGrid>
-</AuthorizedView>
 @code {
     private Playlist? currentPlaylist; // 🔹 Stores the selected playlist
     private int currentSongIndex = 0; // 🔹 Index of the currently playing song

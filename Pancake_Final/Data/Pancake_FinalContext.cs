@@ -39,7 +39,6 @@ namespace Pancake_Final.Data
                 .HasForeignKey(p => p.GenreID)
                 .OnDelete(DeleteBehavior.Restrict); // Prevent deletion of Genres.
           
-
             // Apply additional configurations
             modelBuilder.ApplyConfiguration(new Song_Seed(GetFolderPath()));
             modelBuilder.ApplyConfiguration(new Genre_Seed());

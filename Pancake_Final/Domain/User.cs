@@ -11,11 +11,7 @@ namespace Pancake_Final.Domain
         [Key]
         public int UserId { get; set; }
         // Foreign key
-        
-        [ForeignKey(nameof(user))]
-        public string ASPNetUserID { get; set; } = null!; // Matches Id in IdentityUser
-        public Pancake_FinalUser user { get; set; } = null!;
-        
+
         public int PlayListID { get; set; }
 
         public int SubId { get; set; }
@@ -26,6 +22,6 @@ namespace Pancake_Final.Domain
         public string? Name { get; set; }
 
         public string? Email { get; set; }
-        public string? AspNetUser { get; set; }
+
     }
 }

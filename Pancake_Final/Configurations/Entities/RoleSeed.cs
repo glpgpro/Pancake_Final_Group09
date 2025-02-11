@@ -17,13 +17,12 @@ namespace Pancake_Final.Configurations.Entities
                      Name = "Administrator",
                      NormalizedName = "ADMINISTRATOR"
                  },
-
-                 new IdentityRole
-                 {
-                     Id = "190871DC-1FE6-4346-980D-EB4D895E8E48",
-                     Name = "User",
-                     NormalizedName = "USER"
-                 }
+                new IdentityRole
+                {
+                    Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
+                    Name = "User",
+                    NormalizedName = "USER"
+                }
              );
         }
     }
