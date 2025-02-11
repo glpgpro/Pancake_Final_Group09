@@ -6,7 +6,9 @@
         public int PayId { get; set; }
 
         //foreign key
-        public int? UserId { get; set; }
+        //public int? UserId { get; set; }
+
+        public int Id { get; set; }
 
         //methods
         public string? Name { get; set; }

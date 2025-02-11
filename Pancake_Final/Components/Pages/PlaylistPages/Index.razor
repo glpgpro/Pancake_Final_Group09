@@ -1,4 +1,5 @@
 ﻿@page "/Playlist"
+
 @rendermode InteractiveServer
 @using System.Security.Claims;
 @using System.Reflection.Metadata
@@ -6,6 +7,9 @@
 @using Microsoft.AspNetCore.Components.QuickGrid
 @using Pancake_Final.Domain
 @using Pancake_Final.Data
+@using Microsoft.AspNetCore.Authorization
+
+
 @implements IAsyncDisposable
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
@@ -18,7 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playlist</title>
-    <link rel="stylesheet" href="Playlist.razor.css">
+    @* <link rel="stylesheet" href="Playlist.razor.css"> *@
 </head>
 <h1>
     <img class="logo" src="/images/pancakeLogo.png" alt="Logo">Your Playlists
@@ -32,14 +36,14 @@
     <button class="DeletePlaylistButton">Delete Playlist</button>
 </div>
 <div class="playlistcards_container">
-    @if (playlists != null)
+    @if (playlists != null && playlists.Count > 0)
     {
         Console.WriteLine("The number of playlists is: " + playlists.Count());
         @foreach (var playlist in playlists)
         {
-            <div class="Playlist_card" key="@playlist.PlaylistId">
+            <div class="Playlist_card" key="playlist.PlaylistId">
                 <div class="card-body">
-                    <h5 class="card-title">@playlist.PlaylistName</h5>
+                    <h5 class="card-title">playlist.PlaylistName</h5>
                     <img src="@playlist.CoverImagePath" alt="@playlist.PlaylistName" class="R1image" />
                     <button class="btn btn-danger" @onclick="() => PlaySongById(playlist.PlaylistId)">Play</button>
                     <button class="btn btn-danger" @onclick="() => PauseCurrentSong(playlist.PlaylistId)">Pause</button>
@@ -57,23 +61,26 @@
 </div>
 <!-- Link for JavaScript file -->
 <script src="/Js/site.js"></script>
- <QuickGrid Class="table" Items="context.Playlist">
-        <PropertyColumn Property="playlist => playlist.PlaylistId" />
-        <PropertyColumn Property="playlist => playlist.UserId" />
-        <PropertyColumn Property="playlist => playlist.PlaylistName" />
-        <PropertyColumn Property="playlist => playlist.DateCreated" />
-        <PropertyColumn Property="playlist => playlist.DateUpdated" />
-        <PropertyColumn Property="playlist => playlist.CreatedBy" />
-        <PropertyColumn Property="playlist => playlist.UpdateBy" />
-        <PropertyColumn Property="Playlist => Playlist.NewGenreName" Title="Genre" />
-            <TemplateColumn Context="playlist">
-                <a href="@($"playlists/edit?id={playlist.Id}")">Edit</a>
-                <a href="@($"playlists/details?id={playlist.Id}")">Details</a>
-                <AuthorizeView Roles="Administrator">
-                <a href="@($"playlists/delete?id={playlist.Id}")">Delete</a>
-                </AuthorizeView>
-            </TemplateColumn>
- </QuickGrid>
+
+
+    <QuickGrid Class="table" Items="context.Playlist">
+    <PropertyColumn Property="playlist => playlist.PlaylistId" />
+    <PropertyColumn Property="playlist => playlist.UserId" />
+    <PropertyColumn Property="playlist => playlist.PlaylistName" />
+    <PropertyColumn Property="playlist => playlist.DateCreated" />
+    <PropertyColumn Property="playlist => playlist.DateUpdated" />
+    <PropertyColumn Property="playlist => playlist.CreatedBy" />
+    <PropertyColumn Property="playlist => playlist.UpdateBy" />
+    <PropertyColumn Property="Playlist => Playlist.NewGenreName" Title="Genre" />
+    
+        <TemplateColumn Context="playlist">
+            <a href="@($"playlists/edit?id={playlist.Id}")">Edit</a> |
+            <a href="@($"playlists/details?id={playlist.Id}")">Details</a> |
+            <a href="@($"playlists/delete?id={playlist.Id}")">Delete</a>
+        </TemplateColumn>
+    
+    </QuickGrid>
+
 @code {
     private Playlist? currentPlaylist; // 🔹 Stores the selected playlist
     private int currentSongIndex = 0; // 🔹 Index of the currently playing song

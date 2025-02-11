@@ -26,7 +26,7 @@ namespace Pancake_Final.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Configure Playlist-Song relationship
+            //// Configure Playlist-Song relationship
             modelBuilder.Entity<Playlist>()
                 .HasMany(p => p.Songs)        // A playlist can have many songs
                 .WithOne(s => s.Playlist)    // Each song belongs to one playlist
@@ -40,8 +40,8 @@ namespace Pancake_Final.Data
 
             // Apply additional configurations
             modelBuilder.ApplyConfiguration(new Song_Seed(GetFolderPath()));
-            modelBuilder.ApplyConfiguration(new UserSeed());
             modelBuilder.ApplyConfiguration(new Genre_Seed());
+            modelBuilder.ApplyConfiguration(new UserSeed());
             modelBuilder.ApplyConfiguration(new RoleSeed());
             modelBuilder.ApplyConfiguration(new UserRoleSeed());
 
