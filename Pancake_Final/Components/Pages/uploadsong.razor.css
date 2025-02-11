@@ -9,12 +9,13 @@ body {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
 }
+
 h3 {
     background-color: #D19A66;
     color: #4B2E2D;
     text-align: center;
-    /*font-family: "Amatic SC", sans-serif;*/
-    font-weight: 700;
+    /font-family: "Amatic SC", sans-serif;
+    / font-weight: 700;
     font-style: normal;
     font-size: 50px;
     display: flex;
@@ -35,12 +36,14 @@ h3 {
     width: 90%; /* Responsive width */
     max-width: 600px; /* Maximum width for larger screens */
     height: auto; /* Let the content determine the height */
+    margin-right:70px;
+    margin-bottom:150px;
 }
 /* Outer Container */
 .outer-container {
     display: flex; /* Enable flexbox */
     justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    /*align-items: center;*/ /* Center vertically */
     height: 100vh; /* Full viewport height */
     background-color: burlywood; /* Match the background color */
 }
@@ -50,11 +53,9 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 500px; /* Minimum width for the content */
+    min-width: 250px; /* Minimum width for the content */
     padding: 20px; /* Add spacing inside the container */
     background-color: burlywood; /* Optional background color for visibility */
-
-
 }
 
 
@@ -85,4 +86,4 @@ form {
 
     form input[type="text"], form input[type="file"] {
         width: 100%;
-    }
+ 

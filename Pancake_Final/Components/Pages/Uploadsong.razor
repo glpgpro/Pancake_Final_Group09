@@ -1,5 +1,7 @@
-﻿@rendermode InteractiveServer
-@page "/uploadsong"
+﻿@page "/UploadSong"
+
+
+@using Microsoft.AspNetCore.Authorization
 @using Microsoft.EntityFrameworkCore
 @using Pancake_Final.Domain
 @inject IDbContextFactory<Pancake_Final.Data.Pancake_FinalContext> DbFactory
@@ -9,71 +11,71 @@
 <h3>Recently Uploaded Songs</h3>
 <div class="outer-container">
     <div class="container">
-<div class="main-container">
-    <h1>Upload a New Song</h1>
+        <div class="main-container">
+            <h1>Upload a New Song</h1>
 
-    @if (isUploading)
-    {
-        <p>Uploading, please wait...</p>
-    }
-    else
-    {
-        <EditForm Model="newSong" OnValidSubmit="HandleValidSubmit">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
-
-            <div>
-                <label for="name">Song Name:</label>
-                <InputText id="name" @bind-Value="newSong.Name" class="form-control" />
-            </div>
-
-            <div>
-                <label for="duration">Song Duration (e.g., 00:03:45):</label>
-                <InputText id="duration" @bind-Value="manualDuration" class="form-control" placeholder="HH:mm:ss" />
-            </div>
-
-            <div>
-                <label for="file">Upload MP3 File:</label>
-                <InputFile OnChange="HandleFileSelected" accept=".mp3" />
-            </div>
-
-            @if (!string.IsNullOrEmpty(uploadError))
+            @if (isUploading)
             {
-                <p>@uploadError</p>
+                <p>Uploading, please wait...</p>
+            }
+            else
+            {
+                <EditForm Model="newSong" OnValidSubmit="HandleValidSubmit">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
+
+                    <div>
+                        <label for="name">Song Name:</label>
+                        <InputText id="name" @bind-Value="newSong.Name" class="form-control" />
+                    </div>
+
+                    <div>
+                        <label for="duration">Song Duration (e.g., 00:03:45):</label>
+                        <InputText id="duration" @bind-Value="manualDuration" class="form-control" placeholder="HH:mm:ss" />
+                    </div>
+
+                    <div>
+                        <label for="file">Upload MP3 File:</label>
+                        <InputFile OnChange="HandleFileSelected" accept=".mp3" />
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(uploadError))
+                    {
+                        <p>@uploadError</p>
+                    }
+
+                    <button type="submit" class="btn btn-primary" disabled="@isUploading">Upload</button>
+                </EditForm>
             }
 
-            <button type="submit" class="btn btn-primary" disabled="@isUploading">Upload</button>
-        </EditForm>
-    }
-
-    <h2>Recently Uploaded Songs</h2>
-    @if (recentSongs.Any())
-    {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Duration</th>
-                    <th>File Path</th>
-                </tr>
-            </thead>
-
-            @foreach (var song in recentSongs)
+            <h2>Recently Uploaded Songs</h2>
+            @if (recentSongs.Any())
             {
-                <tr>
-                    <td>@song.Name</td>
-                    <td>@song.Duration</td>
-                    <td>@song.FilePath</td>
-                </tr>
-            }
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Duration</th>
+                            <th>File Path</th>
+                        </tr>
+                    </thead>
 
-        </table>
-    }
-    else
-    {
-        <p>No songs uploaded yet.</p>
-    }
-</div>
+                    @foreach (var song in recentSongs)
+                    {
+                        <tr>
+                            <td>@song.Name</td>
+                            <td>@song.Duration</td>
+                            <td>@song.FilePath</td>
+                        </tr>
+                    }
+
+                </table>
+            }
+            else
+            {
+                <p>No songs uploaded yet.</p>
+            }
+        </div>
     </div>
 </div>
 

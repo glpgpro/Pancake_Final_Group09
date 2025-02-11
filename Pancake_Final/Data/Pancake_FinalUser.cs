@@ -8,5 +8,7 @@ namespace Pancake_Final.Data
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string SubStatus { get; set; } = "free";
+        public string? AspNetUserId { get; set; }
+        public string? User { get; set; }
     }
 }

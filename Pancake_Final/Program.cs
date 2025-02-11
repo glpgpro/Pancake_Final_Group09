@@ -30,25 +30,25 @@ builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
 
 builder.Services.AddAuthentication(options =>
-    {
-        options.DefaultScheme = IdentityConstants.ApplicationScheme;
-        options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
-    })
+{
+    options.DefaultScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+})
     .AddIdentityCookies();
 
 builder.Services.AddIdentityCore<Pancake_FinalUser>(options =>
-    {
-        // Sign-in options
-        options.SignIn.RequireConfirmedAccount = true;
+{
+    // Sign-in options
+    options.SignIn.RequireConfirmedAccount = true;
 
-        // Password settings
-        options.Password.RequireDigit = true;                  // Require at least one digit (e.g., 0-9)
-        options.Password.RequiredLength = 6;                   // Minimum password length
-        options.Password.RequireNonAlphanumeric = false;       // No special characters required
-        options.Password.RequireUppercase = false;             // No uppercase letter required
-        options.Password.RequireLowercase = true;              // At least one lowercase letter
-        options.Password.RequiredUniqueChars = 1;              // Minimum unique characters in the password
-    })
+    // Password settings
+    options.Password.RequireDigit = true;                  // Require at least one digit (e.g., 0-9)
+    options.Password.RequiredLength = 6;                   // Minimum password length
+    options.Password.RequireNonAlphanumeric = false;       // No special characters required
+    options.Password.RequireUppercase = false;             // No uppercase letter required
+    options.Password.RequireLowercase = true;              // At least one lowercase letter
+    options.Password.RequiredUniqueChars = 1;              // Minimum unique characters in the password
+})
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<Pancake_FinalContext>()
     .AddSignInManager()
@@ -82,7 +82,7 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-app.MapAdditionalIdentityEndpoints();;
+app.MapAdditionalIdentityEndpoints(); ;
 
 
 app.Run();

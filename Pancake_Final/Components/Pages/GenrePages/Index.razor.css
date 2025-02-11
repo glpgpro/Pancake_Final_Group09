@@ -22,18 +22,19 @@ header {
     border-radius: 5px; /* Optional rounded corners */
 }
 h1 {
-    background-color: #D19A66; /* Light brown background for header */
-    color: #4B2E2D; /* Dark brown text color */
+    background-color: #D19A66;
+    color: #4B2E2D;
     text-align: center;
-    font-weight: bold;
-    font-size: 2.5rem;
+    /*/font-family: "Amatic SC", sans-serif;
+    / font-weight: 700;*/
+    font-style: normal;
+    font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    margin-bottom: 30px; /* Adds spacing below the header */
-    border-bottom: 5px solid #4B2E2D; /* Separating border */
-    border-radius: 5px; /* Optional rounded corners */
+    width: 1250px;
+    padding: 10px 0px;
+    border-bottom: 3px solid #4B2E2D;
 }
 
 /* "Create New" link container */
