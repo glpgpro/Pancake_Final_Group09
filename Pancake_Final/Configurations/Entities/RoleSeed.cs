@@ -20,7 +20,7 @@ namespace Pancake_Final.Configurations.Entities
 
                  new IdentityRole
                  {
-                     Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
+                     Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
                      Name = "User",
                      NormalizedName = "USER"
                  }

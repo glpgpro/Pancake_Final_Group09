@@ -13,7 +13,7 @@ namespace Pancake_Final.Configurations.Entities
             builder.HasData(
             new Pancake_FinalUser
             {
-                Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
+                Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
                 Email = "admin@localhost.com",
                 NormalizedEmail = "ADMIN@LOCALHOST.COM",
                 FirstName = "Admin",
@@ -23,23 +23,8 @@ namespace Pancake_Final.Configurations.Entities
                 PasswordHash = hasher.HashPassword(null, "P@ssword1"),
                 EmailConfirmed = true, // Set to true, otherwise you won't be able to login
                 SubStatus = "Admin"
-            },
-            
-            new Pancake_FinalUser()
-            {
-                
-                Id = "30f01c03-6b69-4bf0-95ba-72ac6e7e4773",
-                Email = "ghostreaper740@gmail.com",
-                NormalizedEmail = "GHOSTREAPER740@GMAIL.COM",
-                FirstName = "Test",
-                LastName = "user",
-                UserName = "Amsul Shamry",
-                NormalizedUserName = "GHOSTREAPER740@GMAIL.COM",
-                PasswordHash = hasher.HashPassword(null, "testpassword123"),
-                EmailConfirmed = true,
-                SubStatus = "free"
-                
             }
+
             );
         }
     }
