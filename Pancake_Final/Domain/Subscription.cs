@@ -6,7 +6,7 @@
         public int SubId { get; set; }
 
         //foreign key
-        //public int UserId { get; set; }
+        public int UserId { get; set; }
 
         public int Id { get; set; }
         //methods

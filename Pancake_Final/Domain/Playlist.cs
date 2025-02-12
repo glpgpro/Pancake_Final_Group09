@@ -13,7 +13,7 @@ namespace Pancake_Final.Domain
 
         //Foreign Keys
 
-        //public int? UserId { get; set; }
+        public int? UserId { get; set; }
 
         public int Id { get; set; }
 
