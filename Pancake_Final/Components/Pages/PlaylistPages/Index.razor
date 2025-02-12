@@ -72,7 +72,7 @@
     <PropertyColumn Property="playlist => playlist.CreatedBy" />
     <PropertyColumn Property="playlist => playlist.UpdateBy" />
     <PropertyColumn Property="Playlist => Playlist.NewGenreName" Title="Genre" />
-    {
+    
         <TemplateColumn Context="playlist">
         <AuthorizeView Roles="Administrator">
             <a href="@($"playlists/edit?id={playlist.Id}")">Edit</a> |
@@ -80,7 +80,7 @@
         </AuthorizeView>
             <a href="@($"playlists/delete?id={playlist.Id}")">Delete</a>
         </TemplateColumn>
-    }
+    
     </QuickGrid>
 @code {
     private Playlist? currentPlaylist; // 🔹 Stores the selected playlist
